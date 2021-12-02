@@ -13,12 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: MM
+title: The Digital Stockade
 email:
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  PhD researcher in Historical Archaeology and Digital Humanities. 
+  Exploring the application of technology to the analysis of Australian colonial convict management systems.
 twitter_username: username
 github_username: username
 minimal_mistakes_skin: default
@@ -58,9 +57,9 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  name   : "Mark McLean"
+  avatar : "/assets/images/Myself.jpg"
+  bio    : "PhD researcher in Historical Archaeology and Digital Humanities. Exploring the application of technology to the analysis of Australian colonial convict management systems."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
