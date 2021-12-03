@@ -80,4 +80,4 @@ We may update this privacy policy from time to time in order to reflect, for exa
 
 CONTACT US
 
-For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by using the contact form on the about page.
+For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by using the contact form on the contact page.
