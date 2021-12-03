@@ -38,7 +38,7 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 analytics:
   provider: "google"
   google:
-    tracking_id: "G-LH8ME4X7CS"
+    tracking_id: "G-Z45NZGEG7D"
     anonymize_ip: true
 
 include:
