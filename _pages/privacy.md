@@ -31,12 +31,12 @@ We use the Device Information that we collect to help us screen for potential ri
 SHARING YOUR PERSONAL INFORMATION
 
 We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use Google Analytics to help us understand how you use the Site--you can read more about how Google uses your Personal Information here: https://www.google.com/intl/en/policies/privacy/. You can also opt-out of Google Analytics here: https://tools.google.com/dlpage/gaoptout.
-Additionally we use Github for website and file hosting services, Comment Box to supply site comment services and Getform to enable our contact form. 
+Additionally we use Github for website and file hosting services, Facebook to supply site comment services and Getform to enable our contact form. 
 You can view their respective privacy policies at:
 
 https://docs.github.com/en/github/site-policy/github-privacy-statement
 
-https://commentbox.io/privacy 
+https://www.facebook.com/settings/?tab=ads
 
 https://getform.io/legal/privacy-policy
 
@@ -44,7 +44,8 @@ Finally, we may also share your Personal Information to comply with applicable l
 
 BEHAVIOURAL ADVERTISING
 
-We do not knowingly engage in targeted or behavioural advertising.
+We do not engage in targeted or behavioural advertising on our site, however the data collected by the Google Analytics System and Facebook comments plugin can support this behaviour on other sites.
+
 For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
 
 You can opt out of targeted advertising by:
