@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://thedigitalstockade.github.io/">
+    <title>The Digital Stockade</title>
+    <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
+    <link href="https://thedigitalstockade.github.io/" >
+    <updated>2025-10-21T10:22:30Z</updated>
+    <id>https://thedigitalstockade.github.io/</id>
+</feed>
