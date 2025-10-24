@@ -18,8 +18,8 @@ To make things easy to find, I’ve broken the posts into a few categories:
     
 - **The Digital Toolkit:** These are more practical, step-by-step guides for a specific tool or method I've found useful, like a short tutorial for solving a common research problem.
     
-- **Scholarly Discussions:** From time to time, I'll post longer, almost-scientific discussions. These are my musings on broader digital history topics, ethical questions, or the theories behind the digital techniques we use.
+- **Detailed Discussions:** From time to time, I'll post longer, almost-scientific discussions. These are my musings on broader digital history topics, ethical questions, or the theories behind the digital techniques we use.
     
 
-I won’t do your homework or research for you, but if you have genuine questions please feel free to reach out via the form on the contact page.
+ If you have genuine questions please feel free to reach out via the form on the contact page.
 ***
