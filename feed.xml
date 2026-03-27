@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-27T04:22:37Z</updated>
+    <updated>2026-03-27T05:57:50Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-27T04:22:25Z</updated>
+            <updated>2026-03-27T05:57:37Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -35,5 +35,42 @@
 
             </content>
             <link href="https://thedigitalstockade.github.io//" >
+        </entry>
+        <entry>
+            <title>
+                Contact
+                
+            </title>
+            <updated>2026-03-27T05:57:37Z</updated>
+            <id>https://thedigitalstockade.github.io//contact/</id>
+            <content type="html">
+                &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
+&lt;p&gt;Whether you have a specific question about a code snippet, want to discuss digital methodologies, or are interested in collaborating on historical data projects, I am always happy to connect with other researchers.&lt;/p&gt;
+&lt;h3 id=&quot;professional-profiles&quot; tabindex=&quot;-1&quot;&gt;Professional Profiles&lt;/h3&gt;
+&lt;p&gt;For a full overview of my published research, peer-reviewed articles, and academic history, you can find me here:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.researchgate.net/profile/Mark-Mclean-2&quot; target=&quot;_blank&quot; style=&quot;color: #66b2ff; font-weight: bold; text-decoration: none;&quot;&gt;ResearchGate Profile&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://orcid.org/0000-0002-8057-4228&quot; target=&quot;_blank&quot; style=&quot;color: #66b2ff; font-weight: bold; text-decoration: none;&quot;&gt;ORCID iD&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+---
+&lt;h3 id=&quot;send-a-direct-message&quot; tabindex=&quot;-1&quot;&gt;Send a Direct Message&lt;/h3&gt;
+&lt;p&gt;If you have a quick question or want to chat about the digital techniques shared in this notebook, drop a message below.&lt;/p&gt;
+&lt;form action=&quot;https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT&quot; method=&quot;POST&quot;&gt;
+  &lt;div style=&quot;margin-bottom: 15px;&quot;&gt;
+    &lt;label for=&quot;name&quot; style=&quot;display: block; margin-bottom: 5px;&quot;&gt;Name:&lt;/label&gt;
+    &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; required=&quot;&quot; style=&quot;width: 100%; padding: 8px; box-sizing: border-box; background-color: #1e1e1e; color: #fff; border: 1px solid #444; border-radius: 4px;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;margin-bottom: 15px;&quot;&gt;
+    &lt;label for=&quot;email&quot; style=&quot;display: block; margin-bottom: 5px;&quot;&gt;Email:&lt;/label&gt;
+    &lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot; required=&quot;&quot; style=&quot;width: 100%; padding: 8px; box-sizing: border-box; background-color: #1e1e1e; color: #fff; border: 1px solid #444; border-radius: 4px;&quot; /&gt;
+  &lt;/div&gt;
+  &lt;div style=&quot;margin-bottom: 15px;&quot;&gt;
+    &lt;label for=&quot;message&quot; style=&quot;display: block; margin-bottom: 5px;&quot;&gt;Message:&lt;/label&gt;
+    &lt;textarea id=&quot;message&quot; name=&quot;message&quot; rows=&quot;5&quot; required=&quot;&quot; style=&quot;width: 100%; padding: 8px; box-sizing: border-box; background-color: #1e1e1e; color: #fff; border: 1px solid #444; border-radius: 4px; resize: vertical;&quot;&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+&lt;p&gt;&lt;button type=&quot;submit&quot; style=&quot;padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;&quot;&gt;Send Message&lt;/button&gt;&lt;/p&gt;
+&lt;/form&gt;
+            </content>
+            <link href="https://thedigitalstockade.github.io//contact/" >
         </entry>
 </feed>
