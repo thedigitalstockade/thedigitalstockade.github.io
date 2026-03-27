@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-27T11:37:12Z</updated>
+    <updated>2026-03-27T11:37:34Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-27T11:36:53Z</updated>
+            <updated>2026-03-27T11:37:23Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -21,13 +21,13 @@
 &lt;p&gt;Because this is a digital garden, the notes are interconnected. But to give you a starting point, the content generally falls into three areas:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Code Fragments&lt;/a&gt;: Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/code-fragments/&quot;&gt;Code Fragments&lt;/a&gt;: Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/&quot;&gt;The Digital Toolkit&lt;/a&gt; Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Methodology &amp;amp; Theory&lt;/a&gt;: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/&quot;&gt;Methodology &amp;amp; Theory&lt;/a&gt;: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the contact page if you want to discuss a specific technique.&lt;/p&gt;
@@ -42,7 +42,7 @@
                 The Digital Toolkit
                 
             </title>
-            <updated>2026-03-27T11:36:53Z</updated>
+            <updated>2026-03-27T11:37:23Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/</id>
             <content type="html">
                 &lt;h1 id=&quot;the-digital-toolkit&quot; tabindex=&quot;-1&quot;&gt;The Digital Toolkit&lt;/h1&gt;
@@ -55,10 +55,28 @@
         </entry>
         <entry>
             <title>
+                Methodology &amp; Theory
+                
+            </title>
+            <updated>2026-03-27T11:37:23Z</updated>
+            <id>https://thedigitalstockade.github.io//methodology-and-theory/</id>
+            <content type="html">
+                &lt;h1 id=&quot;methodology-and-amp-theory&quot; tabindex=&quot;-1&quot;&gt;Methodology &amp;amp; Theory&lt;/h1&gt;
+&lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
+&lt;h3 id=&quot;published-articles&quot; tabindex=&quot;-1&quot;&gt;Published Articles:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Data Pipelines&lt;/a&gt;: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.&lt;/li&gt;
+&lt;/ul&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//methodology-and-theory/" >
+        </entry>
+        <entry>
+            <title>
                 Contact
                 
             </title>
-            <updated>2026-03-27T11:36:53Z</updated>
+            <updated>2026-03-27T11:37:23Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -90,5 +108,21 @@
 &lt;/form&gt;
             </content>
             <link href="https://thedigitalstockade.github.io//contact/" >
+        </entry>
+        <entry>
+            <title>
+                Code Fragments
+                
+            </title>
+            <updated>2026-03-27T11:37:23Z</updated>
+            <id>https://thedigitalstockade.github.io//code-fragments/</id>
+            <content type="html">
+                &lt;h1 id=&quot;code-fragments&quot; tabindex=&quot;-1&quot;&gt;Code Fragments&lt;/h1&gt;
+&lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
+&lt;h3 id=&quot;the-fragments&quot; tabindex=&quot;-1&quot;&gt;The Fragments:&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(New snippets will appear here as I publish them.)&lt;/em&gt;&lt;/p&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//code-fragments/" >
         </entry>
 </feed>
