@@ -2,7 +2,7 @@
 {"dg-publish":true,"permalink":"/welcome/","title":"Welcome to The Digital Stockade","tags":["welcome","digital-history","gardenEntry"]}
 ---
 
-# [About](https://thedigitalstockade.github.io/about/)
+# About
 
 I am a researcher specializing in early Australian Colonial convict history and early industrial systems. But while my primary focus is uncovering the past, this site is dedicated to the machinery we use to get there.
 
