@@ -16,10 +16,13 @@ Because this is a digital garden, the notes are interconnected. But to give you 
 
 - **Code Fragments:** Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.
     
-- **The Digital Toolkit:** Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.
+- **[[The Digital Toolkit\|The Digital Toolkit]]** Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.
     
 - **Methodology & Theory:** Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.
     
 
 Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the contact page if you want to discuss a specific technique.
-***
+
+### A Note on Transparency & Digital Tools
+
+In the spirit of **open methodology**, I want to be clear about how the content on this site is produced. While the historical research and architectural logic are my own, the datasets I analyze are a mix of my own compilations, records generously shared by peers, and open-access archives. I also use generative AI (Large Language Models) as an editorial and coding assistant. I use these tools to help structure my thoughts, refine my prose, troubleshoot Python scripts, and format these notes for the web. Just as we must be transparent about the pipelines we use to process archival data, we must be equally transparent about the digital tools we use to build and communicate our findings.
