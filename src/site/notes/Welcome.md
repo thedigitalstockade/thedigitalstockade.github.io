@@ -1,27 +1,25 @@
 ---
-{"dg-publish":true,"permalink":"/welcome/","tags":["gardenEntry"]}
+{"dg-publish":true,"permalink":"/welcome/","title":"Welcome to The Digital Stockade","tags":["welcome","digital-history","gardenEntry"]}
 ---
 
 # [About](https://thedigitalstockade.github.io/about/)
 
-I am a researcher who uses digital techniques to explore early Australian Colonial convict history. I also have a special interest in early industrial systems and processes. This site however is less about my research (although you may get snippets from time to time) and more about the digital tools and techniques that I use (or bump into) that may also assist you in your own Archaeological, Digital Humanities or History research.
+I am a researcher specializing in early Australian Colonial convict history and early industrial systems. But while my primary focus is uncovering the past, this site is dedicated to the machinery we use to get there.
 
-I do not intend to write in depth tutorials on programming languages or methods (There are much better tutors on the web for advanced programming methods than me), but rather to produce a grab-bag of practical examples to ‘lower the barrier of entry’ to digital techniques for new and existing researchers so that you may add them to your repertoire and start exploring the past in new ways.
+Too often in archaeology and the digital humanities, there is a frustrating gap between reading about a methodology in a paper and actually getting the code to run on your own machine. I created _The Digital Stockade_ as an open-access version of my daily digital notebook to help close that gap.
 
-Think of this site as an open-access version of my own digital notebook. Much of what I post here is captured directly from my personal Obsidian notes. It’s not a formal academic publication, but a place for me to share my thoughts and working code as I develop it, including my experiments with AI for historical analysis.
+This is not a formal academic journal. It is a practical, living grab-bag of the workflows, scripts, and experiments I use to map historical data. My goal is to lower the barrier to entry for digital techniques, providing working examples that you can immediately add to your own research repertoire.
 
 ### What You'll Find Inside
 
-To make things easy to find, I’ve broken the posts into a few categories:
+Because this is a digital garden, the notes are interconnected. But to give you a starting point, the content generally falls into three areas:
 
-- **Function in 5:** These are the shortest posts. They're quick, copy-and-paste code snippets designed to solve one small problem, fast. No background, just the function, what it needs, and an example of it in action.
+- **Code Fragments:** Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.
     
-- **The Digital Toolkit:** These are more practical, step-by-step guides for a specific tool or method I've found useful, like a short tutorial for solving a common research problem.
+- **The Digital Toolkit:** Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.
     
-- **Detailed Discussions:** From time to time, I'll post longer, almost-scientific discussions. These are my musings on broader digital history topics, ethical questions, or the theories behind the digital techniques we use.
+- **Methodology & Theory:** Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.
     
 
- If you have genuine questions please feel free to reach out via the form on the contact page.
-
-Test of the update.
+Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the contact page if you want to discuss a specific technique.
 ***
