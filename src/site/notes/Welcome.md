@@ -22,4 +22,6 @@ To make things easy to find, I’ve broken the posts into a few categories:
     
 
  If you have genuine questions please feel free to reach out via the form on the contact page.
+
+Test of the update.
 ***
