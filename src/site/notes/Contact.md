@@ -21,7 +21,9 @@ For a full overview of my published research, peer-reviewed articles, and academ
 
 If you have a quick question or want to chat about the digital techniques shared in this notebook, drop a message below. 
 
-<form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
+<form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="5a0e3154-18d2-48d1-bc25-3073c8bebeb4">
+
   <div style="margin-bottom: 15px;">
     <label for="name" style="display: block; margin-bottom: 5px;">Name:</label>
     <input type="text" id="name" name="name" required style="width: 100%; padding: 8px; box-sizing: border-box; background-color: #1e1e1e; color: #fff; border: 1px solid #444; border-radius: 4px;">
