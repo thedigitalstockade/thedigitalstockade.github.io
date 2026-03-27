@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-27T05:57:50Z</updated>
+    <updated>2026-03-27T06:00:37Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-27T05:57:37Z</updated>
+            <updated>2026-03-27T06:00:25Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -41,7 +41,7 @@
                 Contact
                 
             </title>
-            <updated>2026-03-27T05:57:37Z</updated>
+            <updated>2026-03-27T06:00:25Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -55,7 +55,8 @@
 ---
 &lt;h3 id=&quot;send-a-direct-message&quot; tabindex=&quot;-1&quot;&gt;Send a Direct Message&lt;/h3&gt;
 &lt;p&gt;If you have a quick question or want to chat about the digital techniques shared in this notebook, drop a message below.&lt;/p&gt;
-&lt;form action=&quot;https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT&quot; method=&quot;POST&quot;&gt;
+&lt;form action=&quot;https://api.web3forms.com/submit&quot; method=&quot;POST&quot;&gt;
+  &lt;input type=&quot;hidden&quot; name=&quot;access_key&quot; value=&quot;5a0e3154-18d2-48d1-bc25-3073c8bebeb4&quot; /&gt;
   &lt;div style=&quot;margin-bottom: 15px;&quot;&gt;
     &lt;label for=&quot;name&quot; style=&quot;display: block; margin-bottom: 5px;&quot;&gt;Name:&lt;/label&gt;
     &lt;input type=&quot;text&quot; id=&quot;name&quot; name=&quot;name&quot; required=&quot;&quot; style=&quot;width: 100%; padding: 8px; box-sizing: border-box; background-color: #1e1e1e; color: #fff; border: 1px solid #444; border-radius: 4px;&quot; /&gt;
