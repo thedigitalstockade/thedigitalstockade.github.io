@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-27T11:36:41Z</updated>
+    <updated>2026-03-27T11:37:12Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-27T11:36:29Z</updated>
+            <updated>2026-03-27T11:36:53Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -24,7 +24,7 @@
 &lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Code Fragments&lt;/a&gt;: Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;The Digital Toolkit&lt;/a&gt; Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/&quot;&gt;The Digital Toolkit&lt;/a&gt; Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Methodology &amp;amp; Theory&lt;/a&gt;: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.&lt;/p&gt;
@@ -39,10 +39,26 @@
         </entry>
         <entry>
             <title>
+                The Digital Toolkit
+                
+            </title>
+            <updated>2026-03-27T11:36:53Z</updated>
+            <id>https://thedigitalstockade.github.io//the-digital-toolkit/</id>
+            <content type="html">
+                &lt;h1 id=&quot;the-digital-toolkit&quot; tabindex=&quot;-1&quot;&gt;The Digital Toolkit&lt;/h1&gt;
+&lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
+&lt;h3 id=&quot;workflows-and-amp-guides&quot; tabindex=&quot;-1&quot;&gt;Workflows &amp;amp; Guides:&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(New guides will appear here as I publish them.)&lt;/em&gt;&lt;/p&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//the-digital-toolkit/" >
+        </entry>
+        <entry>
+            <title>
                 Contact
                 
             </title>
-            <updated>2026-03-27T11:36:29Z</updated>
+            <updated>2026-03-27T11:36:53Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
