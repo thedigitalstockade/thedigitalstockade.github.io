@@ -3,17 +3,17 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-27T04:20:43Z</updated>
+    <updated>2026-03-27T04:22:37Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-27T04:20:31Z</updated>
+            <updated>2026-03-27T04:22:25Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
-                &lt;h1 id=&quot;a-href-https-thedigitalstockade-github-io-about-target-blank-class-external-link-about-a&quot; tabindex=&quot;-1&quot;&gt;&lt;a href=&quot;https://thedigitalstockade.github.io/about/&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;About&lt;/a&gt;&lt;/h1&gt;
+                &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
 &lt;p&gt;I am a researcher specializing in early Australian Colonial convict history and early industrial systems. But while my primary focus is uncovering the past, this site is dedicated to the machinery we use to get there.&lt;/p&gt;
 &lt;p&gt;Too often in archaeology and the digital humanities, there is a frustrating gap between reading about a methodology in a paper and actually getting the code to run on your own machine. I created &lt;em&gt;The Digital Stockade&lt;/em&gt; as an open-access version of my daily digital notebook to help close that gap.&lt;/p&gt;
 &lt;p&gt;This is not a formal academic journal. It is a practical, living grab-bag of the workflows, scripts, and experiments I use to map historical data. My goal is to lower the barrier to entry for digital techniques, providing working examples that you can immediately add to your own research repertoire.&lt;/p&gt;
