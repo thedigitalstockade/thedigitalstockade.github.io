@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-27T11:31:51Z</updated>
+    <updated>2026-03-27T11:36:41Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-27T11:31:38Z</updated>
+            <updated>2026-03-27T11:36:29Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -21,13 +21,13 @@
 &lt;p&gt;Because this is a digital garden, the notes are interconnected. But to give you a starting point, the content generally falls into three areas:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Code Fragments:&lt;/strong&gt; Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Code Fragments&lt;/a&gt;: Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;The Digital Toolkit&lt;/a&gt;&lt;/strong&gt; Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;The Digital Toolkit&lt;/a&gt; Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Methodology &amp;amp; Theory:&lt;/strong&gt; Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Methodology &amp;amp; Theory&lt;/a&gt;: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the contact page if you want to discuss a specific technique.&lt;/p&gt;
@@ -42,7 +42,7 @@
                 Contact
                 
             </title>
-            <updated>2026-03-27T11:31:38Z</updated>
+            <updated>2026-03-27T11:36:29Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
