@@ -14,11 +14,11 @@ This is not a formal academic journal. It is a practical, living grab-bag of the
 
 Because this is a digital garden, the notes are interconnected. But to give you a starting point, the content generally falls into three areas:
 
-- [[Code Fragments/Code Fragments\|Code Fragments]]: Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.
+- [[Code Fragments/Index\|Code Fragments/Index]]: Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.
     
-- [[The Digital Toolkit/The Digital Toolkit\|The Digital Toolkit]] Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.
+- [[The Digital Toolkit/Index\|The Digital Toolkit/Index]] Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.
     
-- [[Methodology & Theory/Methodology & Theory\|Methodology & Theory]]: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.
+- [[Methodology & Theory/Index\|Methodology & Theory/Index]]: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.
     
 
 Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the contact page if you want to discuss a specific technique.
