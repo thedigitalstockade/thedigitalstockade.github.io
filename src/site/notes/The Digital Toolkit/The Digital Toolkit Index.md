@@ -8,4 +8,6 @@ These are practical, step-by-step guides for applying specific technologies to h
 
 ### Workflows & Guides:
 
+[[The Digital Toolkit/Data Pipelines\|Data Pipelines]]
+
 *(New guides will appear here as I publish them.)*
