@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-28T04:55:24Z</updated>
+    <updated>2026-03-28T04:55:51Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-28T04:55:09Z</updated>
+            <updated>2026-03-28T04:55:40Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -42,7 +42,7 @@
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-28T04:55:09Z</updated>
+            <updated>2026-03-28T04:55:40Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -58,11 +58,10 @@
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-28T04:55:09Z</updated>
+            <updated>2026-03-28T04:55:40Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
-&lt;h1 id=&quot;the-immutable-archive-building-archival-data-pipelines-in-python&quot; tabindex=&quot;-1&quot;&gt;The Immutable Archive: Building Archival Data Pipelines in Python&lt;/h1&gt;
 &lt;p&gt;After transcribing Australian Colonial records, we inevitably end up with spreadsheets. They&#39;re useful for preliminary analysis, but to unlock deeper insights, to ask questions that span multiple domains and time periods, the data must move into a structured database. The challenge is that historical records are messy, and that messiness matters.&lt;/p&gt;
 &lt;p&gt;The historical record is filled with blank dates, misspelled names, human error, and editorial marks that standard data tools can&#39;t see. That&#39;s fine, but from a database point of view these may not play nicely with our analysis goals.&lt;/p&gt;
 &lt;p&gt;This leaves us with a few options. The first and most dangerous option when faced with an inconsistent CSV or Excel file is to manually &amp;quot;fix&amp;quot; it before import. This can leave you in a world of pain. Doing this effectively means we are overwriting the original archivist&#39;s reality with our own, obscuring the very real uncertainties of the past and destroying analytical data along the way. Name misspellings can give us clues about dialects or education levels for instance. If you must modify the source, make a copy of the column you are editing and make the corrections in the copy. The downside is that manual cleaning is not repeatable. When you discover an error in your logic three months later, you have to remember what you changed and why. Consistency across large datasets becomes nearly impossible.&lt;/p&gt;
@@ -336,7 +335,7 @@ for config in processing_queue:
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-28T04:55:09Z</updated>
+            <updated>2026-03-28T04:55:40Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -353,7 +352,7 @@ for config in processing_queue:
                 Contact
                 
             </title>
-            <updated>2026-03-28T04:55:09Z</updated>
+            <updated>2026-03-28T04:55:40Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -391,7 +390,7 @@ for config in processing_queue:
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-28T04:55:09Z</updated>
+            <updated>2026-03-28T04:55:40Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
