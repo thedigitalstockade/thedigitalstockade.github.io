@@ -17,7 +17,7 @@ For a full overview of my published research, peer-reviewed articles, and academ
 </ul>
 ---
 
-### Send a Direct Message
+### Send a Direct Message (Spam Filtered)
 
 If you have a quick question or want to chat about the digital techniques shared in this notebook, drop a message below. 
 
