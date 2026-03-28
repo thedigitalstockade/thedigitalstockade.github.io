@@ -3,7 +3,6 @@
 ---
 
 
-# The Shape of History: Why We Use the Entity-Attribute-Value (EAV) Model
 
 When historians and archaeologists first begin digitizing records, we naturally default to the "wide" format. We open a spreadsheet, put a person's name in the first column, and then add a new column for every single fact we want to track: *Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.*
 
