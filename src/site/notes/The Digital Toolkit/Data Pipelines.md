@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/the-digital-toolkit/data-pipelines/","title":"Building Data Pipelines That Honor the Past","tags":["methodology","python","historical-data","digital-humanities","digital-toolkit"]}
+{"dg-publish":true,"permalink":"/the-digital-toolkit/data-pipelines/","title":"The Immutable Archive: Building Archival Data Pipelines in Python","tags":["methodology","python","historical-data","digital-humanities","digital-toolkit"]}
 ---
 
 
