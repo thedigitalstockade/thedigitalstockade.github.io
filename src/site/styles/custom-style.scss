@@ -9,8 +9,10 @@ body {
 }
 
 /* Force the theme to respect the new width */
-.content, .markdown-preview-view, .markdown-rendered {
-    max-width: var(--file-line-width) !important;
+.content {
+    max-width: 1000px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 /* ==========================================================
    OBSIDINITE-STYLE CODE BLOCKS (For Light Theme)
