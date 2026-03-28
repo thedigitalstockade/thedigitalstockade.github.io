@@ -1,21 +1,16 @@
+/* Widen the Navigation Panels and Main Content Area */
 body {
-    /***
-      ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
-      IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
-   ***/
-    //  background-color: white;
-    //  .content {
-    //   font-size: 14px;
-    //  }
-    //  h1 {
-    //   color: black;
-    //  }
-    /* Widen the Left Navigation Panel */
     --dg-filetree-width: 320px; 
     --dg-filetree-min-width: 320px;
-    
-    /* Widen the Right Panel (Table of Contents / Graph) */
     --dg-sidebar-max-width: 400px; 
+    
+    /* Widen the main text column (Default is usually ~700px) */
+    --file-line-width: 1000px !important; 
+}
+
+/* Force the theme to respect the new width */
+.content, .markdown-preview-view, .markdown-rendered {
+    max-width: var(--file-line-width) !important;
 }
 /* ==========================================================
    OBSIDINITE-STYLE CODE BLOCKS (For Light Theme)
