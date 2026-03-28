@@ -1,7 +1,7 @@
 [
 {
 		"title": "Code Fragments",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/code-fragments/",
 		"content": "Code Fragments\nThis section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.\nThe Fragments:\n(New snippets will appear here as I publish them.)",
 		"tags": [ "note"]
@@ -9,7 +9,7 @@
 
 {
 		"title": "Code Fragments",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/code-fragments/code-fragments-index/",
 		"content": "This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.\nThe Fragments:\n(New snippets will appear here as I publish them.)",
 		"tags": [ "note"]
@@ -17,7 +17,7 @@
 
 {
 		"title": "Contact & Connect",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/contact/",
 		"content": "Get in Touch\nWhether you have a specific question about a code snippet, want to discuss digital methodologies, or are interested in collaborating on historical data projects, I am always happy to connect with other researchers.\nProfessional Profiles\nFor a full overview of my published research, peer-reviewed articles, and academic history, you can find me here:\n\nResearchGate Profile\nORCID iD\n\n---\nSend a Direct Message\nIf you have a quick question or want to chat about the digital techniques shared in this notebook, drop a message below.\n\nName:\n\nEmail:\n\nMessage:\n\nSend Message",
 		"tags": [ "note"]
@@ -25,7 +25,7 @@
 
 {
 		"title": "Methodology & Theory",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/methodology-and-theory/",
 		"content": "Methodology &amp; Theory\nThis section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.\nPublished Articles:\n\n<a class=\"internal-link is-unresolved\" href=\"/404\" target=\"\">Data Pipelines</a>: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.",
 		"tags": [ "note"]
@@ -33,7 +33,7 @@
 
 {
 		"title": "Methodology & Theory",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/methodology-and-theory/methodology-and-theory-index/",
 		"content": "This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.\nPublished Articles:\n\n<a class=\"internal-link is-unresolved\" href=\"/404\" target=\"\">Data Pipelines</a>: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.",
 		"tags": [ "note"]
@@ -41,7 +41,7 @@
 
 {
 		"title": "The Digital Toolkit",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/the-digital-toolkit/",
 		"content": "The Digital Toolkit\nThese are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.\nWorkflows &amp; Guides:\n(New guides will appear here as I publish them.)",
 		"tags": [ "note"]
@@ -49,23 +49,15 @@
 
 {
 		"title": "The Digital Toolkit",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/the-digital-toolkit/the-digital-toolkit-index/",
 		"content": "These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.\nWorkflows &amp; Guides:\n(New guides will appear here as I publish them.)",
 		"tags": [ "note"]
 },
 
 {
-		"title": "The Digital Toolkit",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
-		"url":"/the-digital-toolkit/the-digital-toolkit/",
-		"content": "These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.\nWorkflows &amp; Guides:\n(New guides will appear here as I publish them.)",
-		"tags": [ "note"]
-},
-
-{
 		"title": "Welcome to The Digital Stockade",
-		"date":"Sat Mar 28 2026 01:23:10 GMT+0000 (Coordinated Universal Time)",
+		"date":"Sat Mar 28 2026 01:23:32 GMT+0000 (Coordinated Universal Time)",
 		"url":"/",
 		"content": "About\nI am a researcher specializing in early Australian Colonial convict history and early industrial systems. But while my primary focus is uncovering the past, this site is dedicated to the machinery we use to get there.\nToo often in archaeology and the digital humanities, there is a frustrating gap between reading about a methodology in a paper and actually getting the code to run on your own machine. I created The Digital Stockade as an open-access version of my daily digital notebook to help close that gap.\nThis is not a formal academic journal. It is a practical, living grab-bag of the workflows, scripts, and experiments I use to map historical data. My goal is to lower the barrier to entry for digital techniques, providing working examples that you can immediately add to your own research repertoire.\nWhat You'll Find Inside\nBecause this is a digital garden, the notes are interconnected. But to give you a starting point, the content generally falls into three areas:\n\n<a class=\"internal-link\" target=\"\" data-note-icon=\"\" href=\"/code-fragments/code-fragments-index/\">Code Fragments Index</a>: Quick, copy-and-paste scripts designed to solve highly specific data problems—like parsing massive folders of archival CSVs or wrangling Python dependencies. No lengthy background, just the code, what it needs, and a practical example.\n\n<a class=\"internal-link\" target=\"\" data-note-icon=\"\" href=\"/the-digital-toolkit/the-digital-toolkit-index/\">The Digital Toolkit Index</a> Step-by-step guides for applying specific technologies to historical and archaeological research. This includes everything from structuring robust relational databases and navigating OCR for historical documents, to exploring how AI and game engines can visualize complex historical spaces.\n\n<a class=\"internal-link\" target=\"\" data-note-icon=\"\" href=\"/methodology-and-theory/methodology-and-theory-index/\">Methodology &amp; Theory Index</a>: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.\n\nFeel free to click around the networked links, grab any code that helps your own projects, or reach out via the contact page if you want to discuss a specific technique.\nA Note on Transparency &amp; Digital Tools\nIn the spirit of open methodology, I want to be clear about how the content on this site is produced. While the historical research and architectural logic are my own, the datasets I analyze are a mix of my own compilations, records generously shared by peers, and open-access archives. I also use generative AI (Large Language Models) as an editorial and coding assistant. I use these tools to help structure my thoughts, refine my prose, troubleshoot Python scripts, and format these notes for the web. Just as we must be transparent about the pipelines we use to process archival data, we must be equally transparent about the digital tools we use to build and communicate our findings.",
 		"tags": [ "note","welcome","digital-history","gardenEntry"]
