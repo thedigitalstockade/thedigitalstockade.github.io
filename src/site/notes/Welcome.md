@@ -26,7 +26,7 @@ Because this is a digital garden, the notes are interconnected. But to give you 
 > [!abstract] [[Methodology & Theory/Methodology & Theory Index\|Methodology & Theory]]
 > Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.
 
-Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the [[Contact & Connect\|Contact & Connect]] page if you want to discuss a specific technique.
+Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the [[Contact\|Contact]] page if you want to discuss a specific technique.
 
 ***
 
