@@ -6,9 +6,6 @@
 
 ---
 
-# The Immutable Archive: Building Archival Data Pipelines in Python
-
-
 After transcribing Australian Colonial records, we inevitably end up with spreadsheets. They're useful for preliminary analysis, but to unlock deeper insights, to ask questions that span multiple domains and time periods, the data must move into a structured database. The challenge is that historical records are messy, and that messiness matters.
 
 The historical record is filled with blank dates, misspelled names, human error, and editorial marks that standard data tools can't see. That's fine, but from a database point of view these may not play nicely with our analysis goals.
