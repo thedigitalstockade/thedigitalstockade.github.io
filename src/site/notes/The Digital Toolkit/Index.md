@@ -3,7 +3,6 @@
 ---
 
 
-#
 
 These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.
 
