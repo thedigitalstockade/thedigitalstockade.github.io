@@ -367,4 +367,4 @@ If you are drowning in spreadsheets and trying to figure out how to get them int
 
 If you found this methodology useful for your own work, you can cite it here:
 
-> McLean, Mark. "The Immutable Archive: Building Archival Data Pipelines in Python." *The Digital Stockade*. Published 2026-03-28. https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines
+> McLean, Mark A. "The Immutable Archive: Building Archival Data Pipelines in Python." *The Digital Stockade*. Published 2026-03-28. https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/
