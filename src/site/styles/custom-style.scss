@@ -17,3 +17,43 @@ body {
     /* Widen the Right Panel (Table of Contents / Graph) */
     --dg-sidebar-max-width: 400px; 
 }
+/* ==========================================================
+   OBSIDINITE-STYLE CODE BLOCKS (For Light Theme)
+   Strips shadows and applies crisp, flat styling
+   ========================================================== */
+
+/* 1. The Code Block Container */
+.markdown-rendered pre {
+    box-shadow: none !important;               /* Kills the 'Things' shadow */
+    background-color: #f7f7f8 !important;      /* Crisp, flat light grey */
+    border: 1px solid #e2e2e2 !important;      /* Sharp bounding box */
+    border-radius: 4px !important;             /* Very slight curve, no bubbles */
+    padding: 1.2em !important;
+}
+
+/* 2. The Text Inside the Block */
+.markdown-rendered pre code {
+    font-family: 'Consolas', 'Menlo', 'Monaco', monospace !important;
+    font-size: 0.9em !important;
+    color: #24292e !important;                 /* Deep slate text, not pure black */
+    text-shadow: none !important;              /* Kills fuzzy text rendering */
+}
+
+/* 3. Inline Code Snippets (e.g., `like this`) */
+.markdown-rendered :not(pre) > code {
+    background-color: #f0f0f2 !important;
+    border: 1px solid #dfdfdf !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 3px !important;
+    color: #d73a49 !important;                 /* Classic crisp red for inline variables */
+    font-family: 'Consolas', 'Menlo', monospace !important;
+    font-size: 0.9em !important;
+    box-shadow: none !important;
+}
+
+/* 4. Basic Syntax Highlighting Tweaks (Crisp Colors) */
+.markdown-rendered pre code .token.comment { color: #6a737d !important; font-style: italic !important; }
+.markdown-rendered pre code .token.keyword { color: #d73a49 !important; }
+.markdown-rendered pre code .token.string { color: #032f62 !important; }
+.markdown-rendered pre code .token.function { color: #6f42c1 !important; }
+.markdown-rendered pre code .token.number { color: #005cc5 !important; }
