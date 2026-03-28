@@ -3,7 +3,6 @@
 ---
 
 
-
 When historians and archaeologists first begin digitizing records, we naturally default to the "wide" format. We open a spreadsheet, put a person's name in the first column, and then add a new column for every single fact we want to track: *Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.*
 
 For a small, uniform dataset, this works perfectly. But historical data is rarely uniform. It is incredibly sparse and highly varied. 
