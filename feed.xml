@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-28T01:35:34Z</updated>
+    <updated>2026-03-28T01:41:28Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-28T01:35:25Z</updated>
+            <updated>2026-03-28T01:41:15Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -30,9 +30,9 @@
 &lt;p&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/methodology-and-theory-index/&quot;&gt;Methodology &amp;amp; Theory Index&lt;/a&gt;: Longer-form musings on the broader questions of digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the contact page if you want to discuss a specific technique.&lt;/p&gt;
+&lt;p&gt;Feel free to click around the networked links, grab any code that helps your own projects, or reach out via the &lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/contact/&quot;&gt;Contact&lt;/a&gt; page if you want to discuss a specific technique.&lt;/p&gt;
 &lt;h3 id=&quot;a-note-on-transparency-and-amp-digital-tools&quot; tabindex=&quot;-1&quot;&gt;A Note on Transparency &amp;amp; Digital Tools&lt;/h3&gt;
-&lt;p&gt;In the spirit of &lt;strong&gt;open methodology&lt;/strong&gt;, I want to be clear about how the content on this site is produced. While the historical research and architectural logic are my own, the datasets I analyze are a mix of my own compilations, records generously shared by peers, and open-access archives. I also use generative AI (Large Language Models) as an editorial and coding assistant. I use these tools to help structure my thoughts, refine my prose, troubleshoot Python scripts, and format these notes for the web. Just as we must be transparent about the pipelines we use to process archival data, we must be equally transparent about the digital tools we use to build and communicate our findings.&lt;/p&gt;
+&lt;p&gt;In the spirit of &lt;strong&gt;open methodology&lt;/strong&gt;, I want to be clear about how the content on this site is produced. While the historical research and architectural logic are my own, the datasets I analyze are a mix of my own compilations, records generously shared by peers, and open-access archives. I also use generative AI (Large Language Models) as an editorial and coding assistant. I use these tools to help structure my thoughts, refine my prose, troubleshoot Python, HTML and Java scripts, and format these notes for the web. Any published academic works follow the AI use and disclosure guidelines of the respective publisher. Just as we must be transparent about the pipelines we use to process archival data, we must be equally transparent about the digital tools we use to build and communicate our findings.&lt;/p&gt;
 
             </content>
             <link href="https://thedigitalstockade.github.io//" >
@@ -42,7 +42,7 @@
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-28T01:35:25Z</updated>
+            <updated>2026-03-28T01:41:15Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -57,7 +57,7 @@
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-28T01:35:25Z</updated>
+            <updated>2026-03-28T01:41:15Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -74,7 +74,7 @@
                 Contact
                 
             </title>
-            <updated>2026-03-28T01:35:25Z</updated>
+            <updated>2026-03-28T01:41:15Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -112,7 +112,7 @@
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-28T01:35:25Z</updated>
+            <updated>2026-03-28T01:41:15Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
