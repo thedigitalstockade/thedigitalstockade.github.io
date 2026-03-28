@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-28T09:24:00Z</updated>
+    <updated>2026-03-28T09:24:23Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-28T09:23:45Z</updated>
+            <updated>2026-03-28T09:24:12Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -42,7 +42,7 @@
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-28T09:23:45Z</updated>
+            <updated>2026-03-28T09:24:12Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -58,7 +58,7 @@
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-28T09:23:45Z</updated>
+            <updated>2026-03-28T09:24:12Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -332,17 +332,133 @@ for config in processing_queue:
         </entry>
         <entry>
             <title>
+                The Shape of History
+                
+            </title>
+            <updated>2026-03-28T09:24:12Z</updated>
+            <id>https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/</id>
+            <content type="html">
+                &lt;h1 id=&quot;the-shape-of-history-why-we-use-the-entity-attribute-value-eav-model&quot; tabindex=&quot;-1&quot;&gt;The Shape of History: Why We Use the Entity-Attribute-Value (EAV) Model&lt;/h1&gt;
+&lt;p&gt;When historians and archaeologists first begin digitizing records, we naturally default to the &amp;quot;wide&amp;quot; format. We open a spreadsheet, put a person&#39;s name in the first column, and then add a new column for every single fact we want to track: &lt;em&gt;Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For a small, uniform dataset, this works perfectly. But historical data is rarely uniform. It is incredibly sparse and highly varied.&lt;/p&gt;
+&lt;p&gt;If we attempt to build a comprehensive relational database using this &amp;quot;wide&amp;quot; spreadsheet approach for early Australian Colonial records, we immediately hit a structural wall. We end up with a database table containing hundreds of columns, most of which are completely empty for any given individual. A free settler will have a &lt;code&gt;NULL&lt;/code&gt; blank under &amp;quot;Lashes Received,&amp;quot; and a convict will have a &lt;code&gt;NULL&lt;/code&gt; blank under &amp;quot;Acres Farmed.&amp;quot;&lt;/p&gt;
+&lt;p&gt;To build a database that can handle the unpredictable complexity of the past, we must change the shape of our data. We move from a &amp;quot;Wide&amp;quot; model to a &amp;quot;Long&amp;quot; model, specifically using the &lt;strong&gt;Entity-Attribute-Value (EAV)&lt;/strong&gt; format.&lt;/p&gt;
+&lt;h3 id=&quot;what-is-the-eav-model&quot; tabindex=&quot;-1&quot;&gt;What is the EAV Model?&lt;/h3&gt;
+&lt;p&gt;The EAV model is a data structure designed specifically for highly sparse, heterogeneous data. Instead of adding a new column for every new type of fact, the EAV model restricts the database to just a few core columns.&lt;/p&gt;
+&lt;p&gt;It breaks every historical record down into three fundamental components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The Entity:&lt;/strong&gt; &lt;em&gt;Who&lt;/em&gt; or &lt;em&gt;what&lt;/em&gt; are we talking about? (e.g., A unique ID for a specific convict or settler).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Attribute (The Fact Name):&lt;/strong&gt; &lt;em&gt;What&lt;/em&gt; are we measuring or observing? (e.g., &amp;quot;Livestock_Sheep&amp;quot; or &amp;quot;Lashes_Received&amp;quot;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Value:&lt;/strong&gt; &lt;em&gt;What&lt;/em&gt; is the actual measurement? (e.g., &amp;quot;50&amp;quot; or &amp;quot;Conditional Pardon&amp;quot;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;visualizing-the-difference&quot; tabindex=&quot;-1&quot;&gt;Visualizing the Difference&lt;/h3&gt;
+&lt;p&gt;To understand why this is so powerful, look at how the exact same historical data is structured in both models.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The &amp;quot;Wide&amp;quot; Table (The Spreadsheet Problem):&lt;/strong&gt;&lt;br /&gt;
+If we find a new document that lists &amp;quot;Goats,&amp;quot; we have to alter the entire database architecture to add a &amp;quot;Goats&amp;quot; column, leaving it blank for everyone else.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Entity_ID&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Name&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Acres_Farmed&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Livestock_Sheep&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Lashes_Received&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Pardon_Type&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;UID-001&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;John Doe&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;15&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;30&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;em&gt;NULL&lt;/em&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;em&gt;NULL&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;UID-002&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Jane Smith&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;em&gt;NULL&lt;/em&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;&lt;em&gt;NULL&lt;/em&gt;&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;50&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Conditional&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;The EAV Table (The Historical Solution):&lt;/strong&gt;&lt;br /&gt;
+In the EAV model, the data is melted down into a narrow, highly stacked list of facts. If we discover &amp;quot;Goats,&amp;quot; we simply add a new row. The database architecture never has to change.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Entity_ID&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Attribute (Fact_Name)&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Value&lt;/th&gt;
+&lt;th style=&quot;text-align:left&quot;&gt;Source_Document&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;UID-001&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Acres_Farmed&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;15&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;1805 Land Muster&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;UID-001&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Livestock_Sheep&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;30&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;1805 Land Muster&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;UID-002&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Lashes_Received&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;50&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;1791 Punishment Ledger&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;UID-002&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Pardon_Type&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Conditional&lt;/td&gt;
+&lt;td style=&quot;text-align:left&quot;&gt;Old System Pardons&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&quot;the-interface-advantage-building-and-quot-smart-search-and-quot&quot; tabindex=&quot;-1&quot;&gt;The Interface Advantage: Building &amp;quot;Smart Search&amp;quot;&lt;/h3&gt;
+&lt;p&gt;Beyond solving storage problems, EAV data provides a massive advantage when building user interfaces for other researchers.&lt;/p&gt;
+&lt;p&gt;If you build a &amp;quot;wide&amp;quot; database, querying it requires researchers to understand complex SQL joins or boolean logic. But an EAV database natively translates into highly intuitive &amp;quot;Smart Search&amp;quot; tools. Because all attributes exist in a single column, your database software (whether it is FileMaker, a custom web app, or a simple dashboard) can automatically populate a dropdown menu with every available fact.&lt;/p&gt;
+&lt;p&gt;A non-technical researcher doesn&#39;t need to write code; they simply use the UI dropdowns to state:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Find all [Entities] where the [Attribute] is &amp;quot;Livestock_Sheep&amp;quot; and the [Value] is &amp;quot;&amp;gt; 50&amp;quot;.&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;eav-in-the-wild&quot; tabindex=&quot;-1&quot;&gt;EAV in the Wild&lt;/h3&gt;
+&lt;p&gt;This is not just a theoretical computer science concept; it is actively relied upon in digital history. For example, projects such as the &lt;strong&gt;Historical Data Grinder&lt;/strong&gt; (&lt;a href=&quot;https://hdgrinder.ro/&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://hdgrinder.ro/&lt;/a&gt;), a database designed to aggregate highly disparate nineteenth-century Transylvanian records, use an EAV architecture. Similarly, many digital prosopography projects rely on EAV to manage the hundreds of varying attributes tied to historical individuals. They use this architecture because it is the only way to make the information from a source fit the database, rather than constantly expanding the database in an attempt to cover every new quirk of a historical source.&lt;/p&gt;
+&lt;h3 id=&quot;the-bigger-picture-eav-as-the-bridge-to-graph&quot; tabindex=&quot;-1&quot;&gt;The Bigger Picture: EAV as the Bridge to Graph&lt;/h3&gt;
+&lt;p&gt;As powerful as the EAV model is, it is rarely the final destination for historical analysis. It is the ideal &lt;strong&gt;storage and extraction layer&lt;/strong&gt;. It allows our &lt;strong&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/&quot;&gt;Data Pipelines&lt;/a&gt;&lt;/strong&gt; to reliably capture the isolated facts of the colonial archive.&lt;/p&gt;
+&lt;p&gt;However, historical research is ultimately about relationships, not just isolated facts. Who worked with whom? Which magistrate sentenced which convict? To truly map the human reality of the past, these isolated EAV facts must eventually be transformed into nodes and edges.&lt;/p&gt;
+&lt;p&gt;The EAV model is the necessary translation layer that cleans the data so we can eventually build a &lt;strong&gt;Graph Database&lt;/strong&gt;—but that is a methodology we will explore in a future post.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;cite-this-post&quot; tabindex=&quot;-1&quot;&gt;Cite this post&lt;/h3&gt;
+&lt;p&gt;If you found this methodology useful for your own work, you can cite it here:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;McLean, Mark. &amp;quot;The Shape of History: Why We Use the Entity-Attribute-Value (EAV) Model.&amp;quot; &lt;em&gt;The Digital Stockade&lt;/em&gt;. Published 2026-03-28. &lt;a href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/the-shape-of-history&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://thedigitalstockade.github.io/methodology-and-theory/the-shape-of-history&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/" >
+        </entry>
+        <entry>
+            <title>
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-28T09:23:45Z</updated>
+            <updated>2026-03-28T09:24:12Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
 &lt;h3 id=&quot;published-articles&quot; tabindex=&quot;-1&quot;&gt;Published Articles:&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/&quot;&gt;Data Pipelines&lt;/a&gt;: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.&lt;/li&gt;
-&lt;li&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;The Shape of History&lt;/a&gt;: A quick exploration of the Entity-Attribute-Value (EAV) database model and why it is valuable in historical and archaeological research.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/the-shape-of-history/&quot;&gt;The Shape of History&lt;/a&gt;: A quick exploration of the Entity-Attribute-Value (EAV) database model and why it is valuable in historical and archaeological research.&lt;/li&gt;
 &lt;/ul&gt;
 
             </content>
@@ -353,7 +469,7 @@ for config in processing_queue:
                 Contact
                 
             </title>
-            <updated>2026-03-28T09:23:45Z</updated>
+            <updated>2026-03-28T09:24:12Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -391,7 +507,7 @@ for config in processing_queue:
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-28T09:23:45Z</updated>
+            <updated>2026-03-28T09:24:12Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
