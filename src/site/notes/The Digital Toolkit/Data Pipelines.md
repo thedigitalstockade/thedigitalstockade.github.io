@@ -153,6 +153,7 @@ config_1805_land = {
 
 ```
 
+
 > [!abstract]
 > By reading this blueprint, the overarching logic becomes entirely transparent.
 
@@ -357,7 +358,10 @@ The engine processes each blueprint in order, accumulating the results. At the e
 
 This pipeline works for our project. It might work for yours. But it's not the only way to solve this problem.
 
-If you're building something similar, you have options. Tools like OpenRefine, Talend, and Apache NiFi can handle much of this work without writing Python code. For smaller projects, a well-designed database with careful query logic might be all you need. For larger ones, you might want to invest in a proper data warehouse solution. The point isn't to evangelize Python or pipelines specifically. The point is to be intentional about where your cleaning happens and to document it thoroughly.
+If you're building something similar, you have options. Tools like OpenRefine, Talend, and Apache NiFi can handle much of this work without writing Python code. For smaller projects, a well-designed database with careful query logic might be all you need. For larger ones, you might want to invest in a proper data warehouse solution. The point isn't to evangelize Python or pipelines specifically.
+
+> [!quote]
+> The point is to be intentional about where your cleaning happens and to document it thoroughly.
 
 Handling historical data at scale requires more than just careful transcription; it requires rigorous, repeatable methodologies. While visual cleaning tools or complex database queries have their place, a code-based data pipeline offers unparalleled transparency and auditability for historical research.
 
