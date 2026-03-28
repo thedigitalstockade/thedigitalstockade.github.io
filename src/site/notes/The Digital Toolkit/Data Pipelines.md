@@ -10,7 +10,12 @@ After transcribing Australian Colonial records, we inevitably end up with spread
 
 The historical record is filled with blank dates, misspelled names, human error, and editorial marks that standard data tools can't see. That's fine, but from a database point of view these may not play nicely with our analysis goals.
 
-This leaves us with a few options. The first and most dangerous option when faced with an inconsistent CSV or Excel file is to manually "fix" it before import. This can leave you in a world of pain. Doing this effectively means we are overwriting the original archivist's reality with our own, obscuring the very real uncertainties of the past and destroying analytical data along the way. Name misspellings can give us clues about dialects or education levels for instance. If you must modify the source, make a copy of the column you are editing and make the corrections in the copy. The downside is that manual cleaning is not repeatable. When you discover an error in your logic three months later, you have to remember what you changed and why. Consistency across large datasets becomes nearly impossible.
+This leaves us with a few options. 
+
+> [!danger]
+> The first and most dangerous option when faced with an inconsistent CSV or Excel file is to manually "fix" it before import. 
+
+This can leave you in a world of pain. Doing this effectively means we are overwriting the original archivist's reality with our own, obscuring the very real uncertainties of the past and destroying analytical data along the way. Name misspellings can give us clues about dialects or education levels for instance. If you must modify the source, make a copy of the column you are editing and make the corrections in the copy. The downside is that manual cleaning is not repeatable. When you discover an error in your logic three months later, you have to remember what you changed and why. Consistency across large datasets becomes nearly impossible.
 
 Another way is to import the data as-is and deal with it within the database itself. This is a perfectly sound methodology if your database design accounts for it, and has been deployed on many large scale analysis projects I have witnessed. The advantage is that your source remains untouched and all your cleaning logic lives in one place. The disadvantage is that you need a more sophisticated database design to handle the messiness. If you're doing heavy transformation at query time, your analysis becomes slower. And if your database is being used by non-technical researchers, they may struggle to understand why the data looks the way it does.
 
@@ -18,7 +23,8 @@ There's also another option worth mentioning: using a dedicated data cleaning to
 
 The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable. When you discover a new dataset that follows the same pattern, you can reuse 90 percent of your code.
 
-This documented cleaning is what is commonly called a **Data Pipeline**.
+> [!info] 
+> This documented cleaning is what is commonly called a **Data Pipeline**.
 
 In software engineering, an ETL (Extract, Transform, Load) pipeline automates three steps: extracting raw data, transforming it into a standard format, and loading it into a database. In historical research, it serves a different purpose. It acts as a transparent, repeatable translation layer between the messy reality of the archive and the rigid architecture of our databases.
 
@@ -147,7 +153,8 @@ config_1805_land = {
 
 ```
 
-By reading this blueprint, the overarching logic becomes entirely transparent.
+> [!abstract]
+> By reading this blueprint, the overarching logic becomes entirely transparent.
 
 Targeting the Data: `sheet_name` and `skip_rows` direct the engine to the exact Excel tab and instruct it to bypass the first two rows of messy header notes.
 
