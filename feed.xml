@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-28T09:24:23Z</updated>
+    <updated>2026-03-28T09:26:01Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-28T09:24:12Z</updated>
+            <updated>2026-03-28T09:25:49Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -42,7 +42,7 @@
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-28T09:24:12Z</updated>
+            <updated>2026-03-28T09:25:49Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -58,7 +58,7 @@
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-28T09:24:12Z</updated>
+            <updated>2026-03-28T09:25:49Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -70,7 +70,7 @@
 &lt;p&gt;The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable. When you discover a new dataset that follows the same pattern, you can reuse 90 percent of your code.&lt;/p&gt;
 &lt;p&gt;This documented cleaning is what is commonly called a &lt;strong&gt;Data Pipeline&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;In software engineering, an ETL (Extract, Transform, Load) pipeline automates three steps: extracting raw data, transforming it into a standard format, and loading it into a database. In historical research, it serves a different purpose. It acts as a transparent, repeatable translation layer between the messy reality of the archive and the rigid architecture of our databases.&lt;/p&gt;
-&lt;p&gt;For this project, we&#39;re structuring the data into an Entity-Attribute-Value (EAV) format. This is a flexible model that captures historical facts as discrete, queryable records. (I&#39;ll cover EAV in detail in a separate post, but for now, think of it as a way to store &amp;quot;Person X had Y amount of Z in year W&amp;quot; as a single, standardized row.) Later, we flatten this EAV structure into a researcher-friendly index that makes querying intuitive for non-technical users.&lt;/p&gt;
+&lt;p&gt;For this project, we&#39;re structuring the data into an &lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/the-shape-of-history/&quot;&gt;Entity-Attribute-Value&lt;/a&gt; (EAV) format. This is a flexible model that captures historical facts as discrete, queryable records. (I&#39;ll cover EAV in detail in a separate post, but for now, think of it as a way to store &amp;quot;Person X had Y amount of Z in year W&amp;quot; as a single, standardized row.) Later, we flatten this EAV structure into a researcher-friendly index that makes querying intuitive for non-technical users.&lt;/p&gt;
 &lt;h2 id=&quot;the-architecture-separating-the-rules-from-the-engine&quot; tabindex=&quot;-1&quot;&gt;The Architecture: Separating the Rules from the Engine&lt;/h2&gt;
 &lt;p&gt;A common trap in digital history is writing a brand-new, custom &lt;strong&gt;Python&lt;/strong&gt; (insert your language of choice but I&#39;m generally a Python guy) script for every single spreadsheet. If a project relies on 50+ different archival ledgers, managing 500 different processing scripts quickly becomes a maintenance nightmare.&lt;/p&gt;
 &lt;p&gt;Instead, a robust data pipeline utilizes strict Separation of Concerns. It divides the workflow into two distinct components: the Blueprints (the historical rules) and the Engine (the processing logic).&lt;/p&gt;
@@ -335,7 +335,7 @@ for config in processing_queue:
                 The Shape of History
                 
             </title>
-            <updated>2026-03-28T09:24:12Z</updated>
+            <updated>2026-03-28T09:25:49Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/</id>
             <content type="html">
                 &lt;h1 id=&quot;the-shape-of-history-why-we-use-the-entity-attribute-value-eav-model&quot; tabindex=&quot;-1&quot;&gt;The Shape of History: Why We Use the Entity-Attribute-Value (EAV) Model&lt;/h1&gt;
@@ -451,7 +451,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-28T09:24:12Z</updated>
+            <updated>2026-03-28T09:25:49Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -469,7 +469,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Contact
                 
             </title>
-            <updated>2026-03-28T09:24:12Z</updated>
+            <updated>2026-03-28T09:25:49Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -507,7 +507,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-28T09:24:12Z</updated>
+            <updated>2026-03-28T09:25:49Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
