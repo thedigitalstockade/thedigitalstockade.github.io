@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-28T04:50:31Z</updated>
+    <updated>2026-03-28T04:50:49Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-28T04:50:20Z</updated>
+            <updated>2026-03-28T04:50:41Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -42,12 +42,12 @@
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-28T04:50:20Z</updated>
+            <updated>2026-03-28T04:50:41Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
 &lt;h3 id=&quot;workflows-and-amp-guides&quot; tabindex=&quot;-1&quot;&gt;Workflows &amp;amp; Guides:&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Data Pipelines&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/&quot;&gt;Data Pipelines&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;(New guides will appear here as I publish them.)&lt;/em&gt;&lt;/p&gt;
 
             </content>
@@ -55,16 +55,294 @@
         </entry>
         <entry>
             <title>
+                Data Pipelines
+                
+            </title>
+            <updated>2026-03-28T04:50:41Z</updated>
+            <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
+            <content type="html">
+                &lt;hr /&gt;
+&lt;h1 id=&quot;the-immutable-archive-building-archival-data-pipelines-in-python&quot; tabindex=&quot;-1&quot;&gt;The Immutable Archive: Building Archival Data Pipelines in Python&lt;/h1&gt;
+&lt;p&gt;After transcribing Australian Colonial records, we inevitably end up with spreadsheets. They&#39;re useful for preliminary analysis, but to unlock deeper insights, to ask questions that span multiple domains and time periods, the data must move into a structured database. The challenge is that historical records are messy, and that messiness matters.&lt;/p&gt;
+&lt;p&gt;The historical record is filled with blank dates, misspelled names, human error, and editorial marks that standard data tools can&#39;t see. That&#39;s fine, but from a database point of view these may not play nicely with our analysis goals.&lt;/p&gt;
+&lt;p&gt;This leaves us with a few options. The first and most dangerous option when faced with an inconsistent CSV or Excel file is to manually &amp;quot;fix&amp;quot; it before import. This can leave you in a world of pain. Doing this effectively means we are overwriting the original archivist&#39;s reality with our own, obscuring the very real uncertainties of the past and destroying analytical data along the way. Name misspellings can give us clues about dialects or education levels for instance. If you must modify the source, make a copy of the column you are editing and make the corrections in the copy. The downside is that manual cleaning is not repeatable. When you discover an error in your logic three months later, you have to remember what you changed and why. Consistency across large datasets becomes nearly impossible.&lt;/p&gt;
+&lt;p&gt;Another way is to import the data as-is and deal with it within the database itself. This is a perfectly sound methodology if your database design accounts for it, and has been deployed on many large scale analysis projects I have witnessed. The advantage is that your source remains untouched and all your cleaning logic lives in one place. The disadvantage is that you need a more sophisticated database design to handle the messiness. If you&#39;re doing heavy transformation at query time, your analysis becomes slower. And if your database is being used by non-technical researchers, they may struggle to understand why the data looks the way it does.&lt;/p&gt;
+&lt;p&gt;There&#39;s also another option worth mentioning: using a dedicated data cleaning tool like OpenRefine or Trifacta. These sit between your spreadsheet and your database, offering a visual interface for cleaning and transformation and creating logs of all the activities undertaken. They&#39;re excellent for one-off projects or when you need to involve non-programmers in the cleaning process. The trade-off is that they can be harder to version control (especialy if multiple people are involved) and audit than code-based pipelines.&lt;/p&gt;
+&lt;p&gt;The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable. When you discover a new dataset that follows the same pattern, you can reuse 90 percent of your code.&lt;/p&gt;
+&lt;p&gt;This documented cleaning is what is commonly called a &lt;strong&gt;Data Pipeline&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In software engineering, an ETL (Extract, Transform, Load) pipeline automates three steps: extracting raw data, transforming it into a standard format, and loading it into a database. In historical research, it serves a different purpose. It acts as a transparent, repeatable translation layer between the messy reality of the archive and the rigid architecture of our databases.&lt;/p&gt;
+&lt;p&gt;For this project, we&#39;re structuring the data into an Entity-Attribute-Value (EAV) format. This is a flexible model that captures historical facts as discrete, queryable records. (I&#39;ll cover EAV in detail in a separate post, but for now, think of it as a way to store &amp;quot;Person X had Y amount of Z in year W&amp;quot; as a single, standardized row.) Later, we flatten this EAV structure into a researcher-friendly index that makes querying intuitive for non-technical users.&lt;/p&gt;
+&lt;h2 id=&quot;the-architecture-separating-the-rules-from-the-engine&quot; tabindex=&quot;-1&quot;&gt;The Architecture: Separating the Rules from the Engine&lt;/h2&gt;
+&lt;p&gt;A common trap in digital history is writing a brand-new, custom &lt;strong&gt;Python&lt;/strong&gt; (insert your language of choice but I&#39;m generally a Python guy) script for every single spreadsheet. If a project relies on 50+ different archival ledgers, managing 500 different processing scripts quickly becomes a maintenance nightmare.&lt;/p&gt;
+&lt;p&gt;Instead, a robust data pipeline utilizes strict Separation of Concerns. It divides the workflow into two distinct components: the Blueprints (the historical rules) and the Engine (the processing logic).&lt;/p&gt;
+&lt;p&gt;Here&#39;s how data actually flows through the Python pipeline for early Colonial datasets that I made recently:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-text&quot;&gt;=========================================================================
+                    Example ARCHIVAL DATA PIPELINE
+=========================================================================
+
+ [THE BLUEPRINTS]
+ (Python config dictionaries)
+ - sheet_name, skip_rows, nrows
+ - uid_col, year_col, domain
+ - facts array with transform rules
+            |
+            v
+ [THE EXECUTION QUEUE]
+ (Process blueprints in sequence)
+            |
+            +---&amp;gt; Blueprint 1 (1805 Land Muster)
+            |     Blueprint 2 (1809 Hobart Muster)
+            |     Blueprint 3 (1798 Maize)
+            |     Blueprint 4 (1798 Swine)
+            |     ... (n tabs+ total)
+            |
+            v
+ [Master Excel File]
+ (Reads all tabs, immutable source)
+            |
+            +---------------------+---------------------+
+            |                     |                     |
+            v                     v                     v
+ [pandas: Read Data]         [openpyxl: Read Visual]  [Identify Dataset
+ (Respecting skip_rows       (Detect strikethrough    Region (skip_rows
+  and nrows from blueprint)   marks from researchers)  and nrows)]
+            |                     |                     |
+            +---------------------+---------------------+
+                          |
+                          v
+            [THE STRIKETHROUGH GATEKEEPER]
+            (Skip rows marked invalid by researchers)
+                          |
+                          v
+            [THE TRANSFORMATION ROUTER]
+            (Apply transform rules from blueprint)
+            - direct: pass value through
+            - sum: aggregate multiple columns
+            - regex_extract: parse text patterns
+                          |
+                          v
+            [BUILD EAV RECORDS + JSON PAYLOAD]
+            (Entity_ID, Fact_Name, Fact_Value_Numeric,
+             Fact_Value_Text, Fact_Qualifier, Raw JSON Payload of original)                      |
+                          v
+            [ACCUMULATE RESULTS]
+            (Append to results from previous blueprints)
+                          |
+            (Loop back to next blueprint in queue)
+                          |
+                          v
+ [CONCATENATE ALL BATCHES]
+ (Merge results from all  blueprints)
+            |
+            v
+ [GENERATE OUTPUTS]
+ - EAV_Import_Ready.txt (tab-delimited)
+ - Data_Dictionary.csv (unique fact names)
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By understanding this top-down architecture, we can establish five golden rules for processing historical data. These rules ensure we structure the past without erasing its complexities.&lt;/p&gt;
+&lt;h2 id=&quot;rule-1-the-principle-of-immutability&quot; tabindex=&quot;-1&quot;&gt;Rule 1: The Principle of Immutability&lt;/h2&gt;
+&lt;p&gt;Notice in the flowchart that data flows only away from the raw Excel file. The raw transcription is immutable, a read-only artifact. If an 1805 muster contains a typo, that typo is a historical fact. We preserve it.&lt;/p&gt;
+&lt;p&gt;We never alter the source files. Instead, the pipeline&#39;s extraction engine reads the messy reality into memory and translates it there. Whilst it is not shown in the code snippet, to guarantee absolute traceability, the pipeline does something crucial: as it reads the raw, unmodified data, it serializes the entire &lt;strong&gt;original Excel row as a JSON string&lt;/strong&gt; and stores it directly alongside the newly extracted EAV fact. This means a researcher looking at the final database doesn&#39;t just see the cleaned data; they can instantly view the exact, untouched text that generated it. If our interpretation of a colonial date format turns out to be flawed next year, our original data remains untouched. We simply update the Python script and run the pipeline again.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# The raw Excel file is never modified
+df = pd.read_excel(
+    master_excel_file,
+    sheet_name=config[&#39;sheet_name&#39;],
+    skiprows=config.get(&#39;skip_rows&#39;, 0),
+    nrows=config.get(&#39;nrows&#39;, None)
+)
+# All transformations happen on this in-memory copy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;rule-2-the-translation-layer-the-blueprints&quot; tabindex=&quot;-1&quot;&gt;Rule 2: The Translation Layer (The Blueprints)&lt;/h2&gt;
+&lt;p&gt;To bridge the gap between human messiness and database architecture, the pipeline utilizes Python dictionaries as processing Blueprints.&lt;/p&gt;
+&lt;p&gt;Instead of writing dense code that hides historical assumptions, we map out exactly how the engine should interpret a specific document. Here&#39;s a real example: a blueprint designed to parse an 1805 Norfolk Island land muster. It tells the engine exactly which Excel tab to target, how to identify the individual, and how to translate specific columns into measurable database attributes.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;config_1805_land = {
+    &#39;sheet_name&#39;: &#39;24) a land record sheet&#39;,
+    &#39;skip_rows&#39;: 2,
+    &#39;uid_col&#39;: &#39;uid&#39;,
+    &#39;source_uid_col&#39;: &#39;doc_uid&#39;,
+    &#39;year_col&#39;: &#39;event_date&#39;,
+    &#39;is_state&#39;: 1,
+    &#39;domain&#39;: &#39;Agricultural&#39;,
+    &#39;facts&#39;: [
+        {&#39;source_col&#39;: &#39;Land Culivation&#39;, &#39;fact_name&#39;: &#39;Acres_Cultivated&#39;, &#39;type&#39;: &#39;numeric&#39;},
+        {&#39;source_col&#39;: &#39;Bulls and Cows&#39;, &#39;fact_name&#39;: &#39;Livestock_Cattle&#39;, &#39;type&#39;: &#39;numeric&#39;},
+        {&#39;source_col&#39;: &#39;Sheep&#39;, &#39;fact_name&#39;: &#39;Livestock_Sheep&#39;, &#39;type&#39;: &#39;numeric&#39;}
+    ]
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;By reading this blueprint, the overarching logic becomes entirely transparent.&lt;/p&gt;
+&lt;p&gt;Targeting the Data: &lt;code&gt;sheet_name&lt;/code&gt; and &lt;code&gt;skip_rows&lt;/code&gt; direct the engine to the exact Excel tab and instruct it to bypass the first two rows of messy header notes.&lt;/p&gt;
+&lt;p&gt;Anchoring the Entity: &lt;code&gt;uid_col&lt;/code&gt; and &lt;code&gt;year_col&lt;/code&gt; ensure that every extracted fact is permanently tied to a specific historical individual and a specific point in time.&lt;/p&gt;
+&lt;p&gt;Translating the Facts: The &lt;code&gt;facts&lt;/code&gt; array acts as the actual translation dictionary. It explicitly tells the engine, &amp;quot;When you read the colonial column labeled &#39;Bulls and Cows&#39;, translate it to &lt;code&gt;Livestock_Cattle&lt;/code&gt; in the database, and ensure the value is strictly numeric.&amp;quot;&lt;/p&gt;
+&lt;p&gt;Classifying the Record: &lt;code&gt;is_state&lt;/code&gt; (1 = a snapshot of conditions; 0 = a singular event) and &lt;code&gt;domain&lt;/code&gt; (Agricultural, Judicial, Vital, etc.) add historical context that researchers need.&lt;/p&gt;
+&lt;p&gt;Anyone reviewing the code can see precisely how the data was derived. Furthermore, when a newly transcribed 1807 muster is uncovered, we do not need to rewrite the software engine. We simply write a new 15-line blueprint and add it to the Execution Queue.&lt;/p&gt;
+&lt;h2 id=&quot;rule-3-the-transformation-router-beyond-direct-mapping&quot; tabindex=&quot;-1&quot;&gt;Rule 3: The Transformation Router (Beyond Direct Mapping)&lt;/h2&gt;
+&lt;p&gt;The simplest blueprint uses &lt;code&gt;&#39;transform&#39;: &#39;direct&#39;&lt;/code&gt;. It reads a column and writes its value as-is. But real historical data is rarely that straightforward. The Transformation Router handles three distinct transformation types, each solving a different archival problem.&lt;/p&gt;
+&lt;h3 id=&quot;transform-type-1-direct-mapping&quot; tabindex=&quot;-1&quot;&gt;Transform Type 1: Direct Mapping&lt;/h3&gt;
+&lt;p&gt;The most common case. Read a column, validate it exists, and pass it through.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;{&#39;source_col&#39;: &#39;Pardon&#39;, &#39;fact_name&#39;: &#39;Pardon_Type&#39;, &#39;type&#39;: &#39;text&#39;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The engine checks: Does this cell have a value? If yes, extract it without modification and map it to a database field. If no, skip the record.&lt;/p&gt;
+&lt;h3 id=&quot;transform-type-2-sum-aggregating-multiple-columns&quot; tabindex=&quot;-1&quot;&gt;Transform Type 2: Sum (Aggregating Multiple Columns)&lt;/h3&gt;
+&lt;p&gt;Sometimes historical clerks split a single concept across multiple columns. In this 1809 Muster example, swine counts are recorded separately by sex.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;config_1809_hobart_muster = {
+    &#39;sheet_name&#39;: &#39;30) 1809 Muster&#39;,
+    &#39;skip_rows&#39;: 2,
+    &#39;uid_col&#39;: &#39;uid&#39;,
+    &#39;year_col&#39;: &#39;event_date&#39;,
+    &#39;is_state&#39;: 1,
+    &#39;domain&#39;: &#39;Agricultural&#39;,
+    &#39;facts&#39;: [
+        {&#39;source_cols&#39;: [&#39;Swine Male&#39;, &#39;Swine Female&#39;], 
+         &#39;fact_name&#39;: &#39;Livestock_Swine&#39;, 
+         &#39;type&#39;: &#39;numeric&#39;,
+         &#39;qualifier&#39;: &#39;Total&#39;,
+         &#39;transform&#39;: &#39;sum&#39;}
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The engine reads both columns, cleans the numeric values, sums them, and creates a single EAV record with &lt;code&gt;Fact_Qualifier: &#39;Total&#39;&lt;/code&gt;. This preserves the original structure while creating a queryable aggregate.&lt;/p&gt;
+&lt;h3 id=&quot;transform-type-3-regex-extract-parsing-messy-text&quot; tabindex=&quot;-1&quot;&gt;Transform Type 3: Regex Extract (Parsing Messy Text)&lt;/h3&gt;
+&lt;p&gt;Colonial clerks often embedded data within prose. A sentence might read &amp;quot;Sentenced to 50 lashes&amp;quot; when we only want the number. The regex (with which I have a love hate relationship) transform below extracts it.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;config_1791_punishments = {
+    &#39;sheet_name&#39;: &#39;07) punishments 1791 - 1794&#39;,
+    &#39;skip_rows&#39;: 2,
+    &#39;uid_col&#39;: &#39;uid&#39;,
+    &#39;year_col&#39;: &#39;Year&#39;,
+    &#39;is_state&#39;: 0,
+    &#39;domain&#39;: &#39;Judicial&#39;,
+    &#39;facts&#39;: [
+        {&#39;source_col&#39;: &#39;Sentence&#39;, 
+         &#39;fact_name&#39;: &#39;Lashes_Sentenced&#39;, 
+         &#39;type&#39;: &#39;numeric&#39;,
+         &#39;transform&#39;: &#39;regex_extract&#39;,
+         &#39;pattern&#39;: r&#39;^(&#92;d+)&#39;}
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The pattern &lt;code&gt;r&#39;^(&#92;d+)&#39;&lt;/code&gt; means: &amp;quot;Find one or more digits at the start of the string and extract them.&amp;quot; If the cell contains &amp;quot;50 lashes&amp;quot;, the engine extracts &lt;code&gt;50&lt;/code&gt;. If it contains &amp;quot;remitted&amp;quot; or is blank, the record is skipped.&lt;/p&gt;
+&lt;p&gt;Each transformation type is a deliberate choice. By making these choices explicit in the blueprint, we document our historical interpretation. Future researchers can see exactly how we parsed ambiguous data.&lt;/p&gt;
+&lt;h2 id=&quot;rule-4-detecting-researcher-edits-the-strikethrough-gatekeeper&quot; tabindex=&quot;-1&quot;&gt;Rule 4: Detecting Researcher Edits (The Strikethrough Gatekeeper)&lt;/h2&gt;
+&lt;p&gt;The blueprint-and-engine architecture handles standard extraction well. But here&#39;s where it breaks down. During the transcription and review process, researchers sometimes mark records as invalid by drawing a strikethrough in Excel. This is not the original clerk&#39;s mark. It&#39;s our editorial decision, made during data preparation. When &lt;code&gt;pandas&lt;/code&gt; reads that Excel file, it sees only the text, not the strikethrough. To the computer, a crossed-out row is still a valid event. Our engine needs to see what the researcher marked as invalid.&lt;/p&gt;
+&lt;p&gt;This is crucial for data integrity. If a researcher identified a duplicate entry, a transcription error, or a record that doesn&#39;t belong in the dataset, they marked it with a strikethrough. Our pipeline must respect that editorial decision and exclude those records from the database.&lt;/p&gt;
+&lt;p&gt;To prevent our database from populating with records that researchers flagged as invalid, the Master Processing Engine must read both the textual data and the visual intent. Inside the engine, the script runs &lt;code&gt;pandas&lt;/code&gt; to process the text, while simultaneously utilizing the &lt;code&gt;openpyxl&lt;/code&gt; library to inspect the visual formatting of the researcher&#39;s edits.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# ==========================================
+# THE STRIKETHROUGH GATEKEEPER (Inside the Engine)
+# ==========================================
+if ws:
+    excel_row_num = config.get(&#39;skip_rows&#39;, 0) + index + 2
+    is_crossed_out = False
+
+    # Check the first 5 columns for a strikethrough font
+    for col_idx in range(1, 6):
+        cell = ws.cell(row=excel_row_num, column=col_idx)
+        if cell.font and cell.font.strike:
+            is_crossed_out = True
+            break
+
+    if is_crossed_out:
+        continue  # Skip this record entirely
+# ==========================================
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;anatomy-of-the-gatekeeper&quot; tabindex=&quot;-1&quot;&gt;Anatomy of the Gatekeeper&lt;/h3&gt;
+&lt;p&gt;To understand how this script respects researcher edits, let&#39;s break down what&#39;s happening.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Synchronizing the Two Worlds&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Our pipeline reads the Excel file twice simultaneously: once with &lt;code&gt;pandas&lt;/code&gt; (for the raw text) and once with &lt;code&gt;openpyxl&lt;/code&gt; (for the visual formatting). The problem is that &lt;code&gt;pandas&lt;/code&gt; counts rows starting at 0, while Excel starts counting at 1. Furthermore, our blueprint told &lt;code&gt;pandas&lt;/code&gt; to skip the first two rows of messy headers. To ask &lt;code&gt;openpyxl&lt;/code&gt; to check the visual formatting of the current row, we have to calculate exactly where that row sits in the physical spreadsheet.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;excel_row_num = skip_rows + pandas_index + 2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This formula aligns the two counting systems so we&#39;re checking the same row in both libraries.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. The Default Assumption&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We start by assuming the historical record is valid and active (&lt;code&gt;is_crossed_out = False&lt;/code&gt;). Only evidence of a strikethrough changes this assumption.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Scanning the Ink&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We don&#39;t need to check every single cell in a 30-column ledger to know if a row was marked invalid. When a researcher struck a line through an entry, they almost always crossed out the individual&#39;s name or ID in the first few columns. To save processing power, we instruct the script to only look at the first five columns (&lt;code&gt;range(1, 6)&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. Detecting the Mark&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This is the core of the extraction. The script looks at the underlying XML metadata of the specific Excel cell. It asks two questions: Does this cell have custom font formatting? And if so, does that formatting include a strikethrough? If it finds a line drawn through the text, it flips our assumption to &lt;code&gt;True&lt;/code&gt; and breaks the scanning loop.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. Honoring the Edit&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In Python, the &lt;code&gt;continue&lt;/code&gt; command tells a loop to immediately stop what it is doing and move on to the next item. If our gatekeeper detected a strikethrough, hitting &lt;code&gt;continue&lt;/code&gt; means the script completely abandons extracting that row. The record is never translated, and the researcher-marked invalid event never makes it into our clean database.&lt;/p&gt;
+&lt;p&gt;By walking through the logic line-by-line, we demystify the programming. It proves that handling complex archival data doesn&#39;t require impenetrable computer science. It just requires a logical, methodical translation of a researcher&#39;s editorial process into digital steps.&lt;/p&gt;
+&lt;h2 id=&quot;rule-5-multiple-datasets-on-a-single-sheet-handling-stacked-data&quot; tabindex=&quot;-1&quot;&gt;Rule 5: Multiple Datasets on a Single Sheet (Handling Stacked Data)&lt;/h2&gt;
+&lt;p&gt;Sometimes a single Excel tab contains multiple logical datasets stacked vertically. These datasets have different column headers and are separated by blank rows. For example, a single tab might contain production data for two different crops, each with its own header row and column structure.&lt;/p&gt;
+&lt;p&gt;Rather than manually splitting the file or writing separate transcriptions, we use the &lt;code&gt;skip_rows&lt;/code&gt; and &lt;code&gt;nrows&lt;/code&gt; parameters to create separate blueprints for each dataset region.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;config_1798_maize = {
+    &#39;sheet_name&#39;: &#39;sheet with Maize and Swine&#39;,
+    &#39;skip_rows&#39;: 2,
+    &#39;nrows&#39;: 18,  # Only read 18 rows
+    &#39;uid_col&#39;: &#39;uid&#39;,
+    &#39;is_state&#39;: 1,
+    &#39;domain&#39;: &#39;Agricultural&#39;,
+    &#39;facts&#39;: [
+        {&#39;source_col&#39;: &#39;Maize (Bushels)&#39;, &#39;fact_name&#39;: &#39;Crop_Maize_Bushels&#39;, &#39;type&#39;: &#39;numeric&#39;}
+    ]
+}
+
+config_1798_swine = {
+    &#39;sheet_name&#39;: &#39;sheet with Maize and Swine&#39;,
+    &#39;skip_rows&#39;: 20,  # Start at row 20, after blank space
+    &#39;uid_col&#39;: &#39;uid&#39;,
+    &#39;is_state&#39;: 1,
+    &#39;domain&#39;: &#39;Agricultural&#39;,
+    &#39;facts&#39;: [
+        {&#39;source_col&#39;: &#39;Swine Count&#39;, &#39;fact_name&#39;: &#39;Livestock_Swine&#39;, &#39;type&#39;: &#39;numeric&#39;}
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The engine processes the same physical tab twice, but with different &lt;code&gt;skip_rows&lt;/code&gt; and &lt;code&gt;nrows&lt;/code&gt; parameters. The first blueprint skips the first 2 rows and reads exactly 18 rows of maize data. The second blueprint skips the first 20 rows (accounting for the blank space between datasets) and reads the swine data from that point onward.&lt;/p&gt;
+&lt;p&gt;This approach keeps the source file clean and immutable while allowing us to logically partition the data as needed. Each dataset gets its own blueprint, its own transformation rules, and its own domain classification. When researchers later ask &amp;quot;How many swine were recorded in 1798?&amp;quot;, the database knows exactly which records came from which dataset region and can answer with confidence.&lt;/p&gt;
+&lt;h2 id=&quot;the-execution-queue-batch-processing-multiple-blueprints&quot; tabindex=&quot;-1&quot;&gt;The Execution Queue: Batch Processing Multiple Blueprints&lt;/h2&gt;
+&lt;p&gt;Rather than running individual scripts for each dataset, we queue all blueprints and process them in sequence.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;processing_queue = [
+    config_1802_births_deaths,
+    config_1803_victualling,
+    config_1805_land,
+    config_1807_land_muster,
+    config_1809_hobart_muster,
+    config_1791_punishments,
+    config_old_system_pardons,
+    config_1807_vdl_evacuation,
+    config_1792_stowaways,
+    config_adm36_navy_musters,
+    config_1798_maize,
+    config_1798_swine,
+    config_ap_1800_part1
+]
+
+for config in processing_queue:
+    df_result = process_historical_sheet(master_file, config)
+    if not df_result.empty:
+        all_eav_dataframes.append(df_result)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The engine processes each blueprint in order, accumulating the results. At the end, all EAV records are concatenated into a single tab-delimited file ready for database import. The pipeline also generates a &lt;code&gt;Database_Data_Dictionary.csv&lt;/code&gt; containing every unique &lt;code&gt;Fact_Name&lt;/code&gt; across all datasets. This reference guide helps researchers understand what facts are available in the database and where they came from.&lt;/p&gt;
+&lt;h2 id=&quot;conclusion-one-path-among-many&quot; tabindex=&quot;-1&quot;&gt;Conclusion: One Path Among Many&lt;/h2&gt;
+&lt;p&gt;This pipeline works for our project. It might work for yours. But it&#39;s not the only way to solve this problem.&lt;/p&gt;
+&lt;p&gt;If you&#39;re building something similar, you have options. Tools like OpenRefine, Talend, and Apache NiFi can handle much of this work without writing Python code. For smaller projects, a well-designed database with careful query logic might be all you need. For larger ones, you might want to invest in a proper data warehouse solution. The point isn&#39;t to evangelize Python or pipelines specifically. The point is to be intentional about where your cleaning happens and to document it thoroughly.&lt;/p&gt;
+&lt;p&gt;Handling historical data at scale requires more than just careful transcription; it requires rigorous, repeatable methodologies. While visual cleaning tools or complex database queries have their place, a code-based data pipeline offers unparalleled transparency and auditability for historical research.&lt;/p&gt;
+&lt;p&gt;By explicitly separating our historical assumptions (the blueprints) from our computational logic (the engine), we create a system that is robust, scalable, and inherently documented. This architecture allows us to capture the nuances of colonial records—from tracking strikethroughs to serializing raw JSON payloads—without ever compromising the immutable source material.&lt;/p&gt;
+&lt;p&gt;If you are drowning in spreadsheets and trying to figure out how to get them into a database without destroying the historical context, the solution is not to manually clean harder. The solution is to invest your time in proper tooling and documentation. Future researchers will thank you for it.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;cite-this-post&quot; tabindex=&quot;-1&quot;&gt;Cite this post&lt;/h3&gt;
+&lt;p&gt;If you found this methodology useful for your own work, you can cite it here:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;McLean, Mark. &amp;quot;The Immutable Archive: Building Archival Data Pipelines in Python.&amp;quot; &lt;em&gt;The Digital Stockade&lt;/em&gt;. Published 2026-03-28. &lt;a href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/" >
+        </entry>
+        <entry>
+            <title>
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-28T04:50:20Z</updated>
+            <updated>2026-03-28T04:50:41Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
 &lt;h3 id=&quot;published-articles&quot; tabindex=&quot;-1&quot;&gt;Published Articles:&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Data Pipelines&lt;/a&gt;: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/&quot;&gt;Data Pipelines&lt;/a&gt;: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.&lt;/li&gt;
 &lt;/ul&gt;
 
             </content>
@@ -75,7 +353,7 @@
                 Contact
                 
             </title>
-            <updated>2026-03-28T04:50:20Z</updated>
+            <updated>2026-03-28T04:50:41Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -113,7 +391,7 @@
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-28T04:50:20Z</updated>
+            <updated>2026-03-28T04:50:41Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;

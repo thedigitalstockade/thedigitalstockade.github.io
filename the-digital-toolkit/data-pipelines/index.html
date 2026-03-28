@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Building Data Pipelines That Honor the Past</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.c92889a0.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+</head>
+<body class="theme-dark markdown-preview-view markdown-rendered markdown-preview-section">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">The Digital Stockade</h1>
+</a>
+</div>
+<div class="search-button align-icon" onclick="toggleSearch()">
+<span class="search-icon">
+<i icon-name="search"></i>
+</span>
+<span class="search-text">
+<span>Search</span>
+<span style="font-size:.6rem;padding:2px 2px 0 6px;text-align:center;transform:translateY(4px)" class="search-keys">
+CTRL + K
+</span>
+</span>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">The Digital Stockade</h1>
+</a>
+<div style="display:flex;justify-content:center">
+<div class="search-button align-icon" onclick="toggleSearch()">
+<span class="search-icon">
+<i icon-name="search"></i>
+</span>
+<span class="search-text">
+<span>Search</span>
+<span style="font-size:.6rem;padding:2px 2px 0 6px;text-align:center;transform:translateY(4px)" class="search-keys">
+CTRL + K
+</span>
+</span>
+</div>
+</div>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Code Fragments')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Code Fragments</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/code-fragments/code-fragments-index/">Code Fragments </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Methodology &amp; Theory')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Methodology &amp; Theory</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/methodology-and-theory/methodology-and-theory-index/">Methodology &amp; Theory </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('The Digital Toolkit')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">The Digital Toolkit</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/the-digital-toolkit/data-pipelines/">Building Data Pipelines That Honor the Past </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/the-digital-toolkit/the-digital-toolkit-index/">The Digital Toolkit </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/contact/">Contact &amp; Connect </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/">Welcome to The Digital Stockade </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<div class="search-container" id="globalsearch" onclick="toggleSearch()">
+<div class="search-box">
+<input type="search" id="term" placeholder="Start typing...">
+<div id="search-results"></div>
+<footer class="search-box-footer">
+<div class="navigation-hint">
+<span>Enter to select</span>
+</div>
+<div class="navigation-hint align-icon">
+<i icon-name="arrow-up" aria-hidden="true"></i>
+<i icon-name="arrow-down" aria-hidden="true"></i>
+<span>to navigate</span>
+</div>
+<div class="navigation-hint">
+<span>ESC to close</span>
+</div>
+</footer>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"></script>
+<script>document.addEventListener("DOMContentLoaded",init,!1),document.addEventListener("DOMContentLoaded",setCorrectShortcut,!1),window.toggleSearch=function(){document.getElementById("globalsearch").classList.contains("active")?document.getElementById("globalsearch").classList.remove("active"):(document.getElementById("globalsearch").classList.add("active"),document.getElementById("term").focus())},window.toggleTagSearch=function(e){console.log(e.textContent);const t=e.textContent;t&&(window.document.getElementById("term").value=t.trim(),window.toggleSearch(),window.search())};const loadingSvg='\n    <svg width="100" height="100" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">\n      <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="1.5s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="1.5s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="1.5s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="3s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="3s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="3s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="8">\n              <animate attributeName="r"\n                   begin="0s" dur="1.5s"\n                   values="6;1;2;3;4;5;6"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n      </g>\n  </svg>';function debounce(e,t,n){var a;return function(){var r=this,i=arguments,c=n&&!a;clearTimeout(a),a=setTimeout((function(){a=null,n||e.apply(r,i)}),t),c&&e.apply(r,i)}}function setCorrectShortcut(){navigator.platform.toUpperCase().indexOf("MAC")>=0&&document.querySelectorAll(".search-keys").forEach((e=>e.innerHTML="⌘ + K"))}function createIndex(e){const t=e=>e.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/),n=new FlexSearch.Document({cache:!0,charset:"latin:extra",optimize:!0,index:[{field:"content",tokenize:"reverse",encode:t},{field:"title",tokenize:"forward",encode:t},{field:"tags",tokenize:"forward",encode:t}]});return e.forEach(((e,t)=>{n.add({id:t,title:e.title,content:e.content,tags:e.tags})})),n}async function init(){let e=!0;if(localStorage.getItem("searchIndex")){let{date:t,docs:n}=JSON.parse(localStorage.getItem("searchIndex"));if("2026-03-28T04:50:49.835Z"===t){e=!1;let t=createIndex(n);window.docs=n,window.index=t}}if(e){let e=await(await fetch("/searchIndex.json?v=2026-03-28T04:50:49.835Z")).json(),t=createIndex(e);localStorage.setItem("searchIndex",JSON.stringify({date:"2026-03-28T04:50:49.835Z",docs:e})),window.docs=e,window.index=t}document.addEventListener("keydown",(e=>{if((e.ctrlKey||e.metaKey)&&"k"===e.key&&(e.preventDefault(),toggleSearch()),"Escape"===e.key&&document.getElementById("globalsearch").classList.remove("active"),document.getElementById("globalsearch").classList.contains("active")){if("ArrowDown"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.nextElementSibling?t.nextElementSibling.classList.add("active"):document.querySelector(".searchresult").classList.add("active")):document.querySelector(".searchresult").classList.add("active");let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("ArrowUp"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.previousElementSibling?t.previousElementSibling.classList.add("active"):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling||e.classList.add("active")}))):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling&&e.classList.add("active")}));let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("Enter"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t&&(window.location.href=t.querySelector("a").href)}}}));const t=debounce(search,200,!1);field=document.querySelector("#term"),field.addEventListener("keydown",(e=>{"ArrowDown"!==e.key&&"ArrowUp"!==e.key&&t()})),resultsDiv=document.querySelector("#search-results");const n=new URL(location.href).searchParams;n.get("q")&&(field.setAttribute("value",n.get("q")),toggleSearch(),search())}async function search(){let e=field.value.trim();if(!e)return;if(e==lastSearch)return;console.log(`search for ${e}`),window.lastSearch=e,resultsDiv.innerHTML=loadingSvg;let t=offlineSearch(e),n="";if(!t.length){let t=document.createElement("p");return t.innerText=`No results for "${e}"`,resultsDiv.innerHTML="",void resultsDiv.appendChild(t)}n+='<div style="max-width:100%;">',t.forEach((e=>{e.tags&&e.tags.length>0?n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        <div class="header-meta">\n                            <div class="header-tags">\n                                ${e.tags.map((e=>'<a class="tag" href="JavaScript:Void(0);">#'+e+"</a>")).join("")}\n                            </div>\n                        </div>\n                        ${e.content}\n                    </div>\n                </div>`:n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        ${e.content}\n                    </div>\n                </div>`})),n+="</div>",resultsDiv.innerHTML=n}function truncate(e,t){return(e=e.replaceAll(/<[^>]*>/g,"")).length<t?e:e.substring(0,t-3)+"..."}function offlineSearch(e){let t=window.docs,n="#"===e[0]&&e.length>1?index.search(e.substring(1),[{field:"tags"}]):index.search(e,[{field:"title",limit:5},{field:"content",weight:10}]);const a=e=>{const t=n.filter((t=>t.field===e));return 0===t.length?[]:[...t[0].result]};return[...new Set([...a("title"),...a("content"),...a("tags")])].map((e=>{let n=t[e];return n.content=truncate(n.content,400),n.tags=n.tags.filter((e=>"gardenEntry"!=e&&"note"!=e)),n}))}window.lastSearch=""</script>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">Building Data Pipelines That Honor the Past</h1>
+<div class="header-meta">
+</div>
+</header>
+<hr>
+<h1 id="the-immutable-archive-building-archival-data-pipelines-in-python" tabindex="-1">The Immutable Archive: Building Archival Data Pipelines in Python</h1>
+<p>After transcribing Australian Colonial records, we inevitably end up with spreadsheets. They're useful for preliminary analysis, but to unlock deeper insights, to ask questions that span multiple domains and time periods, the data must move into a structured database. The challenge is that historical records are messy, and that messiness matters.</p>
+<p>The historical record is filled with blank dates, misspelled names, human error, and editorial marks that standard data tools can't see. That's fine, but from a database point of view these may not play nicely with our analysis goals.</p>
+<p>This leaves us with a few options. The first and most dangerous option when faced with an inconsistent CSV or Excel file is to manually &quot;fix&quot; it before import. This can leave you in a world of pain. Doing this effectively means we are overwriting the original archivist's reality with our own, obscuring the very real uncertainties of the past and destroying analytical data along the way. Name misspellings can give us clues about dialects or education levels for instance. If you must modify the source, make a copy of the column you are editing and make the corrections in the copy. The downside is that manual cleaning is not repeatable. When you discover an error in your logic three months later, you have to remember what you changed and why. Consistency across large datasets becomes nearly impossible.</p>
+<p>Another way is to import the data as-is and deal with it within the database itself. This is a perfectly sound methodology if your database design accounts for it, and has been deployed on many large scale analysis projects I have witnessed. The advantage is that your source remains untouched and all your cleaning logic lives in one place. The disadvantage is that you need a more sophisticated database design to handle the messiness. If you're doing heavy transformation at query time, your analysis becomes slower. And if your database is being used by non-technical researchers, they may struggle to understand why the data looks the way it does.</p>
+<p>There's also another option worth mentioning: using a dedicated data cleaning tool like OpenRefine or Trifacta. These sit between your spreadsheet and your database, offering a visual interface for cleaning and transformation and creating logs of all the activities undertaken. They're excellent for one-off projects or when you need to involve non-programmers in the cleaning process. The trade-off is that they can be harder to version control (especialy if multiple people are involved) and audit than code-based pipelines.</p>
+<p>The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable. When you discover a new dataset that follows the same pattern, you can reuse 90 percent of your code.</p>
+<p>This documented cleaning is what is commonly called a <strong>Data Pipeline</strong>.</p>
+<p>In software engineering, an ETL (Extract, Transform, Load) pipeline automates three steps: extracting raw data, transforming it into a standard format, and loading it into a database. In historical research, it serves a different purpose. It acts as a transparent, repeatable translation layer between the messy reality of the archive and the rigid architecture of our databases.</p>
+<p>For this project, we're structuring the data into an Entity-Attribute-Value (EAV) format. This is a flexible model that captures historical facts as discrete, queryable records. (I'll cover EAV in detail in a separate post, but for now, think of it as a way to store &quot;Person X had Y amount of Z in year W&quot; as a single, standardized row.) Later, we flatten this EAV structure into a researcher-friendly index that makes querying intuitive for non-technical users.</p>
+<h2 id="the-architecture-separating-the-rules-from-the-engine" tabindex="-1">The Architecture: Separating the Rules from the Engine</h2>
+<p>A common trap in digital history is writing a brand-new, custom <strong>Python</strong> (insert your language of choice but I'm generally a Python guy) script for every single spreadsheet. If a project relies on 50+ different archival ledgers, managing 500 different processing scripts quickly becomes a maintenance nightmare.</p>
+<p>Instead, a robust data pipeline utilizes strict Separation of Concerns. It divides the workflow into two distinct components: the Blueprints (the historical rules) and the Engine (the processing logic).</p>
+<p>Here's how data actually flows through the Python pipeline for early Colonial datasets that I made recently:</p>
+<pre><code class="language-text">=========================================================================
+                    Example ARCHIVAL DATA PIPELINE
+=========================================================================
+
+ [THE BLUEPRINTS]
+ (Python config dictionaries)
+ - sheet_name, skip_rows, nrows
+ - uid_col, year_col, domain
+ - facts array with transform rules
+            |
+            v
+ [THE EXECUTION QUEUE]
+ (Process blueprints in sequence)
+            |
+            +---&gt; Blueprint 1 (1805 Land Muster)
+            |     Blueprint 2 (1809 Hobart Muster)
+            |     Blueprint 3 (1798 Maize)
+            |     Blueprint 4 (1798 Swine)
+            |     ... (n tabs+ total)
+            |
+            v
+ [Master Excel File]
+ (Reads all tabs, immutable source)
+            |
+            +---------------------+---------------------+
+            |                     |                     |
+            v                     v                     v
+ [pandas: Read Data]         [openpyxl: Read Visual]  [Identify Dataset
+ (Respecting skip_rows       (Detect strikethrough    Region (skip_rows
+  and nrows from blueprint)   marks from researchers)  and nrows)]
+            |                     |                     |
+            +---------------------+---------------------+
+                          |
+                          v
+            [THE STRIKETHROUGH GATEKEEPER]
+            (Skip rows marked invalid by researchers)
+                          |
+                          v
+            [THE TRANSFORMATION ROUTER]
+            (Apply transform rules from blueprint)
+            - direct: pass value through
+            - sum: aggregate multiple columns
+            - regex_extract: parse text patterns
+                          |
+                          v
+            [BUILD EAV RECORDS + JSON PAYLOAD]
+            (Entity_ID, Fact_Name, Fact_Value_Numeric,
+             Fact_Value_Text, Fact_Qualifier, Raw JSON Payload of original)                      |
+                          v
+            [ACCUMULATE RESULTS]
+            (Append to results from previous blueprints)
+                          |
+            (Loop back to next blueprint in queue)
+                          |
+                          v
+ [CONCATENATE ALL BATCHES]
+ (Merge results from all  blueprints)
+            |
+            v
+ [GENERATE OUTPUTS]
+ - EAV_Import_Ready.txt (tab-delimited)
+ - Data_Dictionary.csv (unique fact names)
+
+
+</code></pre>
+<p>By understanding this top-down architecture, we can establish five golden rules for processing historical data. These rules ensure we structure the past without erasing its complexities.</p>
+<h2 id="rule-1-the-principle-of-immutability" tabindex="-1">Rule 1: The Principle of Immutability</h2>
+<p>Notice in the flowchart that data flows only away from the raw Excel file. The raw transcription is immutable, a read-only artifact. If an 1805 muster contains a typo, that typo is a historical fact. We preserve it.</p>
+<p>We never alter the source files. Instead, the pipeline's extraction engine reads the messy reality into memory and translates it there. Whilst it is not shown in the code snippet, to guarantee absolute traceability, the pipeline does something crucial: as it reads the raw, unmodified data, it serializes the entire <strong>original Excel row as a JSON string</strong> and stores it directly alongside the newly extracted EAV fact. This means a researcher looking at the final database doesn't just see the cleaned data; they can instantly view the exact, untouched text that generated it. If our interpretation of a colonial date format turns out to be flawed next year, our original data remains untouched. We simply update the Python script and run the pipeline again.</p>
+<pre><code class="language-python"># The raw Excel file is never modified
+df = pd.read_excel(
+    master_excel_file,
+    sheet_name=config['sheet_name'],
+    skiprows=config.get('skip_rows', 0),
+    nrows=config.get('nrows', None)
+)
+# All transformations happen on this in-memory copy
+</code></pre>
+<h2 id="rule-2-the-translation-layer-the-blueprints" tabindex="-1">Rule 2: The Translation Layer (The Blueprints)</h2>
+<p>To bridge the gap between human messiness and database architecture, the pipeline utilizes Python dictionaries as processing Blueprints.</p>
+<p>Instead of writing dense code that hides historical assumptions, we map out exactly how the engine should interpret a specific document. Here's a real example: a blueprint designed to parse an 1805 Norfolk Island land muster. It tells the engine exactly which Excel tab to target, how to identify the individual, and how to translate specific columns into measurable database attributes.</p>
+<pre><code class="language-python">config_1805_land = {
+    'sheet_name': '24) a land record sheet',
+    'skip_rows': 2,
+    'uid_col': 'uid',
+    'source_uid_col': 'doc_uid',
+    'year_col': 'event_date',
+    'is_state': 1,
+    'domain': 'Agricultural',
+    'facts': [
+        {'source_col': 'Land Culivation', 'fact_name': 'Acres_Cultivated', 'type': 'numeric'},
+        {'source_col': 'Bulls and Cows', 'fact_name': 'Livestock_Cattle', 'type': 'numeric'},
+        {'source_col': 'Sheep', 'fact_name': 'Livestock_Sheep', 'type': 'numeric'}
+    ]
+}
+
+</code></pre>
+<p>By reading this blueprint, the overarching logic becomes entirely transparent.</p>
+<p>Targeting the Data: <code>sheet_name</code> and <code>skip_rows</code> direct the engine to the exact Excel tab and instruct it to bypass the first two rows of messy header notes.</p>
+<p>Anchoring the Entity: <code>uid_col</code> and <code>year_col</code> ensure that every extracted fact is permanently tied to a specific historical individual and a specific point in time.</p>
+<p>Translating the Facts: The <code>facts</code> array acts as the actual translation dictionary. It explicitly tells the engine, &quot;When you read the colonial column labeled 'Bulls and Cows', translate it to <code>Livestock_Cattle</code> in the database, and ensure the value is strictly numeric.&quot;</p>
+<p>Classifying the Record: <code>is_state</code> (1 = a snapshot of conditions; 0 = a singular event) and <code>domain</code> (Agricultural, Judicial, Vital, etc.) add historical context that researchers need.</p>
+<p>Anyone reviewing the code can see precisely how the data was derived. Furthermore, when a newly transcribed 1807 muster is uncovered, we do not need to rewrite the software engine. We simply write a new 15-line blueprint and add it to the Execution Queue.</p>
+<h2 id="rule-3-the-transformation-router-beyond-direct-mapping" tabindex="-1">Rule 3: The Transformation Router (Beyond Direct Mapping)</h2>
+<p>The simplest blueprint uses <code>'transform': 'direct'</code>. It reads a column and writes its value as-is. But real historical data is rarely that straightforward. The Transformation Router handles three distinct transformation types, each solving a different archival problem.</p>
+<h3 id="transform-type-1-direct-mapping" tabindex="-1">Transform Type 1: Direct Mapping</h3>
+<p>The most common case. Read a column, validate it exists, and pass it through.</p>
+<pre><code class="language-python">{'source_col': 'Pardon', 'fact_name': 'Pardon_Type', 'type': 'text'}
+</code></pre>
+<p>The engine checks: Does this cell have a value? If yes, extract it without modification and map it to a database field. If no, skip the record.</p>
+<h3 id="transform-type-2-sum-aggregating-multiple-columns" tabindex="-1">Transform Type 2: Sum (Aggregating Multiple Columns)</h3>
+<p>Sometimes historical clerks split a single concept across multiple columns. In this 1809 Muster example, swine counts are recorded separately by sex.</p>
+<pre><code class="language-python">config_1809_hobart_muster = {
+    'sheet_name': '30) 1809 Muster',
+    'skip_rows': 2,
+    'uid_col': 'uid',
+    'year_col': 'event_date',
+    'is_state': 1,
+    'domain': 'Agricultural',
+    'facts': [
+        {'source_cols': ['Swine Male', 'Swine Female'], 
+         'fact_name': 'Livestock_Swine', 
+         'type': 'numeric',
+         'qualifier': 'Total',
+         'transform': 'sum'}
+    ]
+}
+</code></pre>
+<p>The engine reads both columns, cleans the numeric values, sums them, and creates a single EAV record with <code>Fact_Qualifier: 'Total'</code>. This preserves the original structure while creating a queryable aggregate.</p>
+<h3 id="transform-type-3-regex-extract-parsing-messy-text" tabindex="-1">Transform Type 3: Regex Extract (Parsing Messy Text)</h3>
+<p>Colonial clerks often embedded data within prose. A sentence might read &quot;Sentenced to 50 lashes&quot; when we only want the number. The regex (with which I have a love hate relationship) transform below extracts it.</p>
+<pre><code class="language-python">config_1791_punishments = {
+    'sheet_name': '07) punishments 1791 - 1794',
+    'skip_rows': 2,
+    'uid_col': 'uid',
+    'year_col': 'Year',
+    'is_state': 0,
+    'domain': 'Judicial',
+    'facts': [
+        {'source_col': 'Sentence', 
+         'fact_name': 'Lashes_Sentenced', 
+         'type': 'numeric',
+         'transform': 'regex_extract',
+         'pattern': r'^(\d+)'}
+    ]
+}
+</code></pre>
+<p>The pattern <code>r'^(\d+)'</code> means: &quot;Find one or more digits at the start of the string and extract them.&quot; If the cell contains &quot;50 lashes&quot;, the engine extracts <code>50</code>. If it contains &quot;remitted&quot; or is blank, the record is skipped.</p>
+<p>Each transformation type is a deliberate choice. By making these choices explicit in the blueprint, we document our historical interpretation. Future researchers can see exactly how we parsed ambiguous data.</p>
+<h2 id="rule-4-detecting-researcher-edits-the-strikethrough-gatekeeper" tabindex="-1">Rule 4: Detecting Researcher Edits (The Strikethrough Gatekeeper)</h2>
+<p>The blueprint-and-engine architecture handles standard extraction well. But here's where it breaks down. During the transcription and review process, researchers sometimes mark records as invalid by drawing a strikethrough in Excel. This is not the original clerk's mark. It's our editorial decision, made during data preparation. When <code>pandas</code> reads that Excel file, it sees only the text, not the strikethrough. To the computer, a crossed-out row is still a valid event. Our engine needs to see what the researcher marked as invalid.</p>
+<p>This is crucial for data integrity. If a researcher identified a duplicate entry, a transcription error, or a record that doesn't belong in the dataset, they marked it with a strikethrough. Our pipeline must respect that editorial decision and exclude those records from the database.</p>
+<p>To prevent our database from populating with records that researchers flagged as invalid, the Master Processing Engine must read both the textual data and the visual intent. Inside the engine, the script runs <code>pandas</code> to process the text, while simultaneously utilizing the <code>openpyxl</code> library to inspect the visual formatting of the researcher's edits.</p>
+<pre><code class="language-python"># ==========================================
+# THE STRIKETHROUGH GATEKEEPER (Inside the Engine)
+# ==========================================
+if ws:
+    excel_row_num = config.get('skip_rows', 0) + index + 2
+    is_crossed_out = False
+
+    # Check the first 5 columns for a strikethrough font
+    for col_idx in range(1, 6):
+        cell = ws.cell(row=excel_row_num, column=col_idx)
+        if cell.font and cell.font.strike:
+            is_crossed_out = True
+            break
+
+    if is_crossed_out:
+        continue  # Skip this record entirely
+# ==========================================
+</code></pre>
+<h3 id="anatomy-of-the-gatekeeper" tabindex="-1">Anatomy of the Gatekeeper</h3>
+<p>To understand how this script respects researcher edits, let's break down what's happening.</p>
+<p><strong>1. Synchronizing the Two Worlds</strong></p>
+<p>Our pipeline reads the Excel file twice simultaneously: once with <code>pandas</code> (for the raw text) and once with <code>openpyxl</code> (for the visual formatting). The problem is that <code>pandas</code> counts rows starting at 0, while Excel starts counting at 1. Furthermore, our blueprint told <code>pandas</code> to skip the first two rows of messy headers. To ask <code>openpyxl</code> to check the visual formatting of the current row, we have to calculate exactly where that row sits in the physical spreadsheet.</p>
+<pre><code class="language-python">excel_row_num = skip_rows + pandas_index + 2
+</code></pre>
+<p>This formula aligns the two counting systems so we're checking the same row in both libraries.</p>
+<p><strong>2. The Default Assumption</strong></p>
+<p>We start by assuming the historical record is valid and active (<code>is_crossed_out = False</code>). Only evidence of a strikethrough changes this assumption.</p>
+<p><strong>3. Scanning the Ink</strong></p>
+<p>We don't need to check every single cell in a 30-column ledger to know if a row was marked invalid. When a researcher struck a line through an entry, they almost always crossed out the individual's name or ID in the first few columns. To save processing power, we instruct the script to only look at the first five columns (<code>range(1, 6)</code>).</p>
+<p><strong>4. Detecting the Mark</strong></p>
+<p>This is the core of the extraction. The script looks at the underlying XML metadata of the specific Excel cell. It asks two questions: Does this cell have custom font formatting? And if so, does that formatting include a strikethrough? If it finds a line drawn through the text, it flips our assumption to <code>True</code> and breaks the scanning loop.</p>
+<p><strong>5. Honoring the Edit</strong></p>
+<p>In Python, the <code>continue</code> command tells a loop to immediately stop what it is doing and move on to the next item. If our gatekeeper detected a strikethrough, hitting <code>continue</code> means the script completely abandons extracting that row. The record is never translated, and the researcher-marked invalid event never makes it into our clean database.</p>
+<p>By walking through the logic line-by-line, we demystify the programming. It proves that handling complex archival data doesn't require impenetrable computer science. It just requires a logical, methodical translation of a researcher's editorial process into digital steps.</p>
+<h2 id="rule-5-multiple-datasets-on-a-single-sheet-handling-stacked-data" tabindex="-1">Rule 5: Multiple Datasets on a Single Sheet (Handling Stacked Data)</h2>
+<p>Sometimes a single Excel tab contains multiple logical datasets stacked vertically. These datasets have different column headers and are separated by blank rows. For example, a single tab might contain production data for two different crops, each with its own header row and column structure.</p>
+<p>Rather than manually splitting the file or writing separate transcriptions, we use the <code>skip_rows</code> and <code>nrows</code> parameters to create separate blueprints for each dataset region.</p>
+<pre><code class="language-python">config_1798_maize = {
+    'sheet_name': 'sheet with Maize and Swine',
+    'skip_rows': 2,
+    'nrows': 18,  # Only read 18 rows
+    'uid_col': 'uid',
+    'is_state': 1,
+    'domain': 'Agricultural',
+    'facts': [
+        {'source_col': 'Maize (Bushels)', 'fact_name': 'Crop_Maize_Bushels', 'type': 'numeric'}
+    ]
+}
+
+config_1798_swine = {
+    'sheet_name': 'sheet with Maize and Swine',
+    'skip_rows': 20,  # Start at row 20, after blank space
+    'uid_col': 'uid',
+    'is_state': 1,
+    'domain': 'Agricultural',
+    'facts': [
+        {'source_col': 'Swine Count', 'fact_name': 'Livestock_Swine', 'type': 'numeric'}
+    ]
+}
+</code></pre>
+<p>The engine processes the same physical tab twice, but with different <code>skip_rows</code> and <code>nrows</code> parameters. The first blueprint skips the first 2 rows and reads exactly 18 rows of maize data. The second blueprint skips the first 20 rows (accounting for the blank space between datasets) and reads the swine data from that point onward.</p>
+<p>This approach keeps the source file clean and immutable while allowing us to logically partition the data as needed. Each dataset gets its own blueprint, its own transformation rules, and its own domain classification. When researchers later ask &quot;How many swine were recorded in 1798?&quot;, the database knows exactly which records came from which dataset region and can answer with confidence.</p>
+<h2 id="the-execution-queue-batch-processing-multiple-blueprints" tabindex="-1">The Execution Queue: Batch Processing Multiple Blueprints</h2>
+<p>Rather than running individual scripts for each dataset, we queue all blueprints and process them in sequence.</p>
+<pre><code class="language-python">processing_queue = [
+    config_1802_births_deaths,
+    config_1803_victualling,
+    config_1805_land,
+    config_1807_land_muster,
+    config_1809_hobart_muster,
+    config_1791_punishments,
+    config_old_system_pardons,
+    config_1807_vdl_evacuation,
+    config_1792_stowaways,
+    config_adm36_navy_musters,
+    config_1798_maize,
+    config_1798_swine,
+    config_ap_1800_part1
+]
+
+for config in processing_queue:
+    df_result = process_historical_sheet(master_file, config)
+    if not df_result.empty:
+        all_eav_dataframes.append(df_result)
+</code></pre>
+<p>The engine processes each blueprint in order, accumulating the results. At the end, all EAV records are concatenated into a single tab-delimited file ready for database import. The pipeline also generates a <code>Database_Data_Dictionary.csv</code> containing every unique <code>Fact_Name</code> across all datasets. This reference guide helps researchers understand what facts are available in the database and where they came from.</p>
+<h2 id="conclusion-one-path-among-many" tabindex="-1">Conclusion: One Path Among Many</h2>
+<p>This pipeline works for our project. It might work for yours. But it's not the only way to solve this problem.</p>
+<p>If you're building something similar, you have options. Tools like OpenRefine, Talend, and Apache NiFi can handle much of this work without writing Python code. For smaller projects, a well-designed database with careful query logic might be all you need. For larger ones, you might want to invest in a proper data warehouse solution. The point isn't to evangelize Python or pipelines specifically. The point is to be intentional about where your cleaning happens and to document it thoroughly.</p>
+<p>Handling historical data at scale requires more than just careful transcription; it requires rigorous, repeatable methodologies. While visual cleaning tools or complex database queries have their place, a code-based data pipeline offers unparalleled transparency and auditability for historical research.</p>
+<p>By explicitly separating our historical assumptions (the blueprints) from our computational logic (the engine), we create a system that is robust, scalable, and inherently documented. This architecture allows us to capture the nuances of colonial records—from tracking strikethroughs to serializing raw JSON payloads—without ever compromising the immutable source material.</p>
+<p>If you are drowning in spreadsheets and trying to figure out how to get them into a database without destroying the historical context, the solution is not to manually clean harder. The solution is to invest your time in proper tooling and documentation. Future researchers will thank you for it.</p>
+<hr>
+<h3 id="cite-this-post" tabindex="-1">Cite this post</h3>
+<p>If you found this methodology useful for your own work, you can cite it here:</p>
+<blockquote>
+<p>McLean, Mark. &quot;The Immutable Archive: Building Archival Data Pipelines in Python.&quot; <em>The Digital Stockade</em>. Published 2026-03-28. <a href="https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines" target="_blank" class="external-link">https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines</a></p>
+</blockquote>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#the-immutable-archive-building-archival-data-pipelines-in-python">The Immutable Archive: Building Archival Data Pipelines in Python</a>
+<ol>
+<li><a href="#the-architecture-separating-the-rules-from-the-engine">The Architecture: Separating the Rules from the Engine</a>
+</li>
+<li><a href="#rule-1-the-principle-of-immutability">Rule 1: The Principle of Immutability</a>
+</li>
+<li><a href="#rule-2-the-translation-layer-the-blueprints">Rule 2: The Translation Layer (The Blueprints)</a>
+</li>
+<li><a href="#rule-3-the-transformation-router-beyond-direct-mapping">Rule 3: The Transformation Router (Beyond Direct Mapping)</a>
+<ol>
+<li><a href="#transform-type-1-direct-mapping">Transform Type 1: Direct Mapping</a>
+</li>
+<li><a href="#transform-type-2-sum-aggregating-multiple-columns">Transform Type 2: Sum (Aggregating Multiple Columns)</a>
+</li>
+<li><a href="#transform-type-3-regex-extract-parsing-messy-text">Transform Type 3: Regex Extract (Parsing Messy Text)</a>
+</li>
+</ol>
+</li>
+<li><a href="#rule-4-detecting-researcher-edits-the-strikethrough-gatekeeper">Rule 4: Detecting Researcher Edits (The Strikethrough Gatekeeper)</a>
+<ol>
+<li><a href="#anatomy-of-the-gatekeeper">Anatomy of the Gatekeeper</a>
+</li>
+</ol>
+</li>
+<li><a href="#rule-5-multiple-datasets-on-a-single-sheet-handling-stacked-data">Rule 5: Multiple Datasets on a Single Sheet (Handling Stacked Data)</a>
+</li>
+<li><a href="#the-execution-queue-batch-processing-multiple-blueprints">The Execution Queue: Batch Processing Multiple Blueprints</a>
+</li>
+<li><a href="#conclusion-one-path-among-many">Conclusion: One Path Among Many</a>
+<ol>
+<li><a href="#cite-this-post">Cite this post</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<style>#tooltip-wrapper{background:var(--background-primary);padding:1em;border-radius:4px;overflow:hidden;position:fixed;width:80%;max-width:400px;height:auto;max-height:300px;font-size:.8em;box-shadow:0 5px 10px rgba(0,0,0,.1);opacity:0;transition:opacity .1s;unicode-bidi:plaintext;overflow-y:scroll;z-index:10}#tooltip-wrapper:after{content:"";position:absolute;z-index:1;bottom:0;left:0;pointer-events:none;width:100%;unicode-bidi:plaintext;height:75px}</style>
+<div style="opacity:0;display:none" id="tooltip-wrapper">
+<div id="tooltip-content">
+</div>
+</div>
+<iframe style="display:none;height:0;width:0" id="link-preview-iframe" src="">
+</iframe>
+<script>var opacityTimeout,contentTimeout,transitionDurationMs=100,iframe=document.getElementById("link-preview-iframe"),tooltipWrapper=document.getElementById("tooltip-wrapper"),tooltipContent=document.getElementById("tooltip-content"),linkHistories={};function hideTooltip(){opacityTimeout=setTimeout((function(){tooltipWrapper.style.opacity=0,contentTimeout=setTimeout((function(){tooltipContent.innerHTML="",tooltipWrapper.style.display="none"}),transitionDurationMs+1)}),transitionDurationMs)}function showTooltip(t){var e=t.target,o=e.getClientRects()[e.getClientRects().length-1],i=window.pageYOffset||document.documentElement.scrollTop,n=t.target.getAttribute("href");if(-1===n.indexOf("http")||-1!==n.indexOf(window.location.host)){let t=n.split("#")[0];linkHistories[t]?(tooltipContent.innerHTML=linkHistories[t],tooltipWrapper.style.display="block",setTimeout((function(){if(tooltipWrapper.style.opacity=1,-1!=n.indexOf("#")){let t=n.split("#")[1];const e=tooltipWrapper.querySelector(`[id='${t}']`);e.classList.add("referred"),e.scrollIntoView({behavior:"smooth"},!0)}else tooltipWrapper.scroll(0,0)}),1)):(iframe.src=t,iframe.onload=function(){tooltipContentHtml="",tooltipContentHtml+='<div style="font-weight: bold; unicode-bidi: plaintext;">'+iframe.contentWindow.document.querySelector("h1").innerHTML+"</div>",tooltipContentHtml+=iframe.contentWindow.document.querySelector(".content").innerHTML,tooltipContent.innerHTML=tooltipContentHtml,linkHistories[t]=tooltipContentHtml,tooltipWrapper.style.display="block",tooltipWrapper.scrollTop=0,setTimeout((function(){if(tooltipWrapper.style.opacity=1,-1!=n.indexOf("#")){let t=n.split("#")[1];const e=tooltipWrapper.querySelector(`[id='${t}']`);e.classList.add("referred"),console.log(e),e.scrollIntoView({behavior:"smooth"},!0)}else tooltipWrapper.scroll(0,0)}),1)}),tooltipWrapper.style.left=o.left-tooltipWrapper.offsetWidth/2+o.width/2+"px",window.innerHeight-o.top<tooltipWrapper.offsetHeight?tooltipWrapper.style.top=o.top+i-tooltipWrapper.offsetHeight-10+"px":window.innerHeight-o.top>tooltipWrapper.offsetHeight&&(tooltipWrapper.style.top=o.top+i+35+"px"),o.left+o.width/2<tooltipWrapper.offsetWidth/2?tooltipWrapper.style.left="10px":document.body.clientWidth-o.left-o.width/2<tooltipWrapper.offsetWidth/2&&(tooltipWrapper.style.left=document.body.clientWidth-tooltipWrapper.offsetWidth-20+"px")}}function setupListeners(t){t.addEventListener("mouseleave",(function(t){hideTooltip()})),tooltipWrapper.addEventListener("mouseleave",(function(t){hideTooltip()})),t.addEventListener("mouseenter",(function(t){clearTimeout(opacityTimeout),clearTimeout(contentTimeout),showTooltip(t)})),tooltipWrapper.addEventListener("mouseenter",(function(t){clearTimeout(opacityTimeout),clearTimeout(contentTimeout)}))}window.addEventListener("load",(function(t){document.querySelectorAll(".internal-link").forEach(setupListeners),document.querySelectorAll(".backlink-card a").forEach(setupListeners)}))</script>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="dd MMM, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
