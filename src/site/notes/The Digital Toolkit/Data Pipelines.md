@@ -22,7 +22,7 @@ This documented cleaning is what is commonly called a **Data Pipeline**.
 
 In software engineering, an ETL (Extract, Transform, Load) pipeline automates three steps: extracting raw data, transforming it into a standard format, and loading it into a database. In historical research, it serves a different purpose. It acts as a transparent, repeatable translation layer between the messy reality of the archive and the rigid architecture of our databases.
 
-For this project, we're structuring the data into an Entity-Attribute-Value (EAV) format. This is a flexible model that captures historical facts as discrete, queryable records. (I'll cover EAV in detail in a separate post, but for now, think of it as a way to store "Person X had Y amount of Z in year W" as a single, standardized row.) Later, we flatten this EAV structure into a researcher-friendly index that makes querying intuitive for non-technical users.
+For this project, we're structuring the data into an [[Methodology & Theory/The Shape of History\|Entity-Attribute-Value]] (EAV) format. This is a flexible model that captures historical facts as discrete, queryable records. (I'll cover EAV in detail in a separate post, but for now, think of it as a way to store "Person X had Y amount of Z in year W" as a single, standardized row.) Later, we flatten this EAV structure into a researcher-friendly index that makes querying intuitive for non-technical users.
 
 ## The Architecture: Separating the Rules from the Engine
 
