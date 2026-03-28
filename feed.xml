@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-27T11:37:34Z</updated>
+    <updated>2026-03-28T00:45:31Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-27T11:37:23Z</updated>
+            <updated>2026-03-28T00:45:22Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;about&quot; tabindex=&quot;-1&quot;&gt;About&lt;/h1&gt;
@@ -42,7 +42,23 @@
                 The Digital Toolkit
                 
             </title>
-            <updated>2026-03-27T11:37:23Z</updated>
+            <updated>2026-03-28T00:45:22Z</updated>
+            <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit/</id>
+            <content type="html">
+                &lt;h1 id=&quot;the-digital-toolkit&quot; tabindex=&quot;-1&quot;&gt;The Digital Toolkit&lt;/h1&gt;
+&lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
+&lt;h3 id=&quot;workflows-and-amp-guides&quot; tabindex=&quot;-1&quot;&gt;Workflows &amp;amp; Guides:&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;(New guides will appear here as I publish them.)&lt;/em&gt;&lt;/p&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit/" >
+        </entry>
+        <entry>
+            <title>
+                The Digital Toolkit
+                
+            </title>
+            <updated>2026-03-28T00:45:22Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/</id>
             <content type="html">
                 &lt;h1 id=&quot;the-digital-toolkit&quot; tabindex=&quot;-1&quot;&gt;The Digital Toolkit&lt;/h1&gt;
@@ -58,7 +74,7 @@
                 Methodology &amp; Theory
                 
             </title>
-            <updated>2026-03-27T11:37:23Z</updated>
+            <updated>2026-03-28T00:45:22Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/</id>
             <content type="html">
                 &lt;h1 id=&quot;methodology-and-amp-theory&quot; tabindex=&quot;-1&quot;&gt;Methodology &amp;amp; Theory&lt;/h1&gt;
@@ -76,7 +92,7 @@
                 Contact
                 
             </title>
-            <updated>2026-03-27T11:37:23Z</updated>
+            <updated>2026-03-28T00:45:22Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -114,7 +130,7 @@
                 Code Fragments
                 
             </title>
-            <updated>2026-03-27T11:37:23Z</updated>
+            <updated>2026-03-28T00:45:22Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/</id>
             <content type="html">
                 &lt;h1 id=&quot;code-fragments&quot; tabindex=&quot;-1&quot;&gt;Code Fragments&lt;/h1&gt;
