@@ -7,4 +7,6 @@ This section is a grab-bag of quick, copy-and-paste scripts designed to solve hi
 
 ### The Fragments:
 
+[[Code Fragments/Randomly Offsetting Stacked Coordinates\|Randomly Offsetting Stacked Coordinates]]: A quick and easy way to randomly offset geographic coordinates to improve visualization legibility.
+
 *(New snippets will appear here as I publish them.)*
