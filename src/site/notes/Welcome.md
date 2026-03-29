@@ -30,8 +30,12 @@ Feel free to click around the networked links, grab any code that helps your own
 
 ***
 
-> [!quote] A Note on Transparency & Digital Tools
-> In the spirit of **open methodology**, I want to be clear about how the content on this site is produced. While the historical research and architectural logic are my own, the datasets I analyze are a mix of my own compilations, records generously shared by peers, and open-access archives. I also use generative AI (Large Language Models) as an editorial and coding assistant. I use these tools to help structure my thoughts, refine my prose, troubleshoot Python scripts, and format these notes for the web. Just as we must be transparent about the pipelines we use to process archival data, we must be equally transparent about the digital tools we use to build and communicate our findings.
+> [!quote] A Note on Transparency & Reuse
+> In the spirit of **open methodology**, I want to be clear about how the content on this site is produced. While the historical research and architectural logic are my own, the datasets I analyze are a mix of my own compilations, records generously shared by peers, and open-access archives. I also sometimes use generative AI (Large Language Models) as an editorial and coding assistant. I use these tools to help structure my thoughts, refine my prose, troubleshoot Python scripts, and format these notes for the web. Just as we must be transparent about the pipelines we use to process archival data, we must be equally transparent about the digital tools we use to build and communicate our findings.
+> 
+> **About reuse**
+>   
+This site documents my personal journey through digital humanities: how I think, experiment, and learn along the way. The writing often reflects individual reflection rather than formal research. Code snippets and technical examples are shared openly and are intended to be reused, adapted, and built upon with attribution. If you find ideas here useful, I welcome thoughtful reuse and citation, and I ask that the prose itself be treated as authored work rather than anonymous documentation.
 
 > [!info] 
 > These pages are made with the Obsidian note taking platform (https://obsidian.md/)
