@@ -10,3 +10,4 @@ This section contains longer-form explorations of the broader questions in digit
 
 * [[The Digital Toolkit/Data Pipelines\|Data Pipelines]]: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.
 * [[Methodology & Theory/The Shape of History\|The Shape of History]]: A quick exploration of the Entity-Attribute-Value (EAV) database model and why it is valuable in historical and archaeological research.
+* [[Methodology & Theory/From Table to Webs\|From Table to Webs]]: An introduction to graph databases and their uses in digital history.
