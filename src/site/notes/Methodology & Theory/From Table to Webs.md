@@ -12,7 +12,7 @@ As discussed in our previous notes on [[The Digital Toolkit/Data Pipelines\|Data
 By forcing the complex and networked nature of the past into two-dimensional rows and columns, we systematically strip historical data of its most important element. That element is context.
 
 > [!danger] The Spreadsheet Problem 
-> A spreadsheet can easily record that a convict was employed by a specific settler. However, capturing multiple overlapping relationships (kinship, employment, shared transport) in a spreadsheet becomes unwieldy. Even a relational database can capture these relationships, but querying them requires complex joins.
+> A spreadsheet can easily record that a convict was employed by a specific settler. However, capturing multiple overlapping relationships (kinship, employment, shared transport) in a spreadsheet becomes unwieldy. Even though a relational database can capture these relationships, but querying them requires complex joins.
 
 To capture the true complexity of human history, we need a data model where relationships are treated as primary, first-class evidence. We need to move from the table to the web. We need a Graph Database.
 
@@ -35,8 +35,8 @@ While other graph architectures and hybrid systems exist, these two models accou
 If we focus on the Labeled Property Graph (LPG) model, the database is built from four simple components:
 
 1. **Nodes (The Entities):** The nouns of your database. A node can be a `Person`, a `Place`, or a `Source Document`.
-2. **Edges (The Relationships):** The verbs that connect the nouns. Edges define exactly how two nodes are connected (e.g., `MARRIED_TO`, `EMPLOYED_BY`, `ABSCONDED_FROM`). Crucially, edges have a strict direction.
-3. **Properties:** The adjectives. Both Nodes and Edges can hold specific key/value facts. This is the structural superpower of the LPG model. You can attach a property like `Date: 1822` directly to an `ABSCONDED_FROM` edge, giving the relationship its own historical context.
+2. **Edges (The Relationships):** The verbs that connect the nouns. Edges define exactly how two nodes are connected (e.g., `MARRIED_TO`, `EMPLOYED_BY`, `ABSCONDED_FROM`). Crucially, edges can have a strict direction indicating how the relationship works.
+3. **Properties:** The adjectives. Both Nodes and Edges can hold specific key/value facts. This is a major strength of the LPG model. You can attach a property like `Date: 1822` directly to an `ABSCONDED_FROM` edge, giving the relationship its own historical context.
 4. **Labels:** Tags applied to Nodes to quickly categorize them, making searches lightning fast (e.g., tagging all human nodes as `:Person`).
 
 ## The Mechanics of Connection: SQL vs. Graph
@@ -82,7 +82,7 @@ The more complex your query, the more joins required, and the slower the respons
 
 A graph database eliminates this problem entirely because it physically stores the relationship as a permanent connection on the hard drive. There are no tables and no abstract ID numbers to cross-reference.
 
-When you load this event into a graph, the database literally draws a wire between the two historical figures:
+When you load this event into a graph, the database effectively draws a wire between the two historical figures:
 
 
 ```mermaid
@@ -105,11 +105,12 @@ By removing the computational friction of complex SQL joins, we can finally map 
 
 ## The EAV Connection (Building the Graph)
 
-If you read the previous post on the EAV format, you might be wondering how these two concepts connect.
+If you read the post on the [[Methodology & Theory/The Shape of History\| EAV format]], you might be wondering how these two concepts connect.
 
-EAV is the perfect extraction format because it breaks messy archival data down into Semantic Triples: a Subject, a Predicate, and an Object. For example, _John Doe_ -> _Received Lashes_ -> _50_.
+EAV is the perfect pre-extraction format for graphs because it breaks messy archival data down into Semantic Triples: a Subject, a Predicate, and an Object. For example, _John Doe_ -> _Received Lashes_ -> _50_.
 
 The transformation from EAV to a Labeled Property Graph requires a simple sorting process. Your pipeline looks at the EAV triples and divides them into two categories. If the triple describes a relationship between two distinct entities (like _John_ -> _Employed By_ -> _Joseph_), it draws an Edge connecting those two nodes. If the triple describes a static fact (like _John_ -> _Lashes Received_ -> _50_), it simply stores that fact as a Property directly inside John's node. This keeps the graph clean and computationally fast.
+How you specifically model what you want to be a relationship and what you want to be a property or node depends on your research outcome. There are some surprising approaches you can use, but we will keep it simple for now.
 
 You can think of EAV as the flat, reliable format we use to safely extract facts from the physical archive. The Graph Database is where we take thousands of those isolated EAV triples and stitch them together into a massive, interconnected historical reality.
 
@@ -119,7 +120,7 @@ Before migrating your entire research project, it is vital to understand that gr
 
 **The Pros:**
 
-- **Context Preservation:** Relationships are stored physically in the database. When you analyze the data or apply network analysis algorithms, they see the exact historical context surrounding an individual. A convict is not just a row in a table. They are a node connected to their masters, their family members, their fellow transport arrivals, and the places they lived.
+- **Context Preservation:** Relationships are stored physically in the database. When you analyze the data or apply network analysis algorithms, they see the exact historical context surrounding an individual. A convict is not just a row in a table. They are a node connected to their masters, their family members, their fellow transport arrivals, and the places they lived. See ([https://doi.org/10.3828/labourhistory.2025.29](https://doi.org/10.3828/labourhistory.2025.29)) for some examples.
 - **Schema Flexibility:** If you discover a new type of relationship in an archive, you just draw a new edge. You never have to redesign your entire database structure. Found evidence of a godparent relationship? Add a [:GODPARENT_OF] edge. No schema migration required.
 - **Pathfinding:** They excel at discovering hidden connections. You can easily ask the database to find the shortest path of relationships between a convict in Hobart and a magistrate in Sydney, or identify all people connected through kinship networks to a specific family.
 
@@ -128,7 +129,7 @@ Before migrating your entire research project, it is vital to understand that gr
 - **Terrible at Global Aggregations:** If you want to calculate the "average age of all 10,000 convicts in the colony," a spreadsheet will do it in a millisecond. A graph database will struggle because it has to traverse the entire network node by node to find the answer. For statistical analysis, you still need a relational database or spreadsheet.
 - **The Learning Curve:** You have to learn a new query language (like Cypher) because standard SQL does not work. This is not insurmountable, but it is an investment.
 - **Setup Complexity:** Unlike SQL, LPG databases like Neo4j are technically "schema-optional." You do not strictly have to define node types before ingestion to make the database accept the data, though it is a best practice for clean data pipelines. Therefore, translating flat CSV files into a functional graph network requires robust Python scripting. While the database itself is flexible, mapping exactly which EAV triples should become Nodes, Edges, or Properties requires careful architectural planning before you run your ingestion scripts.
-- **Data Quality Amplification:** Graph databases amplify data quality problems. A single incorrect relationship can create false network paths that mislead analysis. This makes the data pipeline discussed in the previous post even more critical. Your EAV extraction must be rigorous before ingestion into a graph.
+- **Data Quality Amplification:** Graph databases amplify data quality problems. A single incorrect relationship can create false network paths that mislead analysis. This makes the data pipeline discussed in [[The Digital Toolkit/Data Pipelines\|the previous post]] even more critical. Your EAV extraction must be rigorous before ingestion into a graph.
 
 ## When NOT to Use Graph Databases
 
@@ -146,7 +147,16 @@ They are worth the complexity only when relationship discovery is central to you
 
 ## Querying the archive
 
-The real power of a graph database becomes apparent when you want to ask complex historical questions. Graph query languages are designed to trace paths through networks visually.
+The real power of a graph database becomes apparent when you want to ask complex historical questions. There are several graph query languages including:
+
+- **Cypher** (Neo4j, LPG)
+- **SPARQL** (RDF triplestores)
+- **Gremlin** (Traversal-based LPG)
+- **GQL** (emerging ISO standard)
+- **PGQL** (Oracle property graphs)
+- **GSQL** (TigerGraph)
+
+As we are talking mainly about LPG's, we will stick with Cypher, a very common query language designed to trace paths through networks visually. 
 
 With Cypher, if we want to find every instance of a convict running away from a master in our database, we can write a simple query:
 
