@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-29T04:05:12Z</updated>
+    <updated>2026-03-29T06:30:23Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;welcome-to-the-digital-stockade&quot; tabindex=&quot;-1&quot;&gt;Welcome to The Digital Stockade&lt;/h1&gt;
@@ -39,7 +39,7 @@ Longer-form musings on the broader questions of digital history. These notes exp
 In the spirit of &lt;strong&gt;open methodology&lt;/strong&gt;, I want to be clear about how the content on this site is produced. While the historical research and architectural logic are my own, the datasets I analyze are a mix of my own compilations, records generously shared by peers, and open-access archives. I also sometimes use generative AI (Large Language Models) as an editorial and coding assistant. I use these tools to help structure my thoughts, refine my prose, troubleshoot Python scripts, and format these notes for the web. Just as we must be transparent about the pipelines we use to process archival data, we must be equally transparent about the digital tools we use to build and communicate our findings.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;About reuse&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;This site is a record of my own digital humanities journey. I use it to think out loud, try things, and make sense of ideas as I go. The writing is personal and reflective rather than polished research. Any code snippets or technical examples here are shared freely and are meant to be reused, adapted, and learned from, with attribution. If something here is useful to you, I’m glad, and I appreciate being credited when ideas travel. I just ask that the writing itself be treated as authored work, not anonymous documentation.&lt;/p&gt;
+&lt;p&gt;The Digital Stockade is a personal, non‑commercial blog documenting my work and thinking in digital humanities. The views expressed here are my own. I use it to think out loud, try things, and make sense of ideas as I go. The writing is personal and reflective rather than polished research. Any code snippets or technical examples are shared freely and are meant to be reused, adapted, and learned from, with attribution. If something here is useful to you, I’m glad, and I appreciate being credited when ideas travel. I ask that the writing itself be treated as authored work, not anonymous documentation.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!info]&lt;br /&gt;
 These pages are made with the Obsidian note taking platform (&lt;a href=&quot;https://obsidian.md/&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://obsidian.md/&lt;/a&gt;)&lt;br /&gt;
@@ -54,7 +54,7 @@ Landing Image by Google Gemini 3.&lt;/p&gt;
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -70,7 +70,7 @@ Landing Image by Google Gemini 3.&lt;/p&gt;
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -362,7 +362,7 @@ The point is to be intentional about where your cleaning happens and to document
                 The Shape of History
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/</id>
             <content type="html">
                 &lt;p&gt;When historians and archaeologists first begin digitizing records, we naturally default to the &amp;quot;wide&amp;quot; format. We open a spreadsheet, put a person&#39;s name in the first column, and then add a new column for every single fact we want to track: &lt;em&gt;Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.&lt;/em&gt;&lt;/p&gt;
@@ -478,7 +478,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -497,7 +497,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
                 From Table to Webs
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/from-table-to-webs/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -709,7 +709,7 @@ Finally, we tell the database what to hand back to us. Instead of returning raw,
                 Contact
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -747,7 +747,7 @@ Finally, we tell the database what to hand back to us. Instead of returning raw,
                 Randomly Offsetting Stacked Coordinates
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/randomly-offsetting-stacked-coordinates/</id>
             <content type="html">
                 &lt;h3 id=&quot;the-problem&quot; tabindex=&quot;-1&quot;&gt;The Problem&lt;/h3&gt;
@@ -812,7 +812,7 @@ print(f&amp;quot;Jittered: {new_location[0]:.4f}, {new_location[1]:.4f}&amp;quot
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-29T04:04:55Z</updated>
+            <updated>2026-03-29T06:30:11Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
