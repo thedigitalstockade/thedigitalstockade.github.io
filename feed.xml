@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-29T02:56:16Z</updated>
+    <updated>2026-03-29T03:00:18Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;welcome-to-the-digital-stockade&quot; tabindex=&quot;-1&quot;&gt;Welcome to The Digital Stockade&lt;/h1&gt;
@@ -51,7 +51,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -67,7 +67,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -81,7 +81,7 @@ The first and most dangerous option when faced with an inconsistent CSV or Excel
 &lt;p&gt;This can leave you in a world of pain. Doing this effectively means we are overwriting the original archivist&#39;s reality with our own, obscuring the very real uncertainties of the past and destroying analytical data along the way. Name misspellings can give us clues about dialects or education levels for instance. If you must modify the source, make a copy of the column you are editing and make the corrections in the copy. The downside is that manual cleaning is not repeatable. When you discover an error in your logic three months later, you have to remember what you changed and why. Consistency across large datasets becomes nearly impossible.&lt;/p&gt;
 &lt;p&gt;Another way is to import the data as-is and deal with it within the database itself. This is a perfectly sound methodology if your database design accounts for it, and has been deployed on many large scale analysis projects I have witnessed. The advantage is that your source remains untouched and all your cleaning logic lives in one place. The disadvantage is that you need a more sophisticated database design to handle the messiness. If you&#39;re doing heavy transformation at query time, your analysis becomes slower. And if your database is being used by non-technical researchers, they may struggle to understand why the data looks the way it does.&lt;/p&gt;
 &lt;p&gt;There&#39;s also another option worth mentioning: using a dedicated data cleaning tool like OpenRefine or Trifacta. These sit between your spreadsheet and your database, offering a visual interface for cleaning and transformation and creating logs of all the activities undertaken. They&#39;re excellent for one-off projects or when you need to involve non-programmers in the cleaning process. The trade-off is that they can be harder to version control (especialy if multiple people are involved) and audit than code-based pipelines.&lt;/p&gt;
-&lt;p&gt;The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable. When you discover a new dataset that follows the same pattern, you can reuse 90 percent of your code.&lt;/p&gt;
+&lt;p&gt;The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable.  When you discover a new dataset that follows the same pattern, you can often reuse much of your code.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;[!info]&lt;br /&gt;
 This documented cleaning is what is commonly called a &lt;strong&gt;Data Pipeline&lt;/strong&gt;.&lt;/p&gt;
@@ -276,7 +276,7 @@ if ws:
 &lt;p&gt;&lt;strong&gt;2. The Default Assumption&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;We start by assuming the historical record is valid and active (&lt;code&gt;is_crossed_out = False&lt;/code&gt;). Only evidence of a strikethrough changes this assumption.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3. Scanning the Ink&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;We don&#39;t need to check every single cell in a 30-column ledger to know if a row was marked invalid. When a researcher struck a line through an entry, they almost always crossed out the individual&#39;s name or ID in the first few columns. To save processing power, we instruct the script to only look at the first five columns (&lt;code&gt;range(1, 6)&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;We don&#39;t need to check every single cell in a 30-column ledger to know if a row was marked invalid. When a researcher struck a line through an entry, they typically crossed out the individual&#39;s name or ID in the first few columns. To save processing power, we check only the first five columns(&lt;code&gt;range(1, 6)&lt;/code&gt;).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;4. Detecting the Mark&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This is the core of the extraction. The script looks at the underlying XML metadata of the specific Excel cell. It asks two questions: Does this cell have custom font formatting? And if so, does that formatting include a strikethrough? If it finds a line drawn through the text, it flips our assumption to &lt;code&gt;True&lt;/code&gt; and breaks the scanning loop.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;5. Honoring the Edit&lt;/strong&gt;&lt;/p&gt;
@@ -341,7 +341,7 @@ for config in processing_queue:
 &lt;p&gt;[!quote]&lt;br /&gt;
 The point is to be intentional about where your cleaning happens and to document it thoroughly.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Handling historical data at scale requires more than just careful transcription; it requires rigorous, repeatable methodologies. While visual cleaning tools or complex database queries have their place, a code-based data pipeline offers unparalleled transparency and auditability for historical research.&lt;/p&gt;
+&lt;p&gt;Handling historical data at scale requires more than just careful transcription; it requires rigorous, repeatable methodologies. While visual cleaning tools or complex database queries have their place, a code-based data pipeline offers excellent transparency and auditability for historical research.&lt;/p&gt;
 &lt;p&gt;By explicitly separating our historical assumptions (the blueprints) from our computational logic (the engine), we create a system that is robust, scalable, and inherently documented. This architecture allows us to capture the nuances of colonial records—from tracking strikethroughs to serializing raw JSON payloads—without ever compromising the immutable source material.&lt;/p&gt;
 &lt;p&gt;If you are drowning in spreadsheets and trying to figure out how to get them into a database without destroying the historical context, the solution is not to manually clean harder. The solution is to invest your time in proper tooling and documentation. Future researchers will thank you for it.&lt;/p&gt;
 &lt;hr /&gt;
@@ -359,7 +359,7 @@ The point is to be intentional about where your cleaning happens and to document
                 The Shape of History
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/</id>
             <content type="html">
                 &lt;p&gt;When historians and archaeologists first begin digitizing records, we naturally default to the &amp;quot;wide&amp;quot; format. We open a spreadsheet, put a person&#39;s name in the first column, and then add a new column for every single fact we want to track: &lt;em&gt;Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.&lt;/em&gt;&lt;/p&gt;
@@ -475,7 +475,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -494,7 +494,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
                 Contact
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -532,7 +532,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
                 Randomly Offsetting Stacked Coordinates
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/randomly-offsetting-stacked-coordinates/</id>
             <content type="html">
                 &lt;h3 id=&quot;the-problem&quot; tabindex=&quot;-1&quot;&gt;The Problem&lt;/h3&gt;
@@ -597,7 +597,7 @@ print(f&amp;quot;Jittered: {new_location[0]:.4f}, {new_location[1]:.4f}&amp;quot
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-29T02:56:04Z</updated>
+            <updated>2026-03-29T03:00:07Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
