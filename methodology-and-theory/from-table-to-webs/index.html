@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title>Contact &amp; Connect</title>
+<title>From Tables to Webs: Why Digital History Needs Graph Databases</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -90,7 +90,7 @@ CTRL + K
 <span class="foldername">Methodology &amp; Theory</span>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
-<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/methodology-and-theory/from-table-to-webs/">From Tables to Webs: Why Digital History Needs Graph Databases </a>
+<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/methodology-and-theory/from-table-to-webs/">From Tables to Webs: Why Digital History Needs Graph Databases </a>
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="filelist">
@@ -121,7 +121,7 @@ CTRL + K
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="">
-<div @click.stop class="notelink active-note"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/contact/">Contact &amp; Connect </a>
+<div @click.stop class="notelink"><i icon-name="sticky-note" aria-hidden="true"></i><a data-note-icon="" style="text-decoration:none" class="filename" href="/contact/">Contact &amp; Connect </a>
 </div>
 </div>
 <div x-show="isOpen" style="display:none" class="">
@@ -154,37 +154,203 @@ CTRL + K
 <script>document.addEventListener("DOMContentLoaded",init,!1),document.addEventListener("DOMContentLoaded",setCorrectShortcut,!1),window.toggleSearch=function(){document.getElementById("globalsearch").classList.contains("active")?document.getElementById("globalsearch").classList.remove("active"):(document.getElementById("globalsearch").classList.add("active"),document.getElementById("term").focus())},window.toggleTagSearch=function(e){console.log(e.textContent);const t=e.textContent;t&&(window.document.getElementById("term").value=t.trim(),window.toggleSearch(),window.search())};const loadingSvg='\n    <svg width="100" height="100" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">\n      <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="1.5s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="1.5s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="1.5s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="3s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="3s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="3s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="8">\n              <animate attributeName="r"\n                   begin="0s" dur="1.5s"\n                   values="6;1;2;3;4;5;6"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n      </g>\n  </svg>';function debounce(e,t,n){var a;return function(){var r=this,i=arguments,c=n&&!a;clearTimeout(a),a=setTimeout((function(){a=null,n||e.apply(r,i)}),t),c&&e.apply(r,i)}}function setCorrectShortcut(){navigator.platform.toUpperCase().indexOf("MAC")>=0&&document.querySelectorAll(".search-keys").forEach((e=>e.innerHTML="⌘ + K"))}function createIndex(e){const t=e=>e.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/),n=new FlexSearch.Document({cache:!0,charset:"latin:extra",optimize:!0,index:[{field:"content",tokenize:"reverse",encode:t},{field:"title",tokenize:"forward",encode:t},{field:"tags",tokenize:"forward",encode:t}]});return e.forEach(((e,t)=>{n.add({id:t,title:e.title,content:e.content,tags:e.tags})})),n}async function init(){let e=!0;if(localStorage.getItem("searchIndex")){let{date:t,docs:n}=JSON.parse(localStorage.getItem("searchIndex"));if("2026-03-29T03:00:39.882Z"===t){e=!1;let t=createIndex(n);window.docs=n,window.index=t}}if(e){let e=await(await fetch("/searchIndex.json?v=2026-03-29T03:00:39.882Z")).json(),t=createIndex(e);localStorage.setItem("searchIndex",JSON.stringify({date:"2026-03-29T03:00:39.882Z",docs:e})),window.docs=e,window.index=t}document.addEventListener("keydown",(e=>{if((e.ctrlKey||e.metaKey)&&"k"===e.key&&(e.preventDefault(),toggleSearch()),"Escape"===e.key&&document.getElementById("globalsearch").classList.remove("active"),document.getElementById("globalsearch").classList.contains("active")){if("ArrowDown"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.nextElementSibling?t.nextElementSibling.classList.add("active"):document.querySelector(".searchresult").classList.add("active")):document.querySelector(".searchresult").classList.add("active");let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("ArrowUp"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.previousElementSibling?t.previousElementSibling.classList.add("active"):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling||e.classList.add("active")}))):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling&&e.classList.add("active")}));let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("Enter"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t&&(window.location.href=t.querySelector("a").href)}}}));const t=debounce(search,200,!1);field=document.querySelector("#term"),field.addEventListener("keydown",(e=>{"ArrowDown"!==e.key&&"ArrowUp"!==e.key&&t()})),resultsDiv=document.querySelector("#search-results");const n=new URL(location.href).searchParams;n.get("q")&&(field.setAttribute("value",n.get("q")),toggleSearch(),search())}async function search(){let e=field.value.trim();if(!e)return;if(e==lastSearch)return;console.log(`search for ${e}`),window.lastSearch=e,resultsDiv.innerHTML=loadingSvg;let t=offlineSearch(e),n="";if(!t.length){let t=document.createElement("p");return t.innerText=`No results for "${e}"`,resultsDiv.innerHTML="",void resultsDiv.appendChild(t)}n+='<div style="max-width:100%;">',t.forEach((e=>{e.tags&&e.tags.length>0?n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        <div class="header-meta">\n                            <div class="header-tags">\n                                ${e.tags.map((e=>'<a class="tag" href="JavaScript:Void(0);">#'+e+"</a>")).join("")}\n                            </div>\n                        </div>\n                        ${e.content}\n                    </div>\n                </div>`:n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        ${e.content}\n                    </div>\n                </div>`})),n+="</div>",resultsDiv.innerHTML=n}function truncate(e,t){return(e=e.replaceAll(/<[^>]*>/g,"")).length<t?e:e.substring(0,t-3)+"..."}function offlineSearch(e){let t=window.docs,n="#"===e[0]&&e.length>1?index.search(e.substring(1),[{field:"tags"}]):index.search(e,[{field:"title",limit:5},{field:"content",weight:10}]);const a=e=>{const t=n.filter((t=>t.field===e));return 0===t.length?[]:[...t[0].result]};return[...new Set([...a("title"),...a("content"),...a("tags")])].map((e=>{let n=t[e];return n.content=truncate(n.content,400),n.tags=n.tags.filter((e=>"gardenEntry"!=e&&"note"!=e)),n}))}window.lastSearch=""</script>
 <main class="content cm-s-obsidian">
 <header>
-<h1 data-note-icon="">Contact &amp; Connect</h1>
+<h1 data-note-icon="">From Tables to Webs: Why Digital History Needs Graph Databases</h1>
 <div class="header-meta">
 </div>
 </header>
-<h1 id="get-in-touch" tabindex="-1">Get in Touch</h1>
-<p>Whether you have a specific question about a code snippet, want to discuss digital methodologies, or are interested in collaborating on historical data projects, I am always happy to connect with other researchers.</p>
-<h3 id="professional-profiles" tabindex="-1">Professional Profiles</h3>
-<p>For a full overview of my published research, peer-reviewed articles, and academic history, you can find me here:</p>
+<hr>
+<p>If you spend enough time in the digital humanities, you will eventually hit a methodological ceiling.</p>
+<p>As discussed in our previous notes on <a class="internal-link" target="" data-note-icon="" href="/the-digital-toolkit/data-pipelines/">Data Pipelines</a> and <a class="internal-link" target="" data-note-icon="" href="/methodology-and-theory/the-shape-of-history/">EAV models</a>, Australian colonial history has benefited massively from the transcription of 19th-century ledgers into spreadsheets. Spreadsheets are fantastic for quantitative analysis. You can calculate average crop yields, track convict populations over time, or count how many people arrived in a given year. However, they suffer from severe structural rigidity.</p>
+<p>By forcing the complex and networked nature of the past into two-dimensional rows and columns, we systematically strip historical data of its most important element. That element is context.</p>
+<div class="callout" data-callout="danger"><div class="callout-title"><div class="callout-title-inner"> The Spreadsheet Problem<br></div></div>
+<div class="callout-content">
+<p>
+A spreadsheet can easily record that a convict was employed by a specific settler. However, capturing multiple overlapping relationships (kinship, employment, shared transport) in a spreadsheet becomes unwieldy. Even a relational database can capture these relationships, but querying them requires complex joins.</p>
+</div></div>
+<p>To capture the true complexity of human history, we need a data model where relationships are treated as primary, first-class evidence. We need to move from the table to the web. We need a Graph Database.</p>
+<h2 id="what-is-a-graph-database" tabindex="-1">What is a Graph Database?</h2>
+<p>When most people hear the word &quot;graph,&quot; they picture a bar chart or a line graph plotting statistics. In computer science, however, a graph database has nothing to do with charts.</p>
+<p>It is built on Graph Theory, which is simply the mathematical study of networks. Imagine a physical map of a railway system. The stations are the data points, and the train tracks connecting them are the relationships. That is a graph. It maps the world as many historians think about it: as a web of interconnected people, places, and events.</p>
+<div class="callout" data-callout="info"><div class="callout-title"><div class="callout-title-inner"> The Two Dominant Graph Data Models<br></div></div>
+<div class="callout-content">
+<p>
+While graph databases vary in implementation, most systems used in practice, especially in the digital humanities, fall into two dominant data models:</p>
+<p><strong>1. RDF (Resource Description Framework) Triplestores:</strong><br>
+These are highly standardized databases designed for sharing linked data across the web. They represent information as Subject–Predicate–Object triples, a structure conceptually similar to <a class="internal-link" target="" data-note-icon="" href="/methodology-and-theory/the-shape-of-history/">Entity–Attribute–Value</a> modeling. RDF excels at interoperability, semantic clarity, and long-term data reuse.</p>
+<p><strong>2. Labeled Property Graphs (LPG):</strong><br>
+Used by platforms such as Neo4j, this model allows both nodes and relationships to carry arbitrary properties. This flexibility makes LPG particularly well suited to complex historical modeling, where relationships themselves often require rich contextual description.<br>
+While other graph architectures and hybrid systems exist, these two models account for the vast majority of graph databases in active scholarly use.</p>
+</div></div>
+<p>If we focus on the Labeled Property Graph (LPG) model, the database is built from four simple components:</p>
+<ol>
+<li><strong>Nodes (The Entities):</strong> The nouns of your database. A node can be a <code>Person</code>, a <code>Place</code>, or a <code>Source Document</code>.</li>
+<li><strong>Edges (The Relationships):</strong> The verbs that connect the nouns. Edges define exactly how two nodes are connected (e.g., <code>MARRIED_TO</code>, <code>EMPLOYED_BY</code>, <code>ABSCONDED_FROM</code>). Crucially, edges have a strict direction.</li>
+<li><strong>Properties:</strong> The adjectives. Both Nodes and Edges can hold specific key/value facts. This is the structural superpower of the LPG model. You can attach a property like <code>Date: 1822</code> directly to an <code>ABSCONDED_FROM</code> edge, giving the relationship its own historical context.</li>
+<li><strong>Labels:</strong> Tags applied to Nodes to quickly categorize them, making searches lightning fast (e.g., tagging all human nodes as <code>:Person</code>).</li>
+</ol>
+<h2 id="the-mechanics-of-connection-sql-vs-graph" tabindex="-1">The Mechanics of Connection: SQL vs. Graph</h2>
+<p>To understand why graph databases are transformative for historical research, we have to look at how traditional Relational Databases (SQL) actually work. Relational databases do not store relationships directly. Instead, they store data in isolated tables and force the computer to calculate the relationships on the fly using something called a &quot;Join.&quot;</p>
+<p>Let us look at a classic colonial event: John Bailey absconded from his master, Joseph Pritchard.</p>
+<h3 id="the-relational-sql-approach" tabindex="-1">The Relational (SQL) Approach</h3>
+<p>To record this event in SQL without creating a messy, unsearchable spreadsheet, you must build three separate tables and connect them using abstract ID numbers (Foreign Keys).</p>
+<p><strong>Table 1: Convicts</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Convict_ID</th>
+<th>Name</th>
+<th>Arrival_Year</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-101</td>
+<td>John Bailey</td>
+<td>1818</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Table 2: Masters</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Master_ID</th>
+<th>Name</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-505</td>
+<td>Joseph Pritchard</td>
+<td>Sydney</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Table 3: Absconding_Events (The Join Table)</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>Event_ID</th>
+<th>Convict_ID</th>
+<th>Master_ID</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-999</td>
+<td>C-101</td>
+<td>M-505</td>
+<td>1822-04-12</td>
+</tr>
+</tbody>
+</table></div>
+<p>If you want to ask the database, &quot;Who did John Bailey abscond from?&quot;, the computer must perform a computational task. It has to scan the Convicts table to find John's ID (C-101), scan the Events table to find a match, extract the Master's ID (M-505), and finally scan the Masters table to retrieve the name Joseph Pritchard. In practice, with proper indexing, these lookups are extremely fast. However, the principle remains: the database must perform multiple lookups rather than following a pre-stored connection.</p>
+<div class="callout" data-callout="abstract"><div class="callout-title"><div class="callout-title-inner"> In computer science, this is called the Join Penalty.<br></div></div>
+<div class="callout-content">
+<p>
+For a single query on a small dataset, this takes milliseconds and is not a problem. Modern SQL databases with proper indexing handle this efficiently. However, as your dataset grows and your questions become more complex, the computational cost increases.</p>
+</div></div>
+<div class="callout" data-callout="warning"><div class="callout-title"><div class="callout-title-inner">Warning</div></div>
+<div class="callout-content">
+<p>
+If you want to ask a complex historical question like, <em>&quot;Find all convicts who absconded from masters who lived in Sydney and previously employed someone from the same transport ship,&quot;</em> the database must perform multiple joins across several tables.</p>
+</div></div>
+<p>The more complex your query, the more joins required, and the slower the response although modern SQL optimizers can mitigate this in many real-world queries.</p>
+<h3 id="the-graph-approach" tabindex="-1">The Graph Approach</h3>
+<p>A graph database eliminates this problem entirely because it physically stores the relationship as a permanent connection on the hard drive. There are no tables and no abstract ID numbers to cross-reference.</p>
+<p>When you load this event into a graph, the database literally draws a wire between the two historical figures:</p>
+<pre class="mermaid">graph TD
+    JB(["John Bailey<br>(:Person)"])
+    JP(["Joseph Pritchard<br>(:Person)"])
+    SYD(["Sydney<br>(:Place)"])
+
+    JB -- "[:ABSCONDED_FROM]<br>date: 1822-04-12" --> JP
+    JB -- "[:LOCATED_AT]" --> SYD
+    JP -- "[:LOCATED_AT]" --> SYD</pre><p>When you ask the graph, &quot;Who did John Bailey abscond from?&quot;, the database does not have to scan thousands of rows in a master table. It simply goes to John Bailey's node and follows the [:ABSCONDED_FROM] arrow directly to Joseph Pritchard.</p>
+<div class="callout" data-callout="info"><div class="callout-title"><div class="callout-title-inner"> The Pointer Hop<br></div></div>
+<div class="callout-content">
+<p>
+In a graph database, following a single relationship is extremely fast. It takes the same computational power to jump from John Bailey to Joseph Pritchard whether your database contains ten people or ten million. However, most historical queries require multiple hops through the network. Finding all convicts connected to a magistrate through various relationship types requires traversing multiple edges. The real advantage of graph databases is that these multi-hop queries scale better than SQL joins because the relationships are pre-computed and physically stored, not calculated on the fly.</p>
+</div></div>
+<p>By removing the computational friction of complex SQL joins, we can finally map massive, continent-spanning networks of colonial administration and query them in real-time.</p>
+<h2 id="the-eav-connection-building-the-graph" tabindex="-1">The EAV Connection (Building the Graph)</h2>
+<p>If you read the previous post on the EAV format, you might be wondering how these two concepts connect.</p>
+<p>EAV is the perfect extraction format because it breaks messy archival data down into Semantic Triples: a Subject, a Predicate, and an Object. For example, <em>John Doe</em> -&gt; <em>Received Lashes</em> -&gt; <em>50</em>.</p>
+<p>The transformation from EAV to a Labeled Property Graph requires a simple sorting process. Your pipeline looks at the EAV triples and divides them into two categories. If the triple describes a relationship between two distinct entities (like <em>John</em> -&gt; <em>Employed By</em> -&gt; <em>Joseph</em>), it draws an Edge connecting those two nodes. If the triple describes a static fact (like <em>John</em> -&gt; <em>Lashes Received</em> -&gt; <em>50</em>), it simply stores that fact as a Property directly inside John's node. This keeps the graph clean and computationally fast.</p>
+<p>You can think of EAV as the flat, reliable format we use to safely extract facts from the physical archive. The Graph Database is where we take thousands of those isolated EAV triples and stitch them together into a massive, interconnected historical reality.</p>
+<h2 id="pros-and-cons-of-graph-databases" tabindex="-1">Pros and Cons of Graph Databases</h2>
+<p>Before migrating your entire research project, it is vital to understand that graph databases are specialized tools. They are not a universal replacement for spreadsheets or relational databases.</p>
+<p><strong>The Pros:</strong></p>
 <ul>
-<li><a href="https://www.researchgate.net/profile/Mark-Mclean-2" target="_blank" style="color:#66b2ff;font-weight:700;text-decoration:none">ResearchGate Profile</a></li>
-<li><a href="https://orcid.org/0000-0002-8057-4228" target="_blank" style="color:#66b2ff;font-weight:700;text-decoration:none">ORCID iD</a></li>
+<li><strong>Context Preservation:</strong> Relationships are stored physically in the database. When you analyze the data or apply network analysis algorithms, they see the exact historical context surrounding an individual. A convict is not just a row in a table. They are a node connected to their masters, their family members, their fellow transport arrivals, and the places they lived.</li>
+<li><strong>Schema Flexibility:</strong> If you discover a new type of relationship in an archive, you just draw a new edge. You never have to redesign your entire database structure. Found evidence of a godparent relationship? Add a [:GODPARENT_OF] edge. No schema migration required.</li>
+<li><strong>Pathfinding:</strong> They excel at discovering hidden connections. You can easily ask the database to find the shortest path of relationships between a convict in Hobart and a magistrate in Sydney, or identify all people connected through kinship networks to a specific family.</li>
 </ul>
----
-<h3 id="send-a-direct-message-spam-filtered" tabindex="-1">Send a Direct Message (Spam Filtered)</h3>
-<p>If you have a quick question or want to chat about the digital techniques shared in this notebook, drop a message below.</p>
-<form action="https://api.web3forms.com/submit" method="POST">
-<input type="hidden" name="access_key" value="5a0e3154-18d2-48d1-bc25-3073c8bebeb4">
-<div style="margin-bottom:15px">
-<label for="name" style="display:block;margin-bottom:5px">Name:</label>
-<input type="text" id="name" name="name" required style="width:100%;padding:8px;box-sizing:border-box;background-color:#1e1e1e;color:#fff;border:1px solid #444;border-radius:4px">
-</div>
-<div style="margin-bottom:15px">
-<label for="email" style="display:block;margin-bottom:5px">Email:</label>
-<input type="email" id="email" name="email" required style="width:100%;padding:8px;box-sizing:border-box;background-color:#1e1e1e;color:#fff;border:1px solid #444;border-radius:4px">
-</div>
-<div style="margin-bottom:15px">
-<label for="message" style="display:block;margin-bottom:5px">Message:</label>
-<textarea id="message" name="message" rows="5" required style="width:100%;padding:8px;box-sizing:border-box;background-color:#1e1e1e;color:#fff;border:1px solid #444;border-radius:4px;resize:vertical"></textarea>
-</div>
-<p><button type="submit" style="padding:10px 20px;background-color:#4caf50;color:#fff;border:none;border-radius:4px;cursor:pointer;font-weight:700">Send Message</button></p>
-</form>
+<p><strong>The Cons:</strong></p>
+<ul>
+<li><strong>Terrible at Global Aggregations:</strong> If you want to calculate the &quot;average age of all 10,000 convicts in the colony,&quot; a spreadsheet will do it in a millisecond. A graph database will struggle because it has to traverse the entire network node by node to find the answer. For statistical analysis, you still need a relational database or spreadsheet.</li>
+<li><strong>The Learning Curve:</strong> You have to learn a new query language (like Cypher) because standard SQL does not work. This is not insurmountable, but it is an investment.</li>
+<li><strong>Setup Complexity:</strong> Unlike SQL, LPG databases like Neo4j are technically &quot;schema-optional.&quot; You do not strictly have to define node types before ingestion to make the database accept the data, though it is a best practice for clean data pipelines. Therefore, translating flat CSV files into a functional graph network requires robust Python scripting. While the database itself is flexible, mapping exactly which EAV triples should become Nodes, Edges, or Properties requires careful architectural planning before you run your ingestion scripts.</li>
+<li><strong>Data Quality Amplification:</strong> Graph databases amplify data quality problems. A single incorrect relationship can create false network paths that mislead analysis. This makes the data pipeline discussed in the previous post even more critical. Your EAV extraction must be rigorous before ingestion into a graph.</li>
+</ul>
+<h2 id="when-not-to-use-graph-databases" tabindex="-1">When NOT to Use Graph Databases</h2>
+<p>Graph databases are specialized tools. They excel at relationship discovery but struggle with global aggregations. Before committing to a graph database, ask yourself these questions.</p>
+<p><strong>Is your dataset small?</strong> If you have fewer than 10,000 records and your research focuses on specific individuals rather than network analysis, a relational database is simpler and faster. The added complexity of a graph database is not worth the overhead.</p>
+<p><strong>Do you need aggregate statistics?</strong> If your primary research questions are &quot;What was the average age of convicts?&quot; or &quot;How many people arrived in 1820?&quot;, a spreadsheet or SQL database will serve you better. Graph databases are not designed for this type of analysis.</p>
+<p><strong>Is your schema stable?</strong> If you know exactly what relationships you are tracking and that will not change, SQL's rigid structure is actually an advantage. You can optimize your queries and indexes for known patterns.</p>
+<div class="callout" data-callout="abstract"><div class="callout-title"><div class="callout-title-inner"> Graph databases shine when your research questions fundamentally require understanding how entities connect across the entire dataset.</div></div></div>
+<p>They are worth the complexity only when relationship discovery is central to your work. If you are asking questions like &quot;Who was connected to whom through kinship, employment, and transport networks?&quot; or &quot;What is the shortest path of relationships between these two individuals?&quot;, then a graph database is the right tool.</p>
+<h2 id="querying-the-archive" tabindex="-1">Querying the archive</h2>
+<p>The real power of a graph database becomes apparent when you want to ask complex historical questions. Graph query languages are designed to trace paths through networks visually.</p>
+<p>With Cypher, if we want to find every instance of a convict running away from a master in our database, we can write a simple query:</p>
+<pre><code class="language-cypher">MATCH (p1:Person)-[:ABSCONDED_FROM]-&gt;(p2:Person)
+RETURN p1.name, p2.name
+</code></pre>
+<blockquote>
+<p>This elegant query will instantly return a two-column list of every absconder and their master across the entire dataset.</p>
+</blockquote>
+<p>But the real power emerges with multi-hop queries. If we want to find <strong>all convicts who absconded from masters who employed someone from the same transport ship</strong>, we can ask:</p>
+<pre><code class="language-cypher">MATCH (c:Person)-[:ABSCONDED_FROM]-&gt;(m:Person)-[:EMPLOYED]-&gt;(other:Person)
+MATCH (c)-[:ARRIVED_ON]-&gt;(ship:Vessel)&lt;-[:ARRIVED_ON]-(other)
+WHERE c &lt;&gt; other
+RETURN c.name AS Absconder, m.name AS Master, other.name AS CoWorker, ship.name AS Ship
+</code></pre>
+<h3 id="translating-the-code" tabindex="-1">Translating the Code</h3>
+<p>If you have never written a line of code in your life, you can still read this query by breaking it down line by line:</p>
+<ul>
+<li>
+<p><strong><code>MATCH (c:Person)-[:ABSCONDED_FROM]-&gt;(m:Person)-[:EMPLOYED]-&gt;(other:Person)</code></strong><br>
+This is the first path we are tracing. We are telling the database to find any Person (who we will temporarily call 'c' for convict) who ran away from another Person (who we will call 'm' for master). We then ask it to trace the line forward to see if that master employed <em>another</em> Person (who we will call 'other').</p>
+</li>
+<li>
+<p><strong><code>MATCH (c)-[:ARRIVED_ON]-&gt;(ship:Vessel)&lt;-[:ARRIVED_ON]-(other)</code></strong><br>
+Now we take those exact same people ('c' and 'other') and check if they share a second connection. Do they both point to the exact same ship?</p>
+</li>
+<li>
+<p><strong><code>WHERE c &lt;&gt; other</code></strong><br>
+This is our reality check. Because the master technically employed the convict who ran away, the database might try to count the absconder as the &quot;other&quot; person too. This line forces the computer to ensure that 'c' and 'other' are two completely distinct human beings.</p>
+</li>
+<li>
+<p><strong><code>RETURN c.name AS Absconder, m.name AS Master, ...</code></strong><br>
+Finally, we tell the database what to hand back to us. Instead of returning raw, messy data nodes, we ask for a clean, four-column list with nice, readable headers.</p>
+</li>
+</ul>
+<p>By stacking these simple matches together, we can uncover complex, hidden networks of association that a standard spreadsheet would completely obscure.</p>
+<blockquote>
+<p>In SQL, this query would require joining five or six tables and would be difficult to read and maintain. In Cypher, the pattern is visually intuitive. You are literally drawing the network pattern you are looking for.</p>
+</blockquote>
+<h2 id="conclusion-context-is-king" tabindex="-1">Conclusion: Context is King</h2>
+<p>For colonial history specifically, graph databases enable research questions that spreadsheets and even relational databases struggle with. You can find networks of kinship and patronage, trace the movement of individuals across the colony, and discover hidden connections between seemingly unrelated records. As your dataset grows and your research questions become more network-focused, these capabilities become increasingly valuable.</p>
+<p>However, graph databases are not a magic solution. They are a specialized tool for a specific type of research question. If you are primarily interested in statistical analysis or aggregate trends, stick with spreadsheets and SQL. If you are interested in network analysis, relationship discovery, and understanding the complex web of colonial society, a graph database is worth exploring.</p>
+<p>If you are interested in exploring graph databases for your own historical project, start small. Build a prototype with 100 to 200 records and a single relationship type. Learn Cypher. Experiment with pathfinding queries. Then decide if the added complexity is worth the analytical power for your specific research questions.</p>
+<hr>
+<h3 id="cite-this-post" tabindex="-1">Cite this post</h3>
+<p>If you found this methodology useful for your own work, you can cite it here:</p>
+<blockquote>
+<p>McLean, Mark. &quot;From Tables to Webs: Why Digital History Needs Graph Databases.&quot; <em>The Digital Stockade</em>. Published 2026-03-29. <a href="https://thedigitalstockade.github.io/methodology-and-theory/from-tables-to-webs" target="_blank" class="external-link">https://thedigitalstockade.github.io/methodology-and-theory/from-tables-to-webs</a></p>
+</blockquote>
 </main>
 <aside>
 <div class="sidebar">
@@ -226,11 +392,31 @@ On this page
 <div class="toc-container">
 <nav class="toc">
 <ol>
-<li><a href="#get-in-touch">Get in Touch</a>
-<ol>
-<li><a href="#professional-profiles">Professional Profiles</a>
+<li><a href="#what-is-a-graph-database">What is a Graph Database?</a>
 </li>
-<li><a href="#send-a-direct-message-spam-filtered">Send a Direct Message (Spam Filtered)</a>
+<li><a href="#the-mechanics-of-connection-sql-vs-graph">The Mechanics of Connection: SQL vs. Graph</a>
+<ol>
+<li><a href="#the-relational-sql-approach">The Relational (SQL) Approach</a>
+</li>
+<li><a href="#the-graph-approach">The Graph Approach</a>
+</li>
+</ol>
+</li>
+<li><a href="#the-eav-connection-building-the-graph">The EAV Connection (Building the Graph)</a>
+</li>
+<li><a href="#pros-and-cons-of-graph-databases">Pros and Cons of Graph Databases</a>
+</li>
+<li><a href="#when-not-to-use-graph-databases">When NOT to Use Graph Databases</a>
+</li>
+<li><a href="#querying-the-archive">Querying the archive</a>
+<ol>
+<li><a href="#translating-the-code">Translating the Code</a>
+</li>
+</ol>
+</li>
+<li><a href="#conclusion-context-is-king">Conclusion: Context is King</a>
+<ol>
+<li><a href="#cite-this-post">Cite this post</a>
 </li>
 </ol>
 </li>

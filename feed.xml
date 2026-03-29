@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-29T03:00:18Z</updated>
+    <updated>2026-03-29T03:00:40Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;welcome-to-the-digital-stockade&quot; tabindex=&quot;-1&quot;&gt;Welcome to The Digital Stockade&lt;/h1&gt;
@@ -51,7 +51,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -67,7 +67,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -359,7 +359,7 @@ The point is to be intentional about where your cleaning happens and to document
                 The Shape of History
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/</id>
             <content type="html">
                 &lt;p&gt;When historians and archaeologists first begin digitizing records, we naturally default to the &amp;quot;wide&amp;quot; format. We open a spreadsheet, put a person&#39;s name in the first column, and then add a new column for every single fact we want to track: &lt;em&gt;Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.&lt;/em&gt;&lt;/p&gt;
@@ -475,7 +475,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -483,7 +483,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/&quot;&gt;Data Pipelines&lt;/a&gt;: A look at the danger of silently cleaning historical data, and the three rules for building transparent, immutable archival data pipelines in Python.&lt;/li&gt;
 &lt;li&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/the-shape-of-history/&quot;&gt;The Shape of History&lt;/a&gt;: A quick exploration of the Entity-Attribute-Value (EAV) database model and why it is valuable in historical and archaeological research.&lt;/li&gt;
-&lt;li&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;From Table to Webs&lt;/a&gt;: An introduction to graph databases and their uses in digital history.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/from-table-to-webs/&quot;&gt;From Table to Webs&lt;/a&gt;: An introduction to graph databases and their uses in digital history.&lt;/li&gt;
 &lt;/ul&gt;
 
             </content>
@@ -491,10 +491,212 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
         </entry>
         <entry>
             <title>
+                From Table to Webs
+                
+            </title>
+            <updated>2026-03-29T03:00:31Z</updated>
+            <id>https://thedigitalstockade.github.io//methodology-and-theory/from-table-to-webs/</id>
+            <content type="html">
+                &lt;hr /&gt;
+&lt;p&gt;If you spend enough time in the digital humanities, you will eventually hit a methodological ceiling.&lt;/p&gt;
+&lt;p&gt;As discussed in our previous notes on &lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/&quot;&gt;Data Pipelines&lt;/a&gt; and &lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/the-shape-of-history/&quot;&gt;EAV models&lt;/a&gt;, Australian colonial history has benefited massively from the transcription of 19th-century ledgers into spreadsheets. Spreadsheets are fantastic for quantitative analysis. You can calculate average crop yields, track convict populations over time, or count how many people arrived in a given year. However, they suffer from severe structural rigidity.&lt;/p&gt;
+&lt;p&gt;By forcing the complex and networked nature of the past into two-dimensional rows and columns, we systematically strip historical data of its most important element. That element is context.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!danger] The Spreadsheet Problem&lt;br /&gt;
+A spreadsheet can easily record that a convict was employed by a specific settler. However, capturing multiple overlapping relationships (kinship, employment, shared transport) in a spreadsheet becomes unwieldy. Even a relational database can capture these relationships, but querying them requires complex joins.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To capture the true complexity of human history, we need a data model where relationships are treated as primary, first-class evidence. We need to move from the table to the web. We need a Graph Database.&lt;/p&gt;
+&lt;h2 id=&quot;what-is-a-graph-database&quot; tabindex=&quot;-1&quot;&gt;What is a Graph Database?&lt;/h2&gt;
+&lt;p&gt;When most people hear the word &amp;quot;graph,&amp;quot; they picture a bar chart or a line graph plotting statistics. In computer science, however, a graph database has nothing to do with charts.&lt;/p&gt;
+&lt;p&gt;It is built on Graph Theory, which is simply the mathematical study of networks. Imagine a physical map of a railway system. The stations are the data points, and the train tracks connecting them are the relationships. That is a graph. It maps the world as many historians think about it: as a web of interconnected people, places, and events.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!info] The Two Dominant Graph Data Models&lt;br /&gt;
+While graph databases vary in implementation, most systems used in practice, especially in the digital humanities, fall into two dominant data models:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. RDF (Resource Description Framework) Triplestores:&lt;/strong&gt;&lt;br /&gt;
+These are highly standardized databases designed for sharing linked data across the web. They represent information as Subject–Predicate–Object triples, a structure conceptually similar to &lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/the-shape-of-history/&quot;&gt;Entity–Attribute–Value&lt;/a&gt; modeling. RDF excels at interoperability, semantic clarity, and long-term data reuse.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Labeled Property Graphs (LPG):&lt;/strong&gt;&lt;br /&gt;
+Used by platforms such as Neo4j, this model allows both nodes and relationships to carry arbitrary properties. This flexibility makes LPG particularly well suited to complex historical modeling, where relationships themselves often require rich contextual description.&lt;br /&gt;
+While other graph architectures and hybrid systems exist, these two models account for the vast majority of graph databases in active scholarly use.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If we focus on the Labeled Property Graph (LPG) model, the database is built from four simple components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Nodes (The Entities):&lt;/strong&gt; The nouns of your database. A node can be a &lt;code&gt;Person&lt;/code&gt;, a &lt;code&gt;Place&lt;/code&gt;, or a &lt;code&gt;Source Document&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Edges (The Relationships):&lt;/strong&gt; The verbs that connect the nouns. Edges define exactly how two nodes are connected (e.g., &lt;code&gt;MARRIED_TO&lt;/code&gt;, &lt;code&gt;EMPLOYED_BY&lt;/code&gt;, &lt;code&gt;ABSCONDED_FROM&lt;/code&gt;). Crucially, edges have a strict direction.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Properties:&lt;/strong&gt; The adjectives. Both Nodes and Edges can hold specific key/value facts. This is the structural superpower of the LPG model. You can attach a property like &lt;code&gt;Date: 1822&lt;/code&gt; directly to an &lt;code&gt;ABSCONDED_FROM&lt;/code&gt; edge, giving the relationship its own historical context.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Labels:&lt;/strong&gt; Tags applied to Nodes to quickly categorize them, making searches lightning fast (e.g., tagging all human nodes as &lt;code&gt;:Person&lt;/code&gt;).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;the-mechanics-of-connection-sql-vs-graph&quot; tabindex=&quot;-1&quot;&gt;The Mechanics of Connection: SQL vs. Graph&lt;/h2&gt;
+&lt;p&gt;To understand why graph databases are transformative for historical research, we have to look at how traditional Relational Databases (SQL) actually work. Relational databases do not store relationships directly. Instead, they store data in isolated tables and force the computer to calculate the relationships on the fly using something called a &amp;quot;Join.&amp;quot;&lt;/p&gt;
+&lt;p&gt;Let us look at a classic colonial event: John Bailey absconded from his master, Joseph Pritchard.&lt;/p&gt;
+&lt;h3 id=&quot;the-relational-sql-approach&quot; tabindex=&quot;-1&quot;&gt;The Relational (SQL) Approach&lt;/h3&gt;
+&lt;p&gt;To record this event in SQL without creating a messy, unsearchable spreadsheet, you must build three separate tables and connect them using abstract ID numbers (Foreign Keys).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Table 1: Convicts&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Convict_ID&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Arrival_Year&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;C-101&lt;/td&gt;
+&lt;td&gt;John Bailey&lt;/td&gt;
+&lt;td&gt;1818&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Table 2: Masters&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Master_ID&lt;/th&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Location&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;M-505&lt;/td&gt;
+&lt;td&gt;Joseph Pritchard&lt;/td&gt;
+&lt;td&gt;Sydney&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Table 3: Absconding_Events (The Join Table)&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Event_ID&lt;/th&gt;
+&lt;th&gt;Convict_ID&lt;/th&gt;
+&lt;th&gt;Master_ID&lt;/th&gt;
+&lt;th&gt;Date&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;E-999&lt;/td&gt;
+&lt;td&gt;C-101&lt;/td&gt;
+&lt;td&gt;M-505&lt;/td&gt;
+&lt;td&gt;1822-04-12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;If you want to ask the database, &amp;quot;Who did John Bailey abscond from?&amp;quot;, the computer must perform a computational task. It has to scan the Convicts table to find John&#39;s ID (C-101), scan the Events table to find a match, extract the Master&#39;s ID (M-505), and finally scan the Masters table to retrieve the name Joseph Pritchard. In practice, with proper indexing, these lookups are extremely fast. However, the principle remains: the database must perform multiple lookups rather than following a pre-stored connection.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!abstract] In computer science, this is called the Join Penalty.&lt;br /&gt;
+For a single query on a small dataset, this takes milliseconds and is not a problem. Modern SQL databases with proper indexing handle this efficiently. However, as your dataset grows and your questions become more complex, the computational cost increases.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!warning]&lt;br /&gt;
+If you want to ask a complex historical question like, &lt;em&gt;&amp;quot;Find all convicts who absconded from masters who lived in Sydney and previously employed someone from the same transport ship,&amp;quot;&lt;/em&gt; the database must perform multiple joins across several tables.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The more complex your query, the more joins required, and the slower the response although modern SQL optimizers can mitigate this in many real-world queries.&lt;/p&gt;
+&lt;h3 id=&quot;the-graph-approach&quot; tabindex=&quot;-1&quot;&gt;The Graph Approach&lt;/h3&gt;
+&lt;p&gt;A graph database eliminates this problem entirely because it physically stores the relationship as a permanent connection on the hard drive. There are no tables and no abstract ID numbers to cross-reference.&lt;/p&gt;
+&lt;p&gt;When you load this event into a graph, the database literally draws a wire between the two historical figures:&lt;/p&gt;
+&lt;pre class=&quot;mermaid&quot;&gt;graph TD
+    JB([&quot;John Bailey&lt;br /&gt;(:Person)&quot;])
+    JP([&quot;Joseph Pritchard&lt;br /&gt;(:Person)&quot;])
+    SYD([&quot;Sydney&lt;br /&gt;(:Place)&quot;])
+
+    JB -- &quot;[:ABSCONDED_FROM]&lt;br /&gt;date: 1822-04-12&quot; --&gt; JP
+    JB -- &quot;[:LOCATED_AT]&quot; --&gt; SYD
+    JP -- &quot;[:LOCATED_AT]&quot; --&gt; SYD&lt;/pre&gt;&lt;p&gt;When you ask the graph, &amp;quot;Who did John Bailey abscond from?&amp;quot;, the database does not have to scan thousands of rows in a master table. It simply goes to John Bailey&#39;s node and follows the [:ABSCONDED_FROM] arrow directly to Joseph Pritchard.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!info] The Pointer Hop&lt;br /&gt;
+In a graph database, following a single relationship is extremely fast. It takes the same computational power to jump from John Bailey to Joseph Pritchard whether your database contains ten people or ten million. However, most historical queries require multiple hops through the network. Finding all convicts connected to a magistrate through various relationship types requires traversing multiple edges. The real advantage of graph databases is that these multi-hop queries scale better than SQL joins because the relationships are pre-computed and physically stored, not calculated on the fly.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;By removing the computational friction of complex SQL joins, we can finally map massive, continent-spanning networks of colonial administration and query them in real-time.&lt;/p&gt;
+&lt;h2 id=&quot;the-eav-connection-building-the-graph&quot; tabindex=&quot;-1&quot;&gt;The EAV Connection (Building the Graph)&lt;/h2&gt;
+&lt;p&gt;If you read the previous post on the EAV format, you might be wondering how these two concepts connect.&lt;/p&gt;
+&lt;p&gt;EAV is the perfect extraction format because it breaks messy archival data down into Semantic Triples: a Subject, a Predicate, and an Object. For example, &lt;em&gt;John Doe&lt;/em&gt; -&amp;gt; &lt;em&gt;Received Lashes&lt;/em&gt; -&amp;gt; &lt;em&gt;50&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The transformation from EAV to a Labeled Property Graph requires a simple sorting process. Your pipeline looks at the EAV triples and divides them into two categories. If the triple describes a relationship between two distinct entities (like &lt;em&gt;John&lt;/em&gt; -&amp;gt; &lt;em&gt;Employed By&lt;/em&gt; -&amp;gt; &lt;em&gt;Joseph&lt;/em&gt;), it draws an Edge connecting those two nodes. If the triple describes a static fact (like &lt;em&gt;John&lt;/em&gt; -&amp;gt; &lt;em&gt;Lashes Received&lt;/em&gt; -&amp;gt; &lt;em&gt;50&lt;/em&gt;), it simply stores that fact as a Property directly inside John&#39;s node. This keeps the graph clean and computationally fast.&lt;/p&gt;
+&lt;p&gt;You can think of EAV as the flat, reliable format we use to safely extract facts from the physical archive. The Graph Database is where we take thousands of those isolated EAV triples and stitch them together into a massive, interconnected historical reality.&lt;/p&gt;
+&lt;h2 id=&quot;pros-and-cons-of-graph-databases&quot; tabindex=&quot;-1&quot;&gt;Pros and Cons of Graph Databases&lt;/h2&gt;
+&lt;p&gt;Before migrating your entire research project, it is vital to understand that graph databases are specialized tools. They are not a universal replacement for spreadsheets or relational databases.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;The Pros:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Context Preservation:&lt;/strong&gt; Relationships are stored physically in the database. When you analyze the data or apply network analysis algorithms, they see the exact historical context surrounding an individual. A convict is not just a row in a table. They are a node connected to their masters, their family members, their fellow transport arrivals, and the places they lived.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Schema Flexibility:&lt;/strong&gt; If you discover a new type of relationship in an archive, you just draw a new edge. You never have to redesign your entire database structure. Found evidence of a godparent relationship? Add a [:GODPARENT_OF] edge. No schema migration required.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Pathfinding:&lt;/strong&gt; They excel at discovering hidden connections. You can easily ask the database to find the shortest path of relationships between a convict in Hobart and a magistrate in Sydney, or identify all people connected through kinship networks to a specific family.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;The Cons:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Terrible at Global Aggregations:&lt;/strong&gt; If you want to calculate the &amp;quot;average age of all 10,000 convicts in the colony,&amp;quot; a spreadsheet will do it in a millisecond. A graph database will struggle because it has to traverse the entire network node by node to find the answer. For statistical analysis, you still need a relational database or spreadsheet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;The Learning Curve:&lt;/strong&gt; You have to learn a new query language (like Cypher) because standard SQL does not work. This is not insurmountable, but it is an investment.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Setup Complexity:&lt;/strong&gt; Unlike SQL, LPG databases like Neo4j are technically &amp;quot;schema-optional.&amp;quot; You do not strictly have to define node types before ingestion to make the database accept the data, though it is a best practice for clean data pipelines. Therefore, translating flat CSV files into a functional graph network requires robust Python scripting. While the database itself is flexible, mapping exactly which EAV triples should become Nodes, Edges, or Properties requires careful architectural planning before you run your ingestion scripts.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Quality Amplification:&lt;/strong&gt; Graph databases amplify data quality problems. A single incorrect relationship can create false network paths that mislead analysis. This makes the data pipeline discussed in the previous post even more critical. Your EAV extraction must be rigorous before ingestion into a graph.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;when-not-to-use-graph-databases&quot; tabindex=&quot;-1&quot;&gt;When NOT to Use Graph Databases&lt;/h2&gt;
+&lt;p&gt;Graph databases are specialized tools. They excel at relationship discovery but struggle with global aggregations. Before committing to a graph database, ask yourself these questions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Is your dataset small?&lt;/strong&gt; If you have fewer than 10,000 records and your research focuses on specific individuals rather than network analysis, a relational database is simpler and faster. The added complexity of a graph database is not worth the overhead.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Do you need aggregate statistics?&lt;/strong&gt; If your primary research questions are &amp;quot;What was the average age of convicts?&amp;quot; or &amp;quot;How many people arrived in 1820?&amp;quot;, a spreadsheet or SQL database will serve you better. Graph databases are not designed for this type of analysis.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Is your schema stable?&lt;/strong&gt; If you know exactly what relationships you are tracking and that will not change, SQL&#39;s rigid structure is actually an advantage. You can optimize your queries and indexes for known patterns.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!abstract] Graph databases shine when your research questions fundamentally require understanding how entities connect across the entire dataset.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;They are worth the complexity only when relationship discovery is central to your work. If you are asking questions like &amp;quot;Who was connected to whom through kinship, employment, and transport networks?&amp;quot; or &amp;quot;What is the shortest path of relationships between these two individuals?&amp;quot;, then a graph database is the right tool.&lt;/p&gt;
+&lt;h2 id=&quot;querying-the-archive&quot; tabindex=&quot;-1&quot;&gt;Querying the archive&lt;/h2&gt;
+&lt;p&gt;The real power of a graph database becomes apparent when you want to ask complex historical questions. Graph query languages are designed to trace paths through networks visually.&lt;/p&gt;
+&lt;p&gt;With Cypher, if we want to find every instance of a convict running away from a master in our database, we can write a simple query:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cypher&quot;&gt;MATCH (p1:Person)-[:ABSCONDED_FROM]-&amp;gt;(p2:Person)
+RETURN p1.name, p2.name
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This elegant query will instantly return a two-column list of every absconder and their master across the entire dataset.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;But the real power emerges with multi-hop queries. If we want to find &lt;strong&gt;all convicts who absconded from masters who employed someone from the same transport ship&lt;/strong&gt;, we can ask:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cypher&quot;&gt;MATCH (c:Person)-[:ABSCONDED_FROM]-&amp;gt;(m:Person)-[:EMPLOYED]-&amp;gt;(other:Person)
+MATCH (c)-[:ARRIVED_ON]-&amp;gt;(ship:Vessel)&amp;lt;-[:ARRIVED_ON]-(other)
+WHERE c &amp;lt;&amp;gt; other
+RETURN c.name AS Absconder, m.name AS Master, other.name AS CoWorker, ship.name AS Ship
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;translating-the-code&quot; tabindex=&quot;-1&quot;&gt;Translating the Code&lt;/h3&gt;
+&lt;p&gt;If you have never written a line of code in your life, you can still read this query by breaking it down line by line:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;MATCH (c:Person)-[:ABSCONDED_FROM]-&amp;gt;(m:Person)-[:EMPLOYED]-&amp;gt;(other:Person)&lt;/code&gt;&lt;/strong&gt;&lt;br /&gt;
+This is the first path we are tracing. We are telling the database to find any Person (who we will temporarily call &#39;c&#39; for convict) who ran away from another Person (who we will call &#39;m&#39; for master). We then ask it to trace the line forward to see if that master employed &lt;em&gt;another&lt;/em&gt; Person (who we will call &#39;other&#39;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;MATCH (c)-[:ARRIVED_ON]-&amp;gt;(ship:Vessel)&amp;lt;-[:ARRIVED_ON]-(other)&lt;/code&gt;&lt;/strong&gt;&lt;br /&gt;
+Now we take those exact same people (&#39;c&#39; and &#39;other&#39;) and check if they share a second connection. Do they both point to the exact same ship?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;WHERE c &amp;lt;&amp;gt; other&lt;/code&gt;&lt;/strong&gt;&lt;br /&gt;
+This is our reality check. Because the master technically employed the convict who ran away, the database might try to count the absconder as the &amp;quot;other&amp;quot; person too. This line forces the computer to ensure that &#39;c&#39; and &#39;other&#39; are two completely distinct human beings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;RETURN c.name AS Absconder, m.name AS Master, ...&lt;/code&gt;&lt;/strong&gt;&lt;br /&gt;
+Finally, we tell the database what to hand back to us. Instead of returning raw, messy data nodes, we ask for a clean, four-column list with nice, readable headers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;By stacking these simple matches together, we can uncover complex, hidden networks of association that a standard spreadsheet would completely obscure.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In SQL, this query would require joining five or six tables and would be difficult to read and maintain. In Cypher, the pattern is visually intuitive. You are literally drawing the network pattern you are looking for.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;conclusion-context-is-king&quot; tabindex=&quot;-1&quot;&gt;Conclusion: Context is King&lt;/h2&gt;
+&lt;p&gt;For colonial history specifically, graph databases enable research questions that spreadsheets and even relational databases struggle with. You can find networks of kinship and patronage, trace the movement of individuals across the colony, and discover hidden connections between seemingly unrelated records. As your dataset grows and your research questions become more network-focused, these capabilities become increasingly valuable.&lt;/p&gt;
+&lt;p&gt;However, graph databases are not a magic solution. They are a specialized tool for a specific type of research question. If you are primarily interested in statistical analysis or aggregate trends, stick with spreadsheets and SQL. If you are interested in network analysis, relationship discovery, and understanding the complex web of colonial society, a graph database is worth exploring.&lt;/p&gt;
+&lt;p&gt;If you are interested in exploring graph databases for your own historical project, start small. Build a prototype with 100 to 200 records and a single relationship type. Learn Cypher. Experiment with pathfinding queries. Then decide if the added complexity is worth the analytical power for your specific research questions.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3 id=&quot;cite-this-post&quot; tabindex=&quot;-1&quot;&gt;Cite this post&lt;/h3&gt;
+&lt;p&gt;If you found this methodology useful for your own work, you can cite it here:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;McLean, Mark. &amp;quot;From Tables to Webs: Why Digital History Needs Graph Databases.&amp;quot; &lt;em&gt;The Digital Stockade&lt;/em&gt;. Published 2026-03-29. &lt;a href=&quot;https://thedigitalstockade.github.io/methodology-and-theory/from-tables-to-webs&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://thedigitalstockade.github.io/methodology-and-theory/from-tables-to-webs&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//methodology-and-theory/from-table-to-webs/" >
+        </entry>
+        <entry>
+            <title>
                 Contact
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -532,7 +734,7 @@ But an EAV database natively translates into highly intuitive &amp;quot;Smart Se
                 Randomly Offsetting Stacked Coordinates
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/randomly-offsetting-stacked-coordinates/</id>
             <content type="html">
                 &lt;h3 id=&quot;the-problem&quot; tabindex=&quot;-1&quot;&gt;The Problem&lt;/h3&gt;
@@ -597,7 +799,7 @@ print(f&amp;quot;Jittered: {new_location[0]:.4f}, {new_location[1]:.4f}&amp;quot
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-29T03:00:07Z</updated>
+            <updated>2026-03-29T03:00:31Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
