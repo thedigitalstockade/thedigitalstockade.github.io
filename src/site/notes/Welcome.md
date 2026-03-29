@@ -35,7 +35,7 @@ Feel free to click around the networked links, grab any code that helps your own
 > 
 > **About reuse**
 >   
-This site documents my personal journey through digital humanities: how I think, experiment, and learn along the way. The writing often reflects individual reflection rather than formal research. Code snippets and technical examples are shared openly and are intended to be reused, adapted, and built upon with attribution. If you find ideas here useful, I welcome thoughtful reuse and citation, and I ask that the prose itself be treated as authored work rather than anonymous documentation.
+This site is a record of my own digital humanities journey. I use it to think out loud, try things, and make sense of ideas as I go. The writing is personal and reflective rather than polished research. Any code snippets or technical examples here are shared freely and are meant to be reused, adapted, and learned from, with attribution. If something here is useful to you, I’m glad, and I appreciate being credited when ideas travel. I just ask that the writing itself be treated as authored work, not anonymous documentation.
 
 > [!info] 
 > These pages are made with the Obsidian note taking platform (https://obsidian.md/)
