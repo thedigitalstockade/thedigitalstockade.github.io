@@ -3,6 +3,7 @@
 ---
 
 
+
 When historians and archaeologists first begin digitizing records, we naturally default to the "wide" format. We open a spreadsheet, put a person's name in the first column, and then add a new column for every single fact we want to track: *Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.*
 
 For a small, uniform dataset, this works perfectly. But historical data is rarely uniform. It is incredibly sparse and highly varied. 
@@ -47,21 +48,20 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
 ### The Interface Advantage: Building "Smart Search"
 
 Beyond solving storage problems, EAV data provides a massive advantage when building user interfaces for other researchers. 
-
-If you build a "wide" database, querying it requires researchers to understand complex SQL joins or boolean logic. But an EAV database natively translates into highly intuitive "Smart Search" tools. Because all attributes exist in a single column, your database software (whether it is FileMaker, a custom web app, or a simple dashboard) can automatically populate a dropdown menu with every available fact. 
+If you build a 'wide' database, adding new attributes requires schema changes. Querying across multiple attributes can become complex, and the NULL values create data quality issues.
+But an EAV database natively translates into highly intuitive "Smart Search" tools. Because all attributes exist in a single column, your database software (whether it is FileMaker, a custom web app, or a simple dashboard) can automatically populate a dropdown menu with every available fact. 
 
 A non-technical researcher doesn't need to write code; they simply use the UI dropdowns to state: 
 * *Find all [Entities] where the [Attribute] is "Livestock_Sheep" and the [Value] is "> 50".*
 
 ### EAV in the Wild
 
-This is not just a theoretical computer science concept; it is actively relied upon in digital history. For example, projects such as the **Historical Data Grinder** (https://hdgrinder.ro/), a database designed to aggregate highly disparate nineteenth-century Transylvanian records, use an EAV architecture. Similarly, many digital prosopography projects rely on EAV to manage the hundreds of varying attributes tied to historical individuals. They use this architecture because it is the only way to make the information from a source fit the database, rather than constantly expanding the database in an attempt to cover every new quirk of a historical source.
-
+This is not just a theoretical computer science concept; it is actively relied upon in digital history. For example, projects such as the **Historical Data Grinder** (https://hdgrinder.ro/), a database designed to aggregate highly disparate nineteenth-century Transylvanian records, use an EAV architecture. Similarly, many digital prosopography projects rely on EAV to manage the hundreds of varying attributes tied to historical individuals. They use this architecture because it is the most efficient way to handle sparse, heterogeneous data without constantly expanding the database schema.
 ### The Bigger Picture: EAV as the Bridge to Graph
 
 As powerful as the EAV model is, it is rarely the final destination for historical analysis. It is the ideal **storage and extraction layer**. It allows our **[[The Digital Toolkit/Data Pipelines\|Data Pipelines]]** to reliably capture the isolated facts of the colonial archive.
 
-However, historical research is ultimately about relationships, not just isolated facts. Who worked with whom? Which magistrate sentenced which convict? To truly map the human reality of the past, these isolated EAV facts must eventually be transformed into nodes and edges. 
+However, much historical research is about relationships, not just isolated facts. For network-focused research questions like Who worked with whom? Which magistrate sentenced which convict? are critical. To truly map the human reality of the past, these isolated EAV facts must eventually be transformed into nodes and edges. 
 
 The EAV model is the necessary translation layer that cleans the data so we can eventually build a **Graph Database**—but that is a methodology we will explore in a future post.
 
