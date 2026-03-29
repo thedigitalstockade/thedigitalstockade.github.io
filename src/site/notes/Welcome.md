@@ -35,7 +35,7 @@ Feel free to click around the networked links, grab any code that helps your own
 > 
 > **About reuse**
 >   
-The Digital Stockade is a personal, non‑commercial blog documenting my work and thinking in digital humanities. The views expressed here are my own. I use it to think out loud, try things, and make sense of ideas as I go. The writing is personal and reflective rather than polished research. Any code snippets or technical examples are shared freely and are meant to be reused, adapted, and learned from, with attribution. If something here is useful to you, I’m glad, and I appreciate being credited when ideas travel. I ask that the writing itself be treated as authored work, not anonymous documentation.
+>The Digital Stockade is a personal, non‑commercial blog documenting my work and thinking in digital humanities. The views expressed here are my own. I use it to think out loud, try things, and make sense of ideas as I go. The writing is personal and reflective rather than polished research. Any code snippets or technical examples are shared freely and are meant to be reused, adapted, and learned from, with attribution. If something here is useful to you, I’m glad, and I appreciate being credited when ideas travel. I ask that the writing itself be treated as authored work, not anonymous documentation.
 
 
 
