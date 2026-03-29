@@ -185,7 +185,9 @@ If you have never written a line of code in your life, you can still read this q
 By stacking these simple matches together, we can uncover complex, hidden networks of association that a standard spreadsheet would completely obscure.
 
 
+
 > In SQL, this query would require joining five or six tables and would be difficult to read and maintain. In Cypher, the pattern is visually intuitive. You are literally drawing the network pattern you are looking for.
+
 
 ## Conclusion: Context is King
 
