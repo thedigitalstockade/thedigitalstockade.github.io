@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-29T00:07:42Z</updated>
+    <updated>2026-03-29T02:53:27Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;welcome-to-the-digital-stockade&quot; tabindex=&quot;-1&quot;&gt;Welcome to The Digital Stockade&lt;/h1&gt;
@@ -51,7 +51,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -67,7 +67,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -359,7 +359,7 @@ The point is to be intentional about where your cleaning happens and to document
                 The Shape of History
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/</id>
             <content type="html">
                 &lt;p&gt;When historians and archaeologists first begin digitizing records, we naturally default to the &amp;quot;wide&amp;quot; format. We open a spreadsheet, put a person&#39;s name in the first column, and then add a new column for every single fact we want to track: &lt;em&gt;Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.&lt;/em&gt;&lt;/p&gt;
@@ -447,17 +447,18 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3 id=&quot;the-interface-advantage-building-and-quot-smart-search-and-quot&quot; tabindex=&quot;-1&quot;&gt;The Interface Advantage: Building &amp;quot;Smart Search&amp;quot;&lt;/h3&gt;
-&lt;p&gt;Beyond solving storage problems, EAV data provides a massive advantage when building user interfaces for other researchers.&lt;/p&gt;
-&lt;p&gt;If you build a &amp;quot;wide&amp;quot; database, querying it requires researchers to understand complex SQL joins or boolean logic. But an EAV database natively translates into highly intuitive &amp;quot;Smart Search&amp;quot; tools. Because all attributes exist in a single column, your database software (whether it is FileMaker, a custom web app, or a simple dashboard) can automatically populate a dropdown menu with every available fact.&lt;/p&gt;
+&lt;p&gt;Beyond solving storage problems, EAV data provides a massive advantage when building user interfaces for other researchers.&lt;br /&gt;
+If you build a &#39;wide&#39; database, adding new attributes requires schema changes. Querying across multiple attributes can become complex, and the NULL values create data quality issues.&lt;br /&gt;
+But an EAV database natively translates into highly intuitive &amp;quot;Smart Search&amp;quot; tools. Because all attributes exist in a single column, your database software (whether it is FileMaker, a custom web app, or a simple dashboard) can automatically populate a dropdown menu with every available fact.&lt;/p&gt;
 &lt;p&gt;A non-technical researcher doesn&#39;t need to write code; they simply use the UI dropdowns to state:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Find all [Entities] where the [Attribute] is &amp;quot;Livestock_Sheep&amp;quot; and the [Value] is &amp;quot;&amp;gt; 50&amp;quot;.&lt;/em&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;eav-in-the-wild&quot; tabindex=&quot;-1&quot;&gt;EAV in the Wild&lt;/h3&gt;
-&lt;p&gt;This is not just a theoretical computer science concept; it is actively relied upon in digital history. For example, projects such as the &lt;strong&gt;Historical Data Grinder&lt;/strong&gt; (&lt;a href=&quot;https://hdgrinder.ro/&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://hdgrinder.ro/&lt;/a&gt;), a database designed to aggregate highly disparate nineteenth-century Transylvanian records, use an EAV architecture. Similarly, many digital prosopography projects rely on EAV to manage the hundreds of varying attributes tied to historical individuals. They use this architecture because it is the only way to make the information from a source fit the database, rather than constantly expanding the database in an attempt to cover every new quirk of a historical source.&lt;/p&gt;
+&lt;p&gt;This is not just a theoretical computer science concept; it is actively relied upon in digital history. For example, projects such as the &lt;strong&gt;Historical Data Grinder&lt;/strong&gt; (&lt;a href=&quot;https://hdgrinder.ro/&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://hdgrinder.ro/&lt;/a&gt;), a database designed to aggregate highly disparate nineteenth-century Transylvanian records, use an EAV architecture. Similarly, many digital prosopography projects rely on EAV to manage the hundreds of varying attributes tied to historical individuals. They use this architecture because it is the most efficient way to handle sparse, heterogeneous data without constantly expanding the database schema.&lt;/p&gt;
 &lt;h3 id=&quot;the-bigger-picture-eav-as-the-bridge-to-graph&quot; tabindex=&quot;-1&quot;&gt;The Bigger Picture: EAV as the Bridge to Graph&lt;/h3&gt;
 &lt;p&gt;As powerful as the EAV model is, it is rarely the final destination for historical analysis. It is the ideal &lt;strong&gt;storage and extraction layer&lt;/strong&gt;. It allows our &lt;strong&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/the-digital-toolkit/data-pipelines/&quot;&gt;Data Pipelines&lt;/a&gt;&lt;/strong&gt; to reliably capture the isolated facts of the colonial archive.&lt;/p&gt;
-&lt;p&gt;However, historical research is ultimately about relationships, not just isolated facts. Who worked with whom? Which magistrate sentenced which convict? To truly map the human reality of the past, these isolated EAV facts must eventually be transformed into nodes and edges.&lt;/p&gt;
+&lt;p&gt;However, much historical research is about relationships, not just isolated facts. For network-focused research questions like Who worked with whom? Which magistrate sentenced which convict? are critical. To truly map the human reality of the past, these isolated EAV facts must eventually be transformed into nodes and edges.&lt;/p&gt;
 &lt;p&gt;The EAV model is the necessary translation layer that cleans the data so we can eventually build a &lt;strong&gt;Graph Database&lt;/strong&gt;—but that is a methodology we will explore in a future post.&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h3 id=&quot;cite-this-post&quot; tabindex=&quot;-1&quot;&gt;Cite this post&lt;/h3&gt;
@@ -474,7 +475,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -492,7 +493,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Contact
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -530,7 +531,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Randomly Offsetting Stacked Coordinates
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/randomly-offsetting-stacked-coordinates/</id>
             <content type="html">
                 &lt;h3 id=&quot;the-problem&quot; tabindex=&quot;-1&quot;&gt;The Problem&lt;/h3&gt;
@@ -595,7 +596,7 @@ print(f&amp;quot;Jittered: {new_location[0]:.4f}, {new_location[1]:.4f}&amp;quot
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-29T00:07:29Z</updated>
+            <updated>2026-03-29T02:53:16Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
