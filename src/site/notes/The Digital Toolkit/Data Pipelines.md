@@ -21,7 +21,7 @@ Another way is to import the data as-is and deal with it within the database its
 
 There's also another option worth mentioning: using a dedicated data cleaning tool like OpenRefine or Trifacta. These sit between your spreadsheet and your database, offering a visual interface for cleaning and transformation and creating logs of all the activities undertaken. They're excellent for one-off projects or when you need to involve non-programmers in the cleaning process. The trade-off is that they can be harder to version control (especialy if multiple people are involved) and audit than code-based pipelines.
 
-The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable. When you discover a new dataset that follows the same pattern, you can reuse 90 percent of your code.
+The last option, and the one we are talking about here, is to leave the mess in the source and clean it as part of a repeatable, documented import process. This is a nice halfway place between the other options. It allows for better documentation and repeatability than manual cleaning, but allows you to quickly spin up an analysis database with pre-tidied data, thus simplifying the database design process. Your cleaning logic is version controlled, auditable, and repeatable.  When you discover a new dataset that follows the same pattern, you can often reuse much of your code.
 
 > [!info] 
 > This documented cleaning is what is commonly called a **Data Pipeline**.
@@ -278,7 +278,7 @@ We start by assuming the historical record is valid and active (`is_crossed_out 
 
 **3. Scanning the Ink**
 
-We don't need to check every single cell in a 30-column ledger to know if a row was marked invalid. When a researcher struck a line through an entry, they almost always crossed out the individual's name or ID in the first few columns. To save processing power, we instruct the script to only look at the first five columns (`range(1, 6)`).
+We don't need to check every single cell in a 30-column ledger to know if a row was marked invalid. When a researcher struck a line through an entry, they typically crossed out the individual's name or ID in the first few columns. To save processing power, we check only the first five columns(`range(1, 6)`).
 
 **4. Detecting the Mark**
 
@@ -363,7 +363,7 @@ If you're building something similar, you have options. Tools like OpenRefine, T
 > [!quote]
 > The point is to be intentional about where your cleaning happens and to document it thoroughly.
 
-Handling historical data at scale requires more than just careful transcription; it requires rigorous, repeatable methodologies. While visual cleaning tools or complex database queries have their place, a code-based data pipeline offers unparalleled transparency and auditability for historical research.
+Handling historical data at scale requires more than just careful transcription; it requires rigorous, repeatable methodologies. While visual cleaning tools or complex database queries have their place, a code-based data pipeline offers excellent transparency and auditability for historical research.
 
 By explicitly separating our historical assumptions (the blueprints) from our computational logic (the engine), we create a system that is robust, scalable, and inherently documented. This architecture allows us to capture the nuances of colonial records—from tracking strikethroughs to serializing raw JSON payloads—without ever compromising the immutable source material.
 
