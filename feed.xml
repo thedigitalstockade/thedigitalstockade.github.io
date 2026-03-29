@@ -3,14 +3,14 @@
     <title>The Digital Stockade</title>
     <link href="https://thedigitalstockade.github.io//feed.xml" rel="self" >
     <link href="https://thedigitalstockade.github.io/" >
-    <updated>2026-03-29T00:02:17Z</updated>
+    <updated>2026-03-29T00:02:43Z</updated>
     <id>https://thedigitalstockade.github.io/</id>
         <entry>
             <title>
                 Welcome
                 
             </title>
-            <updated>2026-03-29T00:02:06Z</updated>
+            <updated>2026-03-29T00:02:29Z</updated>
             <id>https://thedigitalstockade.github.io//</id>
             <content type="html">
                 &lt;h1 id=&quot;welcome-to-the-digital-stockade&quot; tabindex=&quot;-1&quot;&gt;Welcome to The Digital Stockade&lt;/h1&gt;
@@ -51,7 +51,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 The Digital Toolkit Index
                 
             </title>
-            <updated>2026-03-29T00:02:06Z</updated>
+            <updated>2026-03-29T00:02:29Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/the-digital-toolkit-index/</id>
             <content type="html">
                 &lt;p&gt;These are practical, step-by-step guides for applying specific technologies to historical and archaeological research. This includes workflows for structuring robust relational databases, navigating OCR for historical documents, and utilizing AI for archival analysis.&lt;/p&gt;
@@ -67,7 +67,7 @@ Image by Google Gemini 3.&lt;/p&gt;
                 Data Pipelines
                 
             </title>
-            <updated>2026-03-29T00:02:06Z</updated>
+            <updated>2026-03-29T00:02:29Z</updated>
             <id>https://thedigitalstockade.github.io//the-digital-toolkit/data-pipelines/</id>
             <content type="html">
                 &lt;hr /&gt;
@@ -359,7 +359,7 @@ The point is to be intentional about where your cleaning happens and to document
                 The Shape of History
                 
             </title>
-            <updated>2026-03-29T00:02:06Z</updated>
+            <updated>2026-03-29T00:02:29Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/the-shape-of-history/</id>
             <content type="html">
                 &lt;p&gt;When historians and archaeologists first begin digitizing records, we naturally default to the &amp;quot;wide&amp;quot; format. We open a spreadsheet, put a person&#39;s name in the first column, and then add a new column for every single fact we want to track: &lt;em&gt;Year of Birth, Ship Arrived On, Acres Farmed, Lashes Received, Number of Sheep.&lt;/em&gt;&lt;/p&gt;
@@ -474,7 +474,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Methodology &amp; Theory Index
                 
             </title>
-            <updated>2026-03-29T00:02:06Z</updated>
+            <updated>2026-03-29T00:02:29Z</updated>
             <id>https://thedigitalstockade.github.io//methodology-and-theory/methodology-and-theory-index/</id>
             <content type="html">
                 &lt;p&gt;This section contains longer-form explorations of the broader questions in digital history. These notes explore the ontologies, ethical considerations, and theoretical frameworks behind the digital techniques we use to map the past.&lt;/p&gt;
@@ -492,7 +492,7 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
                 Contact
                 
             </title>
-            <updated>2026-03-29T00:02:06Z</updated>
+            <updated>2026-03-29T00:02:29Z</updated>
             <id>https://thedigitalstockade.github.io//contact/</id>
             <content type="html">
                 &lt;h1 id=&quot;get-in-touch&quot; tabindex=&quot;-1&quot;&gt;Get in Touch&lt;/h1&gt;
@@ -527,15 +527,80 @@ In the EAV model, the data is melted down into a narrow, highly stacked list of 
         </entry>
         <entry>
             <title>
+                Randomly Offsetting Stacked Coordinates
+                
+            </title>
+            <updated>2026-03-29T00:02:29Z</updated>
+            <id>https://thedigitalstockade.github.io//code-fragments/randomly-offsetting-stacked-coordinates/</id>
+            <content type="html">
+                &lt;h3 id=&quot;the-problem&quot; tabindex=&quot;-1&quot;&gt;The Problem&lt;/h3&gt;
+&lt;p&gt;When mapping historical or archaeological datasets, we often only have a single, generalized location for dozens of individual records (e.g., 50 events all geocoded to the exact same building or town center). If you plot this raw data on a map, all 50 points stack directly on top of each other, looking like a single event.&lt;/p&gt;
+&lt;h3 id=&quot;the-solution&quot; tabindex=&quot;-1&quot;&gt;The Solution&lt;/h3&gt;
+&lt;p&gt;To make the volume of data visible without losing its geographic context, we can introduce a &amp;quot;spatial jitter.&amp;quot; This function takes a central latitude/longitude point and randomly offsets it by a specified distance (in meters) and a random compass bearing.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[!warning] Do not go crazy with the maximum distance offset.&lt;br /&gt;
+A range of 100m to 600m is usually enough to separate the points visually.&lt;/p&gt;
+&lt;p&gt;If you set the radius too large, you might end up plotting your land-based historical events right into the middle of the ocean!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;dependencies&quot; tabindex=&quot;-1&quot;&gt;Dependencies&lt;/h3&gt;
+&lt;p&gt;You will need to install the &lt;code&gt;geographiclib&lt;/code&gt; package, which handles the complex mathematics of moving across the curvature of the Earth.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;pip install geographiclib
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;the-code&quot; tabindex=&quot;-1&quot;&gt;The Code&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;import random
+from geographiclib.geodesic import Geodesic
+
+def apply_spatial_jitter(lat, lon, min_dist_meters, max_dist_meters):
+    &amp;quot;&amp;quot;&amp;quot;
+    Takes a coordinate and randomly shifts it within a specified radius.
+    &amp;quot;&amp;quot;&amp;quot;
+    geod = Geodesic.WGS84
+    
+    # Generate a random compass bearing (1 to 359 degrees)
+    azimuth = random.randint(1, 359)   
+    
+    # Generate a random distance to shift the point
+    shift_distance = random.randint(min_dist_meters, max_dist_meters)                  
+    
+    # Calculate the new coordinate based on bearing and distance
+    result = geod.Direct(lat, lon, azimuth, shift_distance)
+    
+    # Extract the new lat/lon from the result dictionary
+    new_coord = [result[&#39;lat2&#39;], result[&#39;lon2&#39;]]                     
+    
+    return new_coord
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;example-usage&quot; tabindex=&quot;-1&quot;&gt;Example Usage&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;# The original center point (e.g., a colonial settlement)
+original_lat = -34.9285
+original_lon = 138.6007
+
+# Apply a random jitter between 100m and 500m
+new_location = apply_spatial_jitter(original_lat, original_lon, 100, 500)
+
+print(f&amp;quot;Original: {original_lat}, {original_lon}&amp;quot;)
+print(f&amp;quot;Jittered: {new_location[0]:.4f}, {new_location[1]:.4f}&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&quot;cite-this-post&quot; tabindex=&quot;-1&quot;&gt;Cite this post&lt;/h3&gt;
+&lt;p&gt;If you found this useful for your own work, you can cite it here:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;McLean, Mark. &amp;quot;The Shape of History: Why We Use the Entity-Attribute-Value (EAV) Model.&amp;quot; &lt;em&gt;The Digital Stockade&lt;/em&gt;. Published 2026-03-28. &lt;a href=&quot;https://thedigitalstockade.github.io/code-fragments/randomly-offsetting-stacked-coordinates/&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://thedigitalstockade.github.io/code-fragments/randomly-offsetting-stacked-coordinates/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+            </content>
+            <link href="https://thedigitalstockade.github.io//code-fragments/randomly-offsetting-stacked-coordinates/" >
+        </entry>
+        <entry>
+            <title>
                 Code Fragments Index
                 
             </title>
-            <updated>2026-03-29T00:02:06Z</updated>
+            <updated>2026-03-29T00:02:29Z</updated>
             <id>https://thedigitalstockade.github.io//code-fragments/code-fragments-index/</id>
             <content type="html">
                 &lt;p&gt;This section is a grab-bag of quick, copy-and-paste scripts designed to solve highly specific data problems in the digital humanities. There is no lengthy background or deep theory here—just the code, its dependencies, and a practical example of how to use it.&lt;/p&gt;
 &lt;h3 id=&quot;the-fragments&quot; tabindex=&quot;-1&quot;&gt;The Fragments:&lt;/h3&gt;
-&lt;p&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://thedigitalstockade.github.io/404&quot; target=&quot;&quot;&gt;Randomly Offsetting Stacked Coordinates&lt;/a&gt;: A quick and easy way to randomly offset geographic coordinates to improve visualization legibility.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://thedigitalstockade.github.io/code-fragments/randomly-offsetting-stacked-coordinates/&quot;&gt;Randomly Offsetting Stacked Coordinates&lt;/a&gt;: A quick and easy way to randomly offset geographic coordinates to improve visualization legibility.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;(New snippets will appear here as I publish them.)&lt;/em&gt;&lt;/p&gt;
 
             </content>
